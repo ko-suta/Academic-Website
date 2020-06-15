@@ -12,23 +12,24 @@
 [[main]]
   name = "Research"
   url = "#research"
-  weight = 30
-  
-
-[[main]]
-  name = "Posts"
-  url = "#posts"
   weight = 20
-
+  
 
 [[main]]
   name = "Publications"
   url = "#featured"
-  weight = 40
+  weight = 30
+
 
 [[main]]
-  name = "Courses"
-  url = "courses/"
+  name = "Blog"
+  url = "#posts"
+  weight = 40
+
+
+[[main]]
+  name = "Talks"
+  url = "#talks"
   weight = 50
 
 [[main]]
