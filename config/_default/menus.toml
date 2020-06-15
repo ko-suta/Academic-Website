@@ -34,12 +34,12 @@
 
 
 [[main]]
-    name = "CV"
-    url = "files/cv.pdf"
-    weight = 60
+  name = "Blog"
+  url = "post"
+  weight = 60
 
 
 [[main]]
-  name = "Blog"
-  url = "post"
-  weight = 70
+    name = "CV"
+    url = "files/cv.pdf"
+    weight = 70
