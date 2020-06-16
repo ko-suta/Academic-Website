@@ -46,7 +46,7 @@ user_groups:
 ---
 
 Kostiantyn Ovsiannikov is a researcher at the University of Tsukuba.
-His research interests include *corporate governance*, *labor economics* and *technological innovation*. 
+His interests include *corporate governance*, *labor economics* and *technological innovation*. 
 In his dissertation, he explored how the pursuit of shareholder-value by management has affected labor policies at large Japanese enterprises.
 
 His current research project focuses on the market perception of corporate innovations in Japan.
