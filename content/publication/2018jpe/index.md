@@ -24,7 +24,7 @@ abstract: This article aims at finding out how the shareholder-value pursuit has
 summary: This article aims at finding out how the shareholder-value pursuit has affected labor policies at large Japanese listed enterprises. It concentrates on the issue of labor bifurcation.
 
 tags:
-- Source Themes
+- []
 featured: true
 
 # links:

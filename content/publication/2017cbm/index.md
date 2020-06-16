@@ -24,7 +24,7 @@ abstract: This paper analyzes recent transformations in Japanese corporate gover
 summary: This paper analyzes recent transformations in Japanese corporate governance within the context of the 2002 reform of the Japanese Commercial Code and the ensuing legislations from the institutional perspective.
 
 tags:
-- Source Themes
+- []
 featured: false
 
 # links:
