@@ -1,9 +1,12 @@
 ---
 title: Corporate Governance Reforms in Japan. Impact on Corporate Dynamics and Labor-Related Repercussions
-summary: An example of using the in-built project page.
+
+summary: Examining the role of coporate governance reforms and their connection to labor policies
+
 tags:
 - Corporate Governance
 - Non-standard Employment
+
 date: "2017-04-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).

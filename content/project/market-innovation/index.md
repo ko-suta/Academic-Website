@@ -1,6 +1,6 @@
 ---
 title: Market Perception of Corporate Innovations in Japan
-summary: An example of using the in-built project page.
+summary: Examining the role of intangible assets in market evaluation
 tags:
 - Patents
 - Technological Innovations
