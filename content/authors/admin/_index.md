@@ -13,7 +13,7 @@ education:
   - course: B.A. in Political Science
     institution: National University of Kyiv-Mohyla Academy
     year: 2011
-email: "ovsiannikov.k.gf@u.tsukuba.ac.jp"
+email: "k.ovsiannikov@gmail.com"
 interests:
 - Corporate Governenance
 - Labor Economics
@@ -35,6 +35,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/ko-suta
+- icon: orcid
+  icon_pack: fab
+  link: https://orcid.org/0000-0002-5255-3913
 superuser: true
 title: Kostiantyn Ovsiannikov
 user_groups:
