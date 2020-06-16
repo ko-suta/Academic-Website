@@ -2,7 +2,7 @@
 title: "Corporate Governance Reforms in Japan: Instilling the New Regime"
 authors:
 - admin
-date: "2015-09-01T00:00:00Z"
+date: "2017-03-03T00:00:00Z"
 doi: "10.1080/23311975.2017.1300993"
 
 # Schedule page publish date (NOT publication's date).
@@ -52,5 +52,5 @@ projects: []
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides: "example"` references `content/slides/example/index.md`.
 #   Otherwise, set `slides: ""`.
-slides: example
+slides: []
 ---
