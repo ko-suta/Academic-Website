@@ -22,7 +22,7 @@ projects:
 - market-innovation
 publishDate: "2020-01-01T00:00:00Z"
 slides: []
-summary: Presentation about the role of labor flexibility in the pursuit of innovation strategies made at the SASE Annual Meeting.
+summary: Presentation made at the SASE Annual Meeting "Fathomless Futures: Algorithmic and Imagined".
 tags: []
 title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
 url_code: ""
