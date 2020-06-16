@@ -13,7 +13,7 @@ slides: ""
 summary: ""
 tags:
 - Corporate Governance
-- Non-standard Employment
+
 title: Corporate Governance Reforms in Japan: Impact on Corporate Dynamics and Labor-Related Repercussions
 url_code: ""
 url_pdf: ""
