@@ -5,7 +5,7 @@ address:
   city: New York City
   country: United States
 
-all_day: false
+all_day: true
 authors: []
 date: "2019-06-27T13:00:00Z"
 date_end: "2019-06-29T15:00:00Z"
