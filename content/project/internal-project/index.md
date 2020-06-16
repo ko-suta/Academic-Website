@@ -3,6 +3,7 @@ title: Corporate Governance Reforms in Japan. Impact on Corporate Dynamics and L
 summary: An example of using the in-built project page.
 tags:
 - Corporate Governance
+- Non-standard Employment
 date: "2017-04-01T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).
@@ -12,11 +13,6 @@ image:
   caption: Photo by rawpixel on Unsplash
   focal_point: Smart
 
-links:
-- icon: twitter
-  icon_pack: fab
-  name: Follow
-  url: https://twitter.com/ko_suta
 url_code: ""
 url_pdf: ""
 url_slides: ""
