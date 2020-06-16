@@ -23,12 +23,12 @@ url_slides: ""
 url_video: ""
 ---
 
-Aim: to comprehend the effects of Japan’s corporate governance reforms on corporate environment with a particular focus on a labor situation. 
+**Aim**. To comprehend the effects of Japan’s corporate governance reforms on corporate environment with a particular focus on a labor situation. 
 
-Theories: political economic theory of institutions, Régulation school, varieties of capitalism (VoC). 
+**Theories**. Political economic theory of institutions, Régulation school, varieties of capitalism (VoC). 
 They enable me to analyze Japan’s corporate governance as a field for coalitions and struggles between various socio-economic actors. 
 
-Research questions:
+**Research questions**:
 
 1. What is the impact of the corporate governance reforms on corporate dynamics? Corporate dynamics refer to the changes in corporate institutions, whereby the shareholders are being prioritized over the rest of the stakeholders.
 
