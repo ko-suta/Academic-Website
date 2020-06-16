@@ -27,7 +27,7 @@ tags: []
 title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
 url_code: ""
 url_pdf: ""
-url_slides: "https://github.com/ko-suta/SASE-2019/blob/master/Ovsiannikov_SASE_2019.pdf"
+url_slides: "files/Ovsiannikov_SASE_2019.pdf"
 url_video: ""
 ---
 
