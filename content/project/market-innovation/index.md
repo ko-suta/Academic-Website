@@ -1,6 +1,6 @@
 ---
-title: Market Perception of Corporate Innovations in Japan
-summary: Examining the role of intangible assets in market evaluation
+title: Market Perception of Corporate Innovations
+summary: Examining the market evaluation of companies' intangible assets in Japan
 tags:
 - Patents
 - Technological Innovations

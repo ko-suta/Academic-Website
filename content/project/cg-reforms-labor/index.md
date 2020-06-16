@@ -1,7 +1,7 @@
 ---
-title: Corporate Governance Reforms in Japan. Impact on Corporate Dynamics and Labor-Related Repercussions
+title: Corporate Governance & Non-regular Employment
 
-summary: Examining the role of coporate governance reforms and their connection to labor policies
+summary: Examining the role of Japan's coporate governance reforms and their labor-related repercussions
 
 tags:
 - Corporate Governance
