@@ -14,8 +14,9 @@
   <p class="powered-by">
     {{ with site.Copyright }}{{ replace . "{year}" now.Year | markdownify}}{{ end }}
   </p>
-
+  
   {{/* Display copyright license. */}}
+  {{ partial "marketing/analytics" . }}
   {{ partial "site_footer_license" . }}
   <p class="powered-by">
     Powered by the
