@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic {{ site.Data.academic.version }}">
+  
   {{ $scr := .Scratch }}
 
   {{/* Attempt to load superuser. */}}
@@ -132,6 +133,7 @@
     {{- $style = $style | minify | fingerprint "md5" -}}
   {{- end -}}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  
   {{ partial "marketing/google_analytics" . }}
   {{ partial "marketing/google_tag_manager" . }}
 
