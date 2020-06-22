@@ -23,8 +23,6 @@ copyright = ""
 # Name of Academic theme folder in `themes/`.
 theme = "hugo-academic"
 
-# Enable Google Analytics
-googleAnalytics = "UA-170210271-1"
 
 # Get last modified date for content from Git?
 enableGitInfo = false
