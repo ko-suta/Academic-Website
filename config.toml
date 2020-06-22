@@ -12,7 +12,7 @@ title = "Kostiantyn Ovsiannikov"
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 baseurl = "https://kovsiannikov.netlify.app/"
 
-googleAnalytics = "UA-170210271-1"
+GoogleAnalytics = "UA-170210271-1"
 
 
 # Enter a copyright notice to display in the site footer.
