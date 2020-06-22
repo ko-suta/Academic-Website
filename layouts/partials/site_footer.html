@@ -1,4 +1,5 @@
 <footer class="site-footer">
+  {{ partial "marketing/analytics" . }}
   {{ if or (site.GetPage "terms.md") (site.GetPage "privacy.md") }}
   <p class="powered-by">
     {{ with site.GetPage "privacy.md" }}
@@ -16,7 +17,6 @@
   </p>
   
   {{/* Display copyright license. */}}
-  {{ partial "marketing/analytics" . }}
   {{ partial "site_footer_license" . }}
   <p class="powered-by">
     Powered by the
