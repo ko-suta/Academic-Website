@@ -14,7 +14,7 @@ baseurl = "/"
 
 
 # Enable analytics by entering your Google Analytics tracking ID
-GoogleAnalytics = "UA-170210271-1"
+# GoogleAnalytics = "UA-170210271-1"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
