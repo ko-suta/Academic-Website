@@ -25,7 +25,7 @@ copyright = ""
 theme = "hugo-academic"
 
 # Enable analytics by entering your Google Analytics tracking ID
-GoogleAnalytics = "UA-170210271-2"
+#GoogleAnalytics = "UA-170210271-2"
 
 # Get last modified date for content from Git?
 enableGitInfo = false
