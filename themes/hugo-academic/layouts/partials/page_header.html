@@ -17,7 +17,6 @@
 {{/* Header image */}}
 {{ if and .Params.header.image (not (and $featured (not .Params.image.preview_only))) }}
 <div class="article-header">
-  {{ template "_internal/google_analytics.html" . }}
   {{ $img_src := urls.Parse .Params.header.image }}
   {{ if $img_src.Scheme }}
   <img src="{{ .Params.header.image }}" class="article-banner" alt="">
