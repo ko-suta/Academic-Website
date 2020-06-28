@@ -21,7 +21,7 @@ copyright = ""
 ############################
 
 # Name of Academic theme folder in `themes/`.
-theme = "hugo-academic"
+theme = ["hugo-academic", "matomo"]
 
 
 # Get last modified date for content from Git?
