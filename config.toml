@@ -76,7 +76,7 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
 
 # Configure matomo
 [params.matomo]
-  url = "https://kovsiannikov.com/"
+  url = "https://kovsiannikov.com/matomo"
   id = 1
 
 
