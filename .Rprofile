@@ -10,4 +10,4 @@ options(
   blogdown.new_bundle = TRUE,
   blogdown.title_case = TRUE
 )
-Sys.setenv(RETICULATE_PYTHON = "python/Scripts")
+Sys.setenv(RETICULATE_PYTHON = "C:/Users/Kostya/AppData/Local/Programs/Python/Python37/python.exe")
