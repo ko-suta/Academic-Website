@@ -1,5 +1,5 @@
 [build]
-  base = "Acedemic-Website/"
+  base = "master/"
   command = "yarn"
   functions = "functions"
   publish = "public/"
