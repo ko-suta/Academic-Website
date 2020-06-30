@@ -39,7 +39,7 @@ social:
   icon_pack: fab
   link: https://orcid.org/0000-0002-5255-3913
 superuser: true
-title: Kostiantyn Ovsiannikov
+title: Kostya Ovsiannikov
 user_groups:
 - Researchers
 - Visitors
