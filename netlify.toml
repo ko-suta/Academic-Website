@@ -1,5 +1,5 @@
 [build]
-  command = "yarn hugo"
+  command = "yarn"
   functions = "functions"
   publish = "public"
   
