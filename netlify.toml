@@ -1,8 +1,7 @@
 [build]
-  command = "yarn build hugo"
+  command = "yarn hugo"
   functions = "functions"
   publish = "public"
-  YARN_VERSION = "1.17.3"
   
 [context.production.environment]
   HUGO_VERSION = "0.72.0"
