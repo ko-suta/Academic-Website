@@ -1,5 +1,5 @@
 [build]
-  command = ["yarn build", "hugo"]
+  command = "yarn build hugo"
   functions = "functions"
   publish = "build"
   
