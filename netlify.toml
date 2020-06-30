@@ -5,7 +5,7 @@
   
 [context.production.environment]
   HUGO_VERSION = "0.72.0"
-  HUGO_ENV = "production"
+  HUGO_ENV = "development"
   HUGO_ENABLEGITINFO = "false"
 
 [context.branch-deploy.environment]
