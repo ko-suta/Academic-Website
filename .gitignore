@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 Thumbs.db
+public/
 node_modules/
