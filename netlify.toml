@@ -2,10 +2,11 @@
   command = "yarn build hugo"
   functions = "functions"
   publish = "public"
+  YARN_VERSION = "1.17.3"
   
 [context.production.environment]
   HUGO_VERSION = "0.72.0"
-  HUGO_ENV = "development"
+  HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "false"
 
 [context.branch-deploy.environment]
