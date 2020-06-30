@@ -1,8 +1,7 @@
 [build]
-  base = "master/"
   command = "yarn"
   functions = "functions"
-  publish = "public/"
+#  publish = "public"
   
 [context.production.environment]
   HUGO_VERSION = "0.72.0"
