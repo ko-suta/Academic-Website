@@ -2,7 +2,7 @@
   base = "/"
   command = "yarn"
   functions = "functions"
-  publish = "public"
+  publish = "dist"
   
 [context.production.environment]
   HUGO_VERSION = "0.73.0"
