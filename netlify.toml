@@ -3,6 +3,7 @@
   command = "yarn"
   functions = "functions"
   publish = "dist"
+  YARN_VERSION = "2.0.0-rc.36"
   
 [context.production.environment]
   HUGO_VERSION = "0.73.0"
