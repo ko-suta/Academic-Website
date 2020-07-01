@@ -21,7 +21,7 @@ copyright = "&copy; 2020 Kostya Ovsiannikov"
 ############################
 
 # Name of Academic theme folder in `themes/`.
-theme = ["hugo-academic", "matomo"]
+theme = ["hugo-academic"]
 
 
 # Get last modified date for content from Git?
