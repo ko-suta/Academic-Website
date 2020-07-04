@@ -3,9 +3,10 @@
 .RData
 .Ruserdata
 Thumbs.db
-node_modules/
+/node_modules
 /public
-.yarn
-.yarnrc
+/.yarn
+.yarnrc.yml
 yarn.lock
-functions/
+/functions/
+package.json
