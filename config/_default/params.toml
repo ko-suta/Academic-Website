@@ -13,7 +13,7 @@
 #   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "minimal"
+theme = "monokai"
 
 # Enable users to switch between day and night mode?
 day_night = true
@@ -255,6 +255,13 @@ plugins_js  = []
     index_name = ""
     show_logo = false
 
+
+# Configure matomo
+[params.matomo]
+  url = "https://kovsiannikov.com/"
+  id = 1
+
+
 [staticman]
   endpoint = "https://api.staticman.net/v3/entry/github"
   username = "ko-suta"
@@ -267,3 +274,5 @@ plugins_js  = []
 [cms]
   # See https://sourcethemes.com/academic/docs/install/#install-with-web-browser
   netlify_cms = true
+  
+custom_css = ["override.css"]
