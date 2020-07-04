@@ -2,20 +2,19 @@
 name = "monokai"
 
 # Is theme light or dark?
-light = false
+light = true
 
 # Primary
-primary = "#A6E22D"
+primary = "#2962ff"
+primary_light = "#768fff"
+primary_dark = "#0039cb"
 
 # Menu
-menu_primary = "#272822"
-menu_text = "#575b61"
-menu_text_active = "#66d9ef"
-menu_title = "#E8E8E3"                                                                               
+menu_primary = "#2a2b2b"
+menu_text = "#d1d3d4"
+menu_text_active = "#9b6bcc"
+menu_title = "#d1d3d4"
 
-# Backgrounds
-background = "#2D2E27"
-home_section_odd = "#3f4145"
-home_section_even = "#575b61"
-
-font = "rose"
+# Home sections
+home_section_odd = "rgb(255, 255, 255)"
+home_section_even = "rgb(247, 247, 247)"
