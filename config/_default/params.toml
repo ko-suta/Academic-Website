@@ -58,7 +58,7 @@ description = ""
 # Documentation: https://sourcethemes.com/academic/docs/writing-markdown-latex/#highlighting-options
 highlight = true
 highlight_languages = ["r"]  # Add support for highlighting additional languages
-highlight_style = "github"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
+highlight_style = "monokai-sublime"  # For supported styles, see https://cdnjs.com/libraries/highlight.js/
 
 # Enable LaTeX math rendering? true/false
 #   If false, you can enable math on a per page basis as needed.
@@ -75,7 +75,7 @@ privacy_pack = false
 
 # Enable visitors to edit pages?
 #   `repo` defines the repository URL. `editable` defines which page types can be edited.
-edit_page = {repo_url = "https://github.com/gcushen/hugo-academic", content_dir = "", repo_branch = "master", editable = {docs = true, page = false, post = false}}
+edit_page = {repo_url = "https://github.com/ko-suta/Academic-Website", content_dir = "", repo_branch = "master", editable = {docs = true, page = false, post = false}}
 
 # Show related content at the bottom of pages?
 show_related = {docs = true, page = false, post = true, project = true, publication = true, talk = true}
@@ -255,34 +255,11 @@ plugins_js  = []
     index_name = ""
     show_logo = false
 
-############################
-## Maps
-############################
-[map]
-  # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
-  # and choose a map provider below.
-  #
-  # To use Google Maps, set `engine` to 1 and enter your API key that can be obtained here:
-  #   https://developers.google.com/maps/documentation/javascript/get-api-key
-  # To use OpenStreetMap tiles, set `engine` to 2.
-  # To use OpenStreetMap on a high traffic site, set `engine` to 3 and enter your API key that can be obtained here:
-  #   https://www.mapbox.com/studio/account/tokens
-  #
-  # Map provider:
-  #   0: No map
-  #   1: Google Maps
-  #   2: OpenStreetMap (Mapnik)
-  #   3: OpenStreetMap (Mapbox)
-  engine = 2
-  api_key = ""
-  zoom = 15
-
-############################
-## Marketing
-############################
-[marketing]
-  google_analytics = ""
-  google_tag_manager = ""
+[staticman]
+  endpoint = "https://api.staticman.net/v3/entry/github"
+  username = "ko-suta"
+  repository = "Academic-Website"
+  branch = "master"
 
 ############################
 ## Content Management System

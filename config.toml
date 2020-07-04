@@ -80,6 +80,14 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   id = 1
 
 
+# Configure staticman
+[params.staticman]
+  endpoint = "https://api.staticman.net/v3/entry"
+  username = "ko-suta"
+  repository = "Academic-Website"
+  branch = "master"
+
+
 # Taxonomies.
 [taxonomies]
   tag = "tags"
