@@ -262,11 +262,21 @@ plugins_js  = []
   id = 1
 
 
+# Configure staticman
 [staticman]
   endpoint = "https://api.staticman.net/v3/entry/github"
   username = "ko-suta"
   repository = "Academic-Website"
   branch = "master"
+
+
+############################
+## Marketing
+############################
+[marketing]
+  google_analytics = "UA-171111384-1"
+#  google_tag_manager = ""
+
 
 ############################
 ## Content Management System
