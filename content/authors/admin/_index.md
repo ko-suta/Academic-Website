@@ -38,6 +38,9 @@ social:
 - icon: orcid
   icon_pack: fab
   link: https://orcid.org/0000-0002-5255-3913
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/kovsiannikov/ 
 superuser: true
 title: Kostya Ovsiannikov
 user_groups:
