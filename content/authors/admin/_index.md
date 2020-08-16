@@ -42,7 +42,7 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/kovsiannikov/ 
 superuser: true
-title: Kostya Ovsiannikov
+title: Kostiantyn Ovsiannikov
 user_groups:
 - Researchers
 - Visitors
