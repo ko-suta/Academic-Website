@@ -8,7 +8,7 @@ tags:
   - Knowledge Assets
   - Technological Innovations
 subtitle: ''
-summary: ''
+summary: 'Snapshot of the data used for the related article'
 authors: []
 lastmod: '2020-08-31T15:04:30+09:00'
 featured: no
@@ -21,16 +21,12 @@ bibliography: [Innovation-Postdoc.bib, pkg-refs.bib]
 ---
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 
 
-<p>The whole working process, including manuscript preparation, statistical analysis and data visualization was conducted in the R-environment <span class="citation">(R Core Team 2020)</span>.
-The article was put together with the help of <em>knitr</em> <span class="citation">(Xie 2020)</span> and <em>bookdown</em> <span class="citation">(Xie 2016)</span> packages.
-I did most of the data wrangling and visualization with the <em>tidyverse</em> toolkit <span class="citation">(Wickham et al. 2019)</span>.
-Packages such as <em>plm</em> <span class="citation">(Croissant and Millo 2018)</span> and <em>mgcv</em> <span class="citation">(Pedersen et al. 2019)</span> enabled me to run regressions.
-Finally, <em>kableExtra</em> <span class="citation">(Zhu 2019)</span>, <em>pander</em> <span class="citation">(Daróczi 2014)</span>, <em>stargazer</em> <span class="citation">(Hlavac 2018)</span>, <em>ggcorrplot</em> <span class="citation">(Kassambara 2019)</span> and <em>reporttools</em> <span class="citation">(Rufibach 2009)</span> packages helped me to accurately present the results of my statistical analysis.</p>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>The data-set used in this article is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) – captures companies’ technological activity registered with the Japan Patent Office (JPO).
+<p>The data-set used here is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) – captures companies’ technological activity registered with the Japan Patent Office (JPO).
 The latter source was originally compiled by <span class="citation">Goto and Motohashi (2007)</span>.
 Following the example of <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span>, I included the companies from pharmaceutical, chemical, machinery and electrical equipment industries as specified in the NEEDS Database.</p>
 <p>The total count of companies is 632, with each unit extending over 19 years (from 1998 till 2016), making the obtained time-series considerably larger than any of those used in existing studies on Japan.
@@ -58,34 +54,34 @@ That is why the years 2017 to 2019 so far contain very few information, which wi
 As a result, 2016 is the last significant year, for which the patent-related data is available.
 The length of the patent-registration process is one of the reasons why the curves on the Figure <a href="#fig:timing">1</a> are downward-sloping from the mid-2000s.
 Application-filing process is especially time-consuming for the Pharmaceutical industry, where the average period for granting a patent is 7.1 years – well above the cumulative mean of 6.45 years (see also the Table <a href="#tab:timing2">1</a>).</p>
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style='font-family: "Source Sans Pro", helvetica, sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:timing2">Table 1: </span>Average Timing (in Years) of Patent Grants per Industry
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;font-weight: bold;">
+<th style="text-align:left;">
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1971-1980
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1981-1990
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1991-2000
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 2001-2014
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 Combined
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Chemical
 </td>
 <td style="text-align:center;">
@@ -105,7 +101,7 @@ Chemical
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Electronics
 </td>
 <td style="text-align:center;">
@@ -125,7 +121,7 @@ Electronics
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Machinery
 </td>
 <td style="text-align:center;">
@@ -145,7 +141,7 @@ Machinery
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Motor
 </td>
 <td style="text-align:center;">
@@ -165,7 +161,7 @@ Motor
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Pharm
 </td>
 <td style="text-align:center;">
@@ -185,7 +181,7 @@ Pharm
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Precision
 </td>
 <td style="text-align:center;">
@@ -205,7 +201,7 @@ Precision
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Cumulative
 </td>
 <td style="text-align:center;">
@@ -252,34 +248,34 @@ It is rather a cause of patents being particularly important for realizing the g
 Differently from Electronics, “in the pharmaceutical industry, patents are perceived as a relatively effective tool of appropriating rents from technological innovations as compared to other types of mechanism such as trade secret, increasing complexity of product design and faster market introduction” <span class="citation">(Motohashi 2008, 1548)</span>.
 This has been a common finding across numerous studies concluding that the knowledge assets have the most pronounced role for the market evaluation of companies within the Pharmaceutical sector <span class="citation">(Czarnitzki, Hall, and Oriani 2006, 15)</span>.
 Finally, if we look at the yearly cohorts displayed in the Table <a href="#tab:patrat2">2</a>, the figures for Pharmaceuticals and Chemicals within the period of 1991-2000 (part of which is included in this article’s econometric analysis) hardly surpass the cumulative median.</p>
-<table>
+<table class=" lightable-material lightable-striped lightable-hover" style='font-family: "Source Sans Pro", helvetica, sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
 <span id="tab:patrat2">Table 2: </span>Median Ratio of Grants to Patent Applications per Industry
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;font-weight: bold;">
+<th style="text-align:left;">
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1971-1980
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1981-1990
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 1991-2000
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 2001-2014
 </th>
-<th style="text-align:center;font-weight: bold;">
+<th style="text-align:center;">
 Combined
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Chemical
 </td>
 <td style="text-align:center;">
@@ -299,7 +295,7 @@ Chemical
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Electronics
 </td>
 <td style="text-align:center;">
@@ -319,7 +315,7 @@ Electronics
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Machinery
 </td>
 <td style="text-align:center;">
@@ -339,7 +335,7 @@ Machinery
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Motor
 </td>
 <td style="text-align:center;">
@@ -359,7 +355,7 @@ Motor
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Pharm
 </td>
 <td style="text-align:center;">
@@ -379,7 +375,7 @@ Pharm
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Precision
 </td>
 <td style="text-align:center;">
@@ -399,7 +395,7 @@ Precision
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-style: italic;">
+<td style="text-align:left;">
 Cumulative
 </td>
 <td style="text-align:center;">
@@ -464,14 +460,8 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
 <div id="ref-Cohen.2002">
 <p>Cohen, Wesley M., Akira Goto, Akiya Nagata, Richard R. Nelson, and John P. Walsh. 2002. “R&amp;D Spillovers, Patents and the Incentives to Innovate in Japan and the United States.” <em>Research Policy</em> 31 (8-9): 1349–67.</p>
 </div>
-<div id="ref-plm">
-<p>Croissant, Yves, and Giovanni Millo. 2018. <em>Panel Data Econometrics with R: The plm Package</em>. Wiley.</p>
-</div>
 <div id="ref-czarnitzki2006mip">
 <p>Czarnitzki, Dirk, Bronwyn H Hall, and Raffaele Oriani. 2006. “The Market Valuation of Knowledge Assets in US and European Firms.” <em>The Management of Intellectual Property</em>, 111–31.</p>
-</div>
-<div id="ref-pander">
-<p>Daróczi, Gergely. 2014. <em>Pander: An R Pandoc Writer</em>. <a href="http://cran.r-project.org/package=pander">http://cran.r-project.org/package=pander</a>.</p>
 </div>
 <div id="ref-goto2007rp">
 <p>Goto, Akira, and Kazuyuki Motohashi. 2007. “Construction of a Japanese Patent Database and a First Look at Japanese Patenting Activities.” <em>Research Policy</em> 36 (9): 1431–42. <a href="https://doi.org/10.1016/j.respol.2007.06.005">https://doi.org/10.1016/j.respol.2007.06.005</a>.</p>
@@ -488,41 +478,14 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
 <div id="ref-haneda1998eoiant">
 <p>Haneda, Shoko, and Hiroyuki Odagiri. 1998. “Appropriation of Returns from Technological Assets and the Values of Patents and R&amp;D in Japanese High-Tech Firms.” <em>Economics of Innovation and New Technology</em> 7 (4): 303–21. <a href="https://doi.org/10.1080/10438599800000038">https://doi.org/10.1080/10438599800000038</a>.</p>
 </div>
-<div id="ref-stargazer">
-<p>Hlavac, Marek. 2018. <em>Stargazer: Well-Formatted Regression and Summary Statistics Tables</em>. Bratislava, Slovakia: Central European Labour Studies Institute (CELSI). <a href="https://CRAN.R-project.org/package=stargazer">https://CRAN.R-project.org/package=stargazer</a>.</p>
-</div>
-<div id="ref-ggcorrplot">
-<p>Kassambara, Alboukadel. 2019. <em>Ggcorrplot: Visualization of a Correlation Matrix Using ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggcorrplot">https://CRAN.R-project.org/package=ggcorrplot</a>.</p>
-</div>
 <div id="ref-Motohashi.2008">
 <p>Motohashi, Kazuyuki. 2008. “Licensing or Not Licensing? An Empirical Analysis of the Strategic Use of Patents by Japanese Firms.” <em>Research Policy</em> 37 (9): 1548–55.</p>
-</div>
-<div id="ref-pedersen2019p">
-<p>Pedersen, Eric J., David L. Miller, Gavin L. Simpson, and Noam Ross. 2019. “Hierarchical Generalized Additive Models in Ecology: An Introduction with Mgcv.” <em>PeerJ</em> 7 (May): e6876. <a href="https://doi.org/10.7717/peerj.6876">https://doi.org/10.7717/peerj.6876</a>.</p>
-</div>
-<div id="ref-base">
-<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
-</div>
-<div id="ref-reporttools">
-<p>Rufibach, Kaspar. 2009. “reporttools: R Functions to Generate LaTeX Tables of Descriptive Statistics.” <em>Journal of Statistical Software, Code Snippets</em> 31 (1). <a href="http://www.jstatsoft.org/v31/c01/">http://www.jstatsoft.org/v31/c01/</a>.</p>
 </div>
 <div id="ref-sandner2010">
 <p>Sandner, Philipp. 2010. <em>The Valuation of Intangible Assets: An Exploration of Patent and Trademark Portfolios</em>. Innovation Und Entrepreneurship. Gabler Verlag. <a href="https://doi.org/10.1007/978-3-8349-8393-0">https://doi.org/10.1007/978-3-8349-8393-0</a>.</p>
 </div>
 <div id="ref-schankerman1998rje">
 <p>Schankerman, Mark. 1998. “How Valuable Is Patent Protection? Estimates by Technology Field.” <em>The RAND Journal of Economics</em> 29 (1): 77–107. <a href="https://doi.org/10.2307/2555817">https://doi.org/10.2307/2555817</a>.</p>
-</div>
-<div id="ref-tidyverse">
-<p>Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.</p>
-</div>
-<div id="ref-bookdown">
-<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.</p>
-</div>
-<div id="ref-knitr">
-<p>———. 2020. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</p>
-</div>
-<div id="ref-kableExtra">
-<p>Zhu, Hao. 2019. <em>KableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.</p>
 </div>
 </div>
 </div>

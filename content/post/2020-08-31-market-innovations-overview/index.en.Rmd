@@ -8,7 +8,7 @@ tags:
   - Knowledge Assets
   - Technological Innovations
 subtitle: ''
-summary: ''
+summary: 'Snapshot of the data used for the related article'
 authors: []
 lastmod: '2020-08-31T15:04:30+09:00'
 featured: no
@@ -53,15 +53,9 @@ lapply(p_needed, require, character.only = TRUE)
 ```
 
 
-The whole working process, including manuscript preparation, statistical analysis and data visualization was conducted in the R-environment [@base].
-The article was put together with the help of *knitr* [@knitr] and *bookdown* [@bookdown] packages.
-I did most of the data wrangling and visualization with the *tidyverse* toolkit [@tidyverse].
-Packages such as *plm* [@plm] and *mgcv* [@pedersen2019p] enabled me to run regressions.
-Finally, *kableExtra* [@kableExtra], *pander* [@pander], *stargazer* [@stargazer], *ggcorrplot* [@ggcorrplot] and *reporttools* [@reporttools] packages helped me to accurately present the results of my statistical analysis.
-
 ## Data
 
-The data-set used in this article is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) -- captures companies' technological activity registered with the Japan Patent Office (JPO). 
+The data-set used here is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) -- captures companies' technological activity registered with the Japan Patent Office (JPO). 
 The latter source was originally compiled by @goto2007rp. 
 Following the example of @Hall.2005, I included the companies from pharmaceutical, chemical, machinery and electrical equipment industries as specified in the NEEDS Database. 
 
@@ -105,11 +99,10 @@ data3 <- data3 %>%
 
 ```{r timing2, echo = FALSE, results='asis'}
 data3 %>%
-  kable(digits = rep(2, 5),
-        align=rep('c', 5), booktabs = T, linesep = "",
-  caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
-  row_spec(0, bold = T) %>%
-  column_spec(1, italic = T)
+  kbl(digits = rep(2, 5),
+        align=rep('c', 5), booktabs = T, 
+      caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
+  kable_material(c("striped", "hover"))
 ```
 
 Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(tab:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
@@ -152,11 +145,10 @@ data4 <- data4 %>%
 
 ```{r patrat2, echo = FALSE, results='asis'}
 data4 %>%
-  kable(digits = rep(2, 5),
-        align=rep('c', 5), booktabs = T, linesep = "",
+  kbl(digits = rep(2, 5),
+        align=rep('c', 5), booktabs = T,
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
-  row_spec(0, bold = T) %>%
-  column_spec(1, italic = T)
+  kable_material(c("striped", "hover"))
 ```
 
 
