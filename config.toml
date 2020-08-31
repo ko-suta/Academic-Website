@@ -24,6 +24,8 @@ copyright = "&copy; 2020 Kostiantyn Ovsiannikov"
 # Name of Academic theme folder in `themes/`.
 theme = "academic"
 
+# Display equations correctly
+math = true
 
 # Get last modified date for content from Git?
 enableGitInfo = false

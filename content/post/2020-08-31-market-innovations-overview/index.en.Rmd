@@ -112,10 +112,7 @@ data3 %>%
   caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
   #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
   row_spec(0, bold = T) %>%
-  column_spec(1, italic = T) %>%
-  column_spec(6, color = "black", background = "white") %>%
-  row_spec(7, color = "black", background = "white") %>%
-  row_spec(6, hline_after = T)
+  column_spec(1, italic = T)
 ```
 
 Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(tab:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
@@ -126,7 +123,7 @@ In general, it is certainly too early to provide the full information on the num
 (ref:timing) Timing for turning patent applications into grants 
 
 ```{r timing, fig.cap = "(ref:timing)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
-knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Timing-Period.csv"))
+knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Timing2.png"))
 ```
 
 While corporate financial data (except the R&D spending, which I touch upon in the Section \@ref(model2)) does not entail any particular technical issues, patent-related information needs to meet some criteria before running a regression. 
@@ -163,10 +160,7 @@ data4 %>%
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
   #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
   row_spec(0, bold = T) %>%
-  column_spec(1, italic = T) %>%
-  column_spec(6, color = "black", background = "white") %>%
-  row_spec(7, color = "black", background = "white") %>%
-  row_spec(6, hline_after = T)
+  column_spec(1, italic = T)
 ```
 
 
