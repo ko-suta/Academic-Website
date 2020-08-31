@@ -4,7 +4,6 @@ author: Kostiantyn Ovsiannikov
 date: '2020-08-31'
 slug: market-innovations-overview
 categories:
-  - Academic
 tags:
   - Knowledge Assets
   - Technological Innovations
@@ -17,5 +16,284 @@ image:
   caption: ''
   focal_point: ''
   preview_only: no
-projects: []
+projects: [market-innovation]
+bibliography: [Innovation-Postdoc.bib, pkg-refs.bib]
 ---
+
+```{r results='hide', echo=FALSE, include=FALSE}
+p_needed <- c("bookdown",
+              "here",
+              "ggthemes",
+              "tidyverse",
+              "readr",
+              "data.table",
+              "kableExtra",
+              "texreg",
+              "knitr",
+              "pander",
+              "mgcv",
+              "stargazer",
+              "summarytools",
+              "reporttools",
+              "DataExplorer",
+              "plm",
+              "rstatix",
+              "ggcorrplot",
+              "mgcViz",
+              "ggpubr",
+              "utils",
+              "memisc"
+)
+packages <- rownames(installed.packages())
+p_to_install <- p_needed[!(p_needed %in% packages)]
+if (length(p_to_install) > 0) {
+  install.packages(p_to_install)
+}
+lapply(p_needed, require, character.only = TRUE)
+```
+
+
+# Methodology {#model}
+
+The whole working process, including manuscript preparation, statistical analysis and data visualization was conducted in the R-environment [@base].
+The article was put together with the help of *knitr* [@knitr] and *bookdown* [@bookdown] packages.
+I did most of the data wrangling and visualization with the *tidyverse* toolkit [@tidyverse].
+Packages such as *plm* [@plm] and *mgcv* [@pedersen2019p] enabled me to run regressions.
+Finally, *kableExtra* [@kableExtra], *pander* [@pander], *stargazer* [@stargazer], *ggcorrplot* [@ggcorrplot] and *reporttools* [@reporttools] packages helped me to accurately present the results of my statistical analysis.
+
+## Data
+
+The data-set used in this article is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) -- captures companies' technological activity registered with the Japan Patent Office (JPO). 
+The latter source was originally compiled by @goto2007rp. 
+Following the example of @Hall.2005, I included the companies from pharmaceutical, chemical, machinery and electrical equipment industries as specified in the NEEDS Database. 
+
+The total count of companies is 632, with each unit extending over 19 years (from 1998 till 2016), making the obtained time-series considerably larger than any of those used in existing studies on Japan.
+My sample is also comparable to the majority of the international studies cited here.
+The resulting data-set analyzed in this article contains 7,813 observations.
+For the comparison, the data-set employed by @sandner2010 encompasses 6,757 observations.
+My data includes fewer companies but stretches across a longer time-frame, which, at the end, brings the number of total cases to the common benchmark.
+
+The problem of classifying patents was addressed by @griliches1998raptee. 
+On one hand, there is a "target" approach based on the classification of the World Intellectual Property Organization (WIPO) or the National Bureau of Economic Research (NBER). 
+The IIP-DB, on which the current study relies, uses this classification as well [@goto2007rp, p. 1433]. 
+It answers the question which field can the respective patent be most fitting at. 
+This, however, entails serious problems for the firm-level study, as the same company can file patents belonging to multiple classes. 
+
+> "The Patent Office classifies patents into many classes (300+ in the mid-1950s) and even many more subclasses (over 50,000),  based on its need to ease the search for prior art. 
+The resulting classification system is based primarily on technological and functional principles and is only rarely related to economists’ notions of products or well-defined industries (which may be a mirage anyway). 
+A subclass dealing with the dispensing of liquids contains both a patent for a water pistol and one for a holy water dispenser."
+>
+> --- [@griliches1998raptee, p. 292]
+
+Hence, the alternative "origin" approach adopted in this article "starts from patent totals for particular firms and then groups them into industries according to the firm’s primary activity" [@griliches1998raptee, p. 294]. Following the methodological suggestion by @haneda1998eoiant (p. 309) that was implemented in all the subsequent works related to Japan, I used the industrial classification present in the NEEDS Database.
+
+The chronological frames are motivated by the following circumstances. 
+On one hand, the lower limit was dictated by the earliest availability of the market-related corporate information. 
+On the other, the latest accessible year in the IIP-DB for the patent applications approved ex post is 2019. 
+However, it takes on average several years for an application to be either rejected or granted.
+That is why the years 2017 to 2019 so far contain very few information, which will however become more substantial as time passes.
+As a result, 2016 is the last significant year, for which the patent-related data is available.
+The length of the patent-registration process is one of the reasons why the curves on the Figure \@ref(fig:timing) are downward-sloping from the mid-2000s. 
+Application-filing process is especially time-consuming for the Pharmaceutical industry, where the average period for granting a patent is 7.1 years -- well above the cumulative mean of 6.45 years (see also the Table \@ref(tab:timing2)). 
+
+
+```{r data, echo = FALSE, results='hide', message=FALSE}
+data3 <- read_csv(here("content", "post", "2020-08-31-market-innovations-overview", "Timing-Period.csv"), col_names = TRUE)
+
+data3 <- data3 %>% 
+  column_to_rownames(., var = "Industry")
+```
+
+
+```{r timing2, echo = FALSE, results='asis'}
+data3 %>%
+  kable(ifelse(knitr::is_latex_output(),"latex","html"), digits = rep(2, 5),
+        align=rep('c', 5), booktabs = T, linesep = "",
+  caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
+  #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
+  row_spec(0, bold = T) %>%
+  column_spec(1, italic = T) %>%
+  column_spec(6, color = "black", background = "white") %>%
+  row_spec(7, color = "black", background = "white") %>%
+  row_spec(6, hline_after = T)
+```
+
+Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(tab:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
+Hence, especially for the period analyzed in this article, most challenging conditions for licensing appear to be in Chemical and the related Pharmaceutical industry. 
+This goes hand in hand with the importance of patenting activities for these sectors both in Japan and internationally [@Cohen.2002; @Hall.2005].
+In general, it is certainly too early to provide the full information on the number of granted patents filed during the last decade. However, this problem is mitigated by accounting for patents' *stock* rather than flow, which I discuss in the Section \@ref(model2).
+
+(ref:timing) Timing for turning patent applications into grants 
+
+```{r timing, fig.cap = "(ref:timing)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
+knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Timing-Period.csv"))
+```
+
+While corporate financial data (except the R&D spending, which I touch upon in the Section \@ref(model2)) does not entail any particular technical issues, patent-related information needs to meet some criteria before running a regression. 
+Following the methodology adopted in the existing literature, I have used the entries based on the *date of filing the patent application*, which is a point in time, from which a corresponding invention would be legally protected. 
+However, the copyright mechanism can only be enforced if a patent is subsequently granted. 
+In this case, a corresponding company can receive benefits associated with license possession, apart from the technological improvements an invention may generate [@czarnitzki2006mip, p. 123]. 
+This is the main reason behind choosing only the successful patent applications for this study. 
+
+In fact, as seen from the Figure \@ref(fig:patrat), the median granting success rate of patents filed with the Japan Patent Office (JPO) from 1971 to 2014 was 37 percent. 
+This number is very similar to the 35 percent in Germany and is considerably lower compared to countries such as France (90 percent) and the U.K. (80 percent) [@griliches1998raptee, p. 289]. 
+Although the granting rate has been on a sharp rise in Japan since early 2000s, it is still indicative of a stringent control mechanism that the local application process entails. 
+@schankerman1998rje notes the following: "Patents originating in Japan are substantially more valuable than in other countries, and the difference is most striking for electronics patents" (p. 80). 
+This trend is depicted, among others, on the Figure \@ref(fig:patrat), where Electronics have the lowest granting rate of 30 percent. 
+
+At the same time, the comparatively high industrial success rates for Pharmaceuticals (50 percent) and Chemicals (48 percent) do not automatically imply the low quality of the respective patents.
+It is rather a cause of patents being particularly important for realizing the gains from intangible assets.
+Differently from Electronics, "in the pharmaceutical industry, patents are perceived as a relatively effective tool of appropriating rents from technological innovations as compared to other types of mechanism such as trade secret, increasing complexity of product design and faster market introduction" [@Motohashi.2008, p. 1548].
+This has been a common finding across numerous studies concluding that the knowledge assets have the most pronounced role for the market evaluation of companies within the Pharmaceutical sector [@czarnitzki2006mip, p. 15].
+Finally, if we look at the yearly cohorts displayed in the Table \@ref(tab:patrat2), the figures for Pharmaceuticals and Chemicals within the period of 1991-2000 (part of which is included in this article's econometric analysis) hardly surpass the cumulative median.
+
+
+```{r data2, echo = FALSE, results='hide', message=FALSE}
+data4 <- read_csv(here("content", "post", "2020-08-31-market-innovations-overview", "Patrat-Period.csv"), col_names = TRUE)
+
+data4 <- data4 %>% 
+  column_to_rownames(., var = "Industry")
+```
+
+
+```{r patrat2, echo = FALSE, results='asis'}
+data4 %>%
+  kable(ifelse(knitr::is_latex_output(),"latex","html"), digits = rep(2, 5),
+        align=rep('c', 5), booktabs = T, linesep = "",
+  caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
+  #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
+  row_spec(0, bold = T) %>%
+  column_spec(1, italic = T) %>%
+  column_spec(6, color = "black", background = "white") %>%
+  row_spec(7, color = "black", background = "white") %>%
+  row_spec(6, hline_after = T)
+```
+
+
+
+(ref:patrat) Granting success rate of patents filed with the JPO 
+
+```{r patrat, fig.cap = "(ref:patrat)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
+knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Patrat2.png"))
+```
+
+The lesson that follows is that the patents are only important for companies inasmuch as they originate from the increase of a "knowledge stock" or "intangible assets". 
+This is the relationship between "$\Delta$K" (unobservable gain in knowledge) and "Pats" shown in the Figure \@ref(fig:czar5). 
+While "Pats" is an observable *output* variable, "R&D" represents observable *inputs* to the knowledge stock. 
+Since "Pats" are not solely determined by intangible assets' increase, this is reflected in the presence of unobservable impacts $\nu$. 
+Likewise, intangible assets depend not only on the R&D expenditures but also on the other input factors marked as $\omega$. 
+"Z's", on the other hand, denote economic benefits stemming from "$\Delta$K". 
+As we will see later, among others, "Z's" personify market perception of corporate tangible and intangible assets, which constitutes the gist of this paper.
+"Z's" indices are additionally influenced by observable inputs "X's" "such as investments and labor input" [@czarnitzki2006mip, p. 116], as well as unobservable effects "$\varepsilon$'s". 
+
+(ref:czar5) The measurement of knowledge capital [@pakes1984rpap] 
+
+```{r czar5, fig.cap = "(ref:czar5)", fig.align="center", echo=FALSE, out.width='\\textwidth', fig.height = 8}
+knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Czar.png"))
+```
+
+## Model {#model2}
+
+Differently from most of the financial variables that represent a *flow*, i.e. a value at a certain time-point exclusively, knowledge-related items accumulate their value over time, thus corresponding to a type of a *stock*. Since all the relevant time-series data is originally available as a flow, one needs to justify the technique of converting it to a stock. 
+Below is the example of distinguishing two measurements:
+
+> "Income is a flow. It corresponds to the quantity of goods produced and distributed in a given period (which we generally take to be a year). Capital is a stock. It corresponds to the total wealth owned at a given point in time. This stock comes from the wealth appropriated or accumulated in all prior years combined."
+>
+> --- [@piketty2017, p. 63]
+
+
+R&D stock $RS_t$ is calculated based on @cockburn1988aer using the following formula:
+
+\begin{equation} 
+  RS_t = RD_t + (1 - \delta) RS_{t-1}
+  (\#eq:RDS)
+\end{equation} 
+
+where $RD_t$ is R&D expenditures during the time *t* (year of the observation), $\delta$ is the R&D yearly depreciation rate, and $RS_{t-1}$ is the R&D stock accumulated during years preceding the time *t*. 
+The patent stock $PS_t$ and citations stock $CS_t$ are calculated using the same method.
+
+
+### Depreciation rates and licences' length
+
+Since the current study is preoccupied with Japan, I have adopted the yearly depreciation rates of patent stock from @nakanishi2008mmpra. 
+According to them (p. 8), the rate of obsolescence for Electrical industry is 24.2 percent, for Chemicals -- 32.3 percent, for Pharmaceuticals -- 27.4 percent, for Precision Machinery -- 24.5 percent and for Transportation Machinery -- 26.1 percent. 
+The previous obsolescence rates used in the Japan-related studies were based on @haneda1998eoiant, who in turn, relied on the 1985 data provided by the Science and Technology Agency (p. 319). 
+Indeed, those rates may no longer be accurate today.
+
+On the international level, most of the articles adopted the approach by @Hall.2005 who used the conventional depreciation rate of 15 percent for all industries. 
+Although I follow @Hall.2005 in using the same rates of obsolescence for citations, R&D stock and patents, I rely on @nakanishi2008mmpra in adopting industrially-specific figures.
+@Hall.2005 admit that "this is an issue that deserves some serious revisiting, in light of the much more detailed data that we now have at our disposal" (p. 24). 
+
+Depreciation rates are calculated based on "the rate of decay of the private revenues accruing to industrially produced knowledge" [@nadiri1996ei, p. 51]. 
+As @pakes1984rpapa (p. 75) stress, the depreciation of knowledge stock depends on the *market valuation* rather than on a physical decline in technological assets. 
+Market opinion is based on the fact that fresh innovations outshine the previous ones, making it difficult to appropriate rents from inventions over long periods of time.
+One of the components of the knowledge stock decay is the length of patents' licenses [@pakes1989bpoeam].
+The shorter their lifespan is, the more intangible assets would depreciate annually.
+The fact that a firm chooses not to pay an extension fee for its patent is the sign that the accompanying "maintenance costs" outstrip the profits accruing to a license holder. 
+Shorter lifespans of patents therefore reflect an intensive industrial competition that prompts companies to develop new technologies rather than to hold onto diminishing rents from older knowledge assets. 
+
+Figure \@ref(fig:licensing) shows the general correspondence of the obsolescence rates to the industrial patterns of Japanese companies. 
+The current research is based on the "origin" classification of Nikkei NEEDS, as shown on the *left half* of the Figure \@ref(fig:licensing). 
+Here, companies belonging to the Chemical industry have one of the longest lifespans (7.4) for patents' licenses.
+On the other hand, Pharmaceuticals have the lowest figure of 6.69 years.
+Notably, this industrial order of patent licenses from lowest to shortest agrees with the one identified for Japan by @schankerman1998rje (p. 83).
+
+On the other hand, @nakanishi2008mmpra, whose rates I adopt, apply the "target" approach demonstrating where the invention "belongs".
+It is depicted on the *right half* of the Figure \@ref(fig:licensing).
+In this case, the highest obsolescence rate for the Chemical industry indeed corresponds to the lowest lifespan of its patents (7.01 years). 
+Conversely, the lowest rate for Electronics reverberates with the relatively long lifespan of 7.26 years (7.31 years for the ICT industry).
+Moreover, differently from the "origin" approach, Pharmaceuticals have one of the longest patents' validity of 7.28 years. 
+To sum up, I group the companies by "origin", but adopt the obsolescence rates based on the "target" of innovation. 
+This seeming discrepancy does not constitute a methodological problem, since the rates of depreciation relate to *market perception* of typical industrial trends that are more likely to be estimated via the "target" approach. 
+Thus, one may say that companies are subject to technological expectations pertaining to the destinations of innovations, notwithstanding their industrial profiles. 
+
+
+(ref:licensing) Lifespan of patents' licenses by industry (NBER vs. NEEDS classification) 
+
+```{r licensing, fig.cap = "(ref:licensing)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
+knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "licensing-NBER-NEEDS2.png"))
+```
+ 
+
+### Baseline regression
+
+To sum up the three main indicators of innovation: "R&D reveals the commitment of a firm's resources to innovation, patents catalog the success in generating codifiable new knowledge that the firm can in principle appropriate, and citations indicate the extent to which those innovations turn out to be 'important' and hence presumably more valuable to the firm" [@Hall.2005, p. 24]. 
+
+I operationalize the value of innovation (the "Z's" from the Figure \@ref(fig:czar5)) via the *Tobin's q*, known as a market-to-book-ratio. 
+"Tobin’s q [...] is the ratio of the firm’s market value to tangible assets. 
+Firm’s market value is defined as the sum of market capitalization (price multiplied by the number of outstanding shares at the end of the year) and non current liabilities plus net current liabilities less inventories" [@hall2007nwp, p. 12]. 
+
+Most of the studies on this topic have followed the model developed in the seminal work by @griliches1981el that was further elaborated in @cockburn1988aer. 
+According to them, the market value of the firm, *V*, can be expressed as follows:
+
+\begin{equation} 
+  V_{it} = \alpha(A_{it} + \beta K_{it})
+  (\#eq:value)
+\end{equation} 
+
+where *A* stands for the firm's tangible assets that include "plant, equipment, inventories, and financial assets" [@griliches1981el, p. 183], *K* represents the knowledge stock, and $\alpha$ -- "current market valuation [...] of the firm’s assets, reflecting its differential risk and monopoly position" [@griliches1981el, p. 183].
+
+As the definition of *Tobin's q* is the ratio of the market value *V* of a firm to its book value *A*, we can rewrite the formula as:
+
+\begin{equation} 
+  q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr)
+  (\#eq:value2)
+\end{equation} 
+
+
+Taking the logarithms, we get
+
+\begin{equation} 
+  \log q_{it} = \log \alpha_t + \log \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr) + \varepsilon_{it}
+  (\#eq:value3)
+\end{equation}
+
+where $\varepsilon_{it}$ is the error term or the noise of the model.
+
+Here, the knowledge stock *K* consists of three components, such as: *R&D weighted by Assets*, *Patents per dollar of R&D*, and *Citations per Patent*. 
+Incorporating these measurements, we can rewrite the last equation as follows, according to the suggestion of @Hall.2005 (p. 24):
+
+\begin{equation} 
+  \log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}
+  (\#eq:value4)
+\end{equation}

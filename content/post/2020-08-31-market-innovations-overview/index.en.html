@@ -4,7 +4,6 @@ author: Kostiantyn Ovsiannikov
 date: '2020-08-31'
 slug: market-innovations-overview
 categories:
-  - Academic
 tags:
   - Knowledge Assets
   - Technological Innovations
@@ -17,9 +16,606 @@ image:
   caption: ''
   focal_point: ''
   preview_only: no
-projects: []
+projects: [market-innovation]
+bibliography: [Innovation-Postdoc.bib, pkg-refs.bib]
 ---
 
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
+<div id="model" class="section level1">
+<h1>Methodology</h1>
+<p>The whole working process, including manuscript preparation, statistical analysis and data visualization was conducted in the R-environment <span class="citation">(R Core Team 2020)</span>.
+The article was put together with the help of <em>knitr</em> <span class="citation">(Xie 2020)</span> and <em>bookdown</em> <span class="citation">(Xie 2016)</span> packages.
+I did most of the data wrangling and visualization with the <em>tidyverse</em> toolkit <span class="citation">(Wickham et al. 2019)</span>.
+Packages such as <em>plm</em> <span class="citation">(Croissant and Millo 2018)</span> and <em>mgcv</em> <span class="citation">(Pedersen et al. 2019)</span> enabled me to run regressions.
+Finally, <em>kableExtra</em> <span class="citation">(Zhu 2019)</span>, <em>pander</em> <span class="citation">(Daróczi 2014)</span>, <em>stargazer</em> <span class="citation">(Hlavac 2018)</span>, <em>ggcorrplot</em> <span class="citation">(Kassambara 2019)</span> and <em>reporttools</em> <span class="citation">(Rufibach 2009)</span> packages helped me to accurately present the results of my statistical analysis.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>The data-set used in this article is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) – captures companies’ technological activity registered with the Japan Patent Office (JPO).
+The latter source was originally compiled by <span class="citation">Goto and Motohashi (2007)</span>.
+Following the example of <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span>, I included the companies from pharmaceutical, chemical, machinery and electrical equipment industries as specified in the NEEDS Database.</p>
+<p>The total count of companies is 632, with each unit extending over 19 years (from 1998 till 2016), making the obtained time-series considerably larger than any of those used in existing studies on Japan.
+My sample is also comparable to the majority of the international studies cited here.
+The resulting data-set analyzed in this article contains 7,813 observations.
+For the comparison, the data-set employed by <span class="citation">Sandner (2010)</span> encompasses 6,757 observations.
+My data includes fewer companies but stretches across a longer time-frame, which, at the end, brings the number of total cases to the common benchmark.</p>
+<p>The problem of classifying patents was addressed by <span class="citation">Griliches (1998)</span>.
+On one hand, there is a “target” approach based on the classification of the World Intellectual Property Organization (WIPO) or the National Bureau of Economic Research (NBER).
+The IIP-DB, on which the current study relies, uses this classification as well <span class="citation">(Goto and Motohashi 2007, 1433)</span>.
+It answers the question which field can the respective patent be most fitting at.
+This, however, entails serious problems for the firm-level study, as the same company can file patents belonging to multiple classes.</p>
+<blockquote>
+<p>“The Patent Office classifies patents into many classes (300+ in the mid-1950s) and even many more subclasses (over 50,000), based on its need to ease the search for prior art.
+The resulting classification system is based primarily on technological and functional principles and is only rarely related to economists’ notions of products or well-defined industries (which may be a mirage anyway).
+A subclass dealing with the dispensing of liquids contains both a patent for a water pistol and one for a holy water dispenser.”</p>
+<p>— <span class="citation">(Griliches 1998, 292)</span></p>
+</blockquote>
+<p>Hence, the alternative “origin” approach adopted in this article “starts from patent totals for particular firms and then groups them into industries according to the firm’s primary activity” <span class="citation">(Griliches 1998, 294)</span>. Following the methodological suggestion by <span class="citation">Haneda and Odagiri (1998)</span> (p. 309) that was implemented in all the subsequent works related to Japan, I used the industrial classification present in the NEEDS Database.</p>
+<p>The chronological frames are motivated by the following circumstances.
+On one hand, the lower limit was dictated by the earliest availability of the market-related corporate information.
+On the other, the latest accessible year in the IIP-DB for the patent applications approved ex post is 2019.
+However, it takes on average several years for an application to be either rejected or granted.
+That is why the years 2017 to 2019 so far contain very few information, which will however become more substantial as time passes.
+As a result, 2016 is the last significant year, for which the patent-related data is available.
+The length of the patent-registration process is one of the reasons why the curves on the Figure <a href="#fig:timing">1</a> are downward-sloping from the mid-2000s.
+Application-filing process is especially time-consuming for the Pharmaceutical industry, where the average period for granting a patent is 7.1 years – well above the cumulative mean of 6.45 years (see also the Table <a href="#tab:timing2">1</a>).</p>
+<table>
+<caption>
+<span id="tab:timing2">Table 1: </span>Average Timing (in Years) of Patent Grants per Industry
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:center;font-weight: bold;">
+1971-1980
+</th>
+<th style="text-align:center;font-weight: bold;">
+1981-1990
+</th>
+<th style="text-align:center;font-weight: bold;">
+1991-2000
+</th>
+<th style="text-align:center;font-weight: bold;">
+2001-2014
+</th>
+<th style="text-align:center;font-weight: bold;">
+Combined
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Chemical
+</td>
+<td style="text-align:center;">
+6.87
+</td>
+<td style="text-align:center;">
+8.09
+</td>
+<td style="text-align:center;">
+7.64
+</td>
+<td style="text-align:center;">
+4.81
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Electronics
+</td>
+<td style="text-align:center;">
+7.28
+</td>
+<td style="text-align:center;">
+8.66
+</td>
+<td style="text-align:center;">
+7.29
+</td>
+<td style="text-align:center;">
+4.38
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Machinery
+</td>
+<td style="text-align:center;">
+6.64
+</td>
+<td style="text-align:center;">
+7.83
+</td>
+<td style="text-align:center;">
+6.73
+</td>
+<td style="text-align:center;">
+4.51
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Motor
+</td>
+<td style="text-align:center;">
+6.56
+</td>
+<td style="text-align:center;">
+8.29
+</td>
+<td style="text-align:center;">
+7.17
+</td>
+<td style="text-align:center;">
+4.37
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Pharm
+</td>
+<td style="text-align:center;">
+7.59
+</td>
+<td style="text-align:center;">
+8.34
+</td>
+<td style="text-align:center;">
+8.24
+</td>
+<td style="text-align:center;">
+5.04
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+7.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Precision
+</td>
+<td style="text-align:center;">
+7.62
+</td>
+<td style="text-align:center;">
+8.94
+</td>
+<td style="text-align:center;">
+7.93
+</td>
+<td style="text-align:center;">
+4.65
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+7.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;color: black !important;background-color: white !important;">
+Cumulative
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.90
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+8.14
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+6.95
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+4.55
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;color: black !important;background-color: white !important;">
+6.45
+</td>
+</tr>
+</tbody>
+</table>
+<p>Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table <a href="#tab:timing2">1</a> shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones.
+Hence, especially for the period analyzed in this article, most challenging conditions for licensing appear to be in Chemical and the related Pharmaceutical industry.
+This goes hand in hand with the importance of patenting activities for these sectors both in Japan and internationally <span class="citation">(Cohen et al. 2002; Hall, Jaffe, and Trajtenberg 2005)</span>.
+In general, it is certainly too early to provide the full information on the number of granted patents filed during the last decade. However, this problem is mitigated by accounting for patents’ <em>stock</em> rather than flow, which I discuss in the Section <a href="#model2"><strong>??</strong></a>.</p>
 
+<div class="figure" style="text-align: center"><span id="fig:timing"></span>
+<img src="Timing-Period.csv" alt="Timing for turning patent applications into grants" width="\textwidth" />
+<p class="caption">
+Figure 1: Timing for turning patent applications into grants
+</p>
+</div>
+<p>While corporate financial data (except the R&amp;D spending, which I touch upon in the Section <a href="#model2"><strong>??</strong></a>) does not entail any particular technical issues, patent-related information needs to meet some criteria before running a regression.
+Following the methodology adopted in the existing literature, I have used the entries based on the <em>date of filing the patent application</em>, which is a point in time, from which a corresponding invention would be legally protected.
+However, the copyright mechanism can only be enforced if a patent is subsequently granted.
+In this case, a corresponding company can receive benefits associated with license possession, apart from the technological improvements an invention may generate <span class="citation">(Czarnitzki, Hall, and Oriani 2006, 123)</span>.
+This is the main reason behind choosing only the successful patent applications for this study.</p>
+<p>In fact, as seen from the Figure <a href="#fig:patrat">2</a>, the median granting success rate of patents filed with the Japan Patent Office (JPO) from 1971 to 2014 was 37 percent.
+This number is very similar to the 35 percent in Germany and is considerably lower compared to countries such as France (90 percent) and the U.K. (80 percent) <span class="citation">(Griliches 1998, 289)</span>.
+Although the granting rate has been on a sharp rise in Japan since early 2000s, it is still indicative of a stringent control mechanism that the local application process entails.
+<span class="citation">Schankerman (1998)</span> notes the following: “Patents originating in Japan are substantially more valuable than in other countries, and the difference is most striking for electronics patents” (p. 80).
+This trend is depicted, among others, on the Figure <a href="#fig:patrat">2</a>, where Electronics have the lowest granting rate of 30 percent.</p>
+<p>At the same time, the comparatively high industrial success rates for Pharmaceuticals (50 percent) and Chemicals (48 percent) do not automatically imply the low quality of the respective patents.
+It is rather a cause of patents being particularly important for realizing the gains from intangible assets.
+Differently from Electronics, “in the pharmaceutical industry, patents are perceived as a relatively effective tool of appropriating rents from technological innovations as compared to other types of mechanism such as trade secret, increasing complexity of product design and faster market introduction” <span class="citation">(Motohashi 2008, 1548)</span>.
+This has been a common finding across numerous studies concluding that the knowledge assets have the most pronounced role for the market evaluation of companies within the Pharmaceutical sector <span class="citation">(Czarnitzki, Hall, and Oriani 2006, 15)</span>.
+Finally, if we look at the yearly cohorts displayed in the Table <a href="#tab:patrat2">2</a>, the figures for Pharmaceuticals and Chemicals within the period of 1991-2000 (part of which is included in this article’s econometric analysis) hardly surpass the cumulative median.</p>
+<table>
+<caption>
+<span id="tab:patrat2">Table 2: </span>Median Ratio of Grants to Patent Applications per Industry
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:center;font-weight: bold;">
+1971-1980
+</th>
+<th style="text-align:center;font-weight: bold;">
+1981-1990
+</th>
+<th style="text-align:center;font-weight: bold;">
+1991-2000
+</th>
+<th style="text-align:center;font-weight: bold;">
+2001-2014
+</th>
+<th style="text-align:center;font-weight: bold;">
+Combined
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Chemical
+</td>
+<td style="text-align:center;">
+0.52
+</td>
+<td style="text-align:center;">
+0.45
+</td>
+<td style="text-align:center;">
+0.34
+</td>
+<td style="text-align:center;">
+0.55
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Electronics
+</td>
+<td style="text-align:center;">
+0.31
+</td>
+<td style="text-align:center;">
+0.24
+</td>
+<td style="text-align:center;">
+0.28
+</td>
+<td style="text-align:center;">
+0.46
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Machinery
+</td>
+<td style="text-align:center;">
+0.45
+</td>
+<td style="text-align:center;">
+0.38
+</td>
+<td style="text-align:center;">
+0.38
+</td>
+<td style="text-align:center;">
+0.52
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Motor
+</td>
+<td style="text-align:center;">
+0.44
+</td>
+<td style="text-align:center;">
+0.38
+</td>
+<td style="text-align:center;">
+0.43
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Pharm
+</td>
+<td style="text-align:center;">
+0.58
+</td>
+<td style="text-align:center;">
+0.51
+</td>
+<td style="text-align:center;">
+0.36
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;">
+Precision
+</td>
+<td style="text-align:center;">
+0.35
+</td>
+<td style="text-align:center;">
+0.38
+</td>
+<td style="text-align:center;">
+0.28
+</td>
+<td style="text-align:center;">
+0.42
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-style: italic;color: black !important;background-color: white !important;">
+Cumulative
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.38
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.33
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.34
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;">
+0.49
+</td>
+<td style="text-align:center;color: black !important;background-color: white !important;color: black !important;background-color: white !important;">
+0.37
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="figure" style="text-align: center"><span id="fig:patrat"></span>
+<img src="Patrat2.png" alt="Granting success rate of patents filed with the JPO" width="\textwidth" />
+<p class="caption">
+Figure 2: Granting success rate of patents filed with the JPO
+</p>
+</div>
+<p>The lesson that follows is that the patents are only important for companies inasmuch as they originate from the increase of a “knowledge stock” or “intangible assets”.
+This is the relationship between “<span class="math inline">\(\Delta\)</span>K” (unobservable gain in knowledge) and “Pats” shown in the Figure <a href="#fig:czar5">3</a>.
+While “Pats” is an observable <em>output</em> variable, “R&amp;D” represents observable <em>inputs</em> to the knowledge stock.
+Since “Pats” are not solely determined by intangible assets’ increase, this is reflected in the presence of unobservable impacts <span class="math inline">\(\nu\)</span>.
+Likewise, intangible assets depend not only on the R&amp;D expenditures but also on the other input factors marked as <span class="math inline">\(\omega\)</span>.
+“Z’s”, on the other hand, denote economic benefits stemming from “<span class="math inline">\(\Delta\)</span>K”.
+As we will see later, among others, “Z’s” personify market perception of corporate tangible and intangible assets, which constitutes the gist of this paper.
+“Z’s” indices are additionally influenced by observable inputs “X’s” “such as investments and labor input” <span class="citation">(Czarnitzki, Hall, and Oriani 2006, 116)</span>, as well as unobservable effects “<span class="math inline">\(\varepsilon\)</span>’s”.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:czar5"></span>
+<img src="Czar.png" alt="The measurement of knowledge capital (Pakes and Griliches 1984)" width="\textwidth" />
+<p class="caption">
+Figure 3: The measurement of knowledge capital <span class="citation">(Pakes and Griliches 1984)</span>
+</p>
+</div>
+</div>
+<div id="model2" class="section level2">
+<h2>Model</h2>
+<p>Differently from most of the financial variables that represent a <em>flow</em>, i.e. a value at a certain time-point exclusively, knowledge-related items accumulate their value over time, thus corresponding to a type of a <em>stock</em>. Since all the relevant time-series data is originally available as a flow, one needs to justify the technique of converting it to a stock.
+Below is the example of distinguishing two measurements:</p>
+<blockquote>
+<p>“Income is a flow. It corresponds to the quantity of goods produced and distributed in a given period (which we generally take to be a year). Capital is a stock. It corresponds to the total wealth owned at a given point in time. This stock comes from the wealth appropriated or accumulated in all prior years combined.”</p>
+<p>— <span class="citation">(Piketty 2017, 63)</span></p>
+</blockquote>
+<p>R&amp;D stock <span class="math inline">\(RS_t\)</span> is calculated based on <span class="citation">Cockburn and Griliches (1988)</span> using the following formula:</p>
+<p><span class="math display" id="eq:RDS">\[\begin{equation} 
+  RS_t = RD_t + (1 - \delta) RS_{t-1}
+  \tag{1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(RD_t\)</span> is R&amp;D expenditures during the time <em>t</em> (year of the observation), <span class="math inline">\(\delta\)</span> is the R&amp;D yearly depreciation rate, and <span class="math inline">\(RS_{t-1}\)</span> is the R&amp;D stock accumulated during years preceding the time <em>t</em>.
+The patent stock <span class="math inline">\(PS_t\)</span> and citations stock <span class="math inline">\(CS_t\)</span> are calculated using the same method.</p>
+<div id="depreciation-rates-and-licences-length" class="section level3">
+<h3>Depreciation rates and licences’ length</h3>
+<p>Since the current study is preoccupied with Japan, I have adopted the yearly depreciation rates of patent stock from <span class="citation">Nakanishi and Yamada (2008)</span>.
+According to them (p. 8), the rate of obsolescence for Electrical industry is 24.2 percent, for Chemicals – 32.3 percent, for Pharmaceuticals – 27.4 percent, for Precision Machinery – 24.5 percent and for Transportation Machinery – 26.1 percent.
+The previous obsolescence rates used in the Japan-related studies were based on <span class="citation">Haneda and Odagiri (1998)</span>, who in turn, relied on the 1985 data provided by the Science and Technology Agency (p. 319).
+Indeed, those rates may no longer be accurate today.</p>
+<p>On the international level, most of the articles adopted the approach by <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span> who used the conventional depreciation rate of 15 percent for all industries.
+Although I follow <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span> in using the same rates of obsolescence for citations, R&amp;D stock and patents, I rely on <span class="citation">Nakanishi and Yamada (2008)</span> in adopting industrially-specific figures.
+<span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span> admit that “this is an issue that deserves some serious revisiting, in light of the much more detailed data that we now have at our disposal” (p. 24).</p>
+<p>Depreciation rates are calculated based on “the rate of decay of the private revenues accruing to industrially produced knowledge” <span class="citation">(Nadiri and Prucha 1996, 51)</span>.
+As <span class="citation">Pakes and Schankerman (1984)</span> (p. 75) stress, the depreciation of knowledge stock depends on the <em>market valuation</em> rather than on a physical decline in technological assets.
+Market opinion is based on the fact that fresh innovations outshine the previous ones, making it difficult to appropriate rents from inventions over long periods of time.
+One of the components of the knowledge stock decay is the length of patents’ licenses <span class="citation">(Pakes et al. 1989)</span>.
+The shorter their lifespan is, the more intangible assets would depreciate annually.
+The fact that a firm chooses not to pay an extension fee for its patent is the sign that the accompanying “maintenance costs” outstrip the profits accruing to a license holder.
+Shorter lifespans of patents therefore reflect an intensive industrial competition that prompts companies to develop new technologies rather than to hold onto diminishing rents from older knowledge assets.</p>
+<p>Figure <a href="#fig:licensing">4</a> shows the general correspondence of the obsolescence rates to the industrial patterns of Japanese companies.
+The current research is based on the “origin” classification of Nikkei NEEDS, as shown on the <em>left half</em> of the Figure <a href="#fig:licensing">4</a>.
+Here, companies belonging to the Chemical industry have one of the longest lifespans (7.4) for patents’ licenses.
+On the other hand, Pharmaceuticals have the lowest figure of 6.69 years.
+Notably, this industrial order of patent licenses from lowest to shortest agrees with the one identified for Japan by <span class="citation">Schankerman (1998)</span> (p. 83).</p>
+<p>On the other hand, <span class="citation">Nakanishi and Yamada (2008)</span>, whose rates I adopt, apply the “target” approach demonstrating where the invention “belongs”.
+It is depicted on the <em>right half</em> of the Figure <a href="#fig:licensing">4</a>.
+In this case, the highest obsolescence rate for the Chemical industry indeed corresponds to the lowest lifespan of its patents (7.01 years).
+Conversely, the lowest rate for Electronics reverberates with the relatively long lifespan of 7.26 years (7.31 years for the ICT industry).
+Moreover, differently from the “origin” approach, Pharmaceuticals have one of the longest patents’ validity of 7.28 years.
+To sum up, I group the companies by “origin”, but adopt the obsolescence rates based on the “target” of innovation.
+This seeming discrepancy does not constitute a methodological problem, since the rates of depreciation relate to <em>market perception</em> of typical industrial trends that are more likely to be estimated via the “target” approach.
+Thus, one may say that companies are subject to technological expectations pertaining to the destinations of innovations, notwithstanding their industrial profiles.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:licensing"></span>
+<img src="Licensing-NBER-NEEDS2.png" alt="Lifespan of patents’ licenses by industry (NBER vs. NEEDS classification)" width="\textwidth" />
+<p class="caption">
+Figure 4: Lifespan of patents’ licenses by industry (NBER vs. NEEDS classification)
+</p>
+</div>
+</div>
+<div id="baseline-regression" class="section level3">
+<h3>Baseline regression</h3>
+<p>To sum up the three main indicators of innovation: “R&amp;D reveals the commitment of a firm’s resources to innovation, patents catalog the success in generating codifiable new knowledge that the firm can in principle appropriate, and citations indicate the extent to which those innovations turn out to be ‘important’ and hence presumably more valuable to the firm” <span class="citation">(Hall, Jaffe, and Trajtenberg 2005, 24)</span>.</p>
+<p>I operationalize the value of innovation (the “Z’s” from the Figure <a href="#fig:czar5">3</a>) via the <em>Tobin’s q</em>, known as a market-to-book-ratio.
+“Tobin’s q […] is the ratio of the firm’s market value to tangible assets.
+Firm’s market value is defined as the sum of market capitalization (price multiplied by the number of outstanding shares at the end of the year) and non current liabilities plus net current liabilities less inventories” <span class="citation">(Hall, Thoma, and Torrisi 2007, 12)</span>.</p>
+<p>Most of the studies on this topic have followed the model developed in the seminal work by <span class="citation">Griliches (1981)</span> that was further elaborated in <span class="citation">Cockburn and Griliches (1988)</span>.
+According to them, the market value of the firm, <em>V</em>, can be expressed as follows:</p>
+<p><span class="math display" id="eq:value">\[\begin{equation} 
+  V_{it} = \alpha(A_{it} + \beta K_{it})
+  \tag{2}
+\end{equation}\]</span></p>
+<p>where <em>A</em> stands for the firm’s tangible assets that include “plant, equipment, inventories, and financial assets” <span class="citation">(Griliches 1981, 183)</span>, <em>K</em> represents the knowledge stock, and <span class="math inline">\(\alpha\)</span> – “current market valuation […] of the firm’s assets, reflecting its differential risk and monopoly position” <span class="citation">(Griliches 1981, 183)</span>.</p>
+<p>As the definition of <em>Tobin’s q</em> is the ratio of the market value <em>V</em> of a firm to its book value <em>A</em>, we can rewrite the formula as:</p>
+<p><span class="math display" id="eq:value2">\[\begin{equation} 
+  q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr)
+  \tag{3}
+\end{equation}\]</span></p>
+<p>Taking the logarithms, we get</p>
+<p><span class="math display" id="eq:value3">\[\begin{equation} 
+  \log q_{it} = \log \alpha_t + \log \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr) + \varepsilon_{it}
+  \tag{4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_{it}\)</span> is the error term or the noise of the model.</p>
+<p>Here, the knowledge stock <em>K</em> consists of three components, such as: <em>R&amp;D weighted by Assets</em>, <em>Patents per dollar of R&amp;D</em>, and <em>Citations per Patent</em>.
+Incorporating these measurements, we can rewrite the last equation as follows, according to the suggestion of <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span> (p. 24):</p>
+<p><span class="math display" id="eq:value4">\[\begin{equation} 
+  \log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&amp;D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&amp;D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}
+  \tag{5}
+\end{equation}\]</span></p>
+<div id="refs" class="references">
+<div id="ref-cockburn1988aer">
+<p>Cockburn, Iain, and Zvi Griliches. 1988. “Industry Effects and Appropriability Measures in the Stock Market’s Valuation of R&amp;D and Patents.” <em>American Economic Review</em> 78 (2): 419–23.</p>
+</div>
+<div id="ref-Cohen.2002">
+<p>Cohen, Wesley M., Akira Goto, Akiya Nagata, Richard R. Nelson, and John P. Walsh. 2002. “R&amp;D Spillovers, Patents and the Incentives to Innovate in Japan and the United States.” <em>Research Policy</em> 31 (8-9): 1349–67.</p>
+</div>
+<div id="ref-plm">
+<p>Croissant, Yves, and Giovanni Millo. 2018. <em>Panel Data Econometrics with R: The plm Package</em>. Wiley.</p>
+</div>
+<div id="ref-czarnitzki2006mip">
+<p>Czarnitzki, Dirk, Bronwyn H Hall, and Raffaele Oriani. 2006. “The Market Valuation of Knowledge Assets in US and European Firms.” <em>The Management of Intellectual Property</em>, 111–31.</p>
+</div>
+<div id="ref-pander">
+<p>Daróczi, Gergely. 2014. <em>Pander: An R Pandoc Writer</em>. <a href="http://cran.r-project.org/package=pander">http://cran.r-project.org/package=pander</a>.</p>
+</div>
+<div id="ref-goto2007rp">
+<p>Goto, Akira, and Kazuyuki Motohashi. 2007. “Construction of a Japanese Patent Database and a First Look at Japanese Patenting Activities.” <em>Research Policy</em> 36 (9): 1431–42. <a href="https://doi.org/10.1016/j.respol.2007.06.005">https://doi.org/10.1016/j.respol.2007.06.005</a>.</p>
+</div>
+<div id="ref-griliches1998raptee">
+<p>Griliches, Zvi. 1998. “Patent Statistics as Economic Indicators: A Survey.” In <em>R&amp;D and Productivity: The Econometric Evidence</em>, 287–343. Chicago: University of Chicago Press, National Bureau of Economic Research.</p>
+</div>
+<div id="ref-griliches1981el">
+<p>———. 1981. “Market Value, R&amp;D, and Patents.” <em>Economics Letters</em> 7 (2): 183–87. <a href="https://doi.org/10.1016/0165-1765(87)90114-5">https://doi.org/10.1016/0165-1765(87)90114-5</a>.</p>
+</div>
+<div id="ref-Hall.2005">
+<p>Hall, Bronwyn H., Adam Jaffe, and Manuel Trajtenberg. 2005. “Market Value and Patent Citations.” <em>RAND Journal of Economics</em>, 16–38.</p>
+</div>
+<div id="ref-hall2007nwp">
+<p>Hall, Bronwyn H., Grid Thoma, and Salvatore Torrisi. 2007. “The Market Value of Patents and R&amp;D: Evidence from European Firms.” <em>NBER Working Papers</em> 1 (13426). <a href="https://doi.org/10.3386/w13426">https://doi.org/10.3386/w13426</a>.</p>
+</div>
+<div id="ref-haneda1998eoiant">
+<p>Haneda, Shoko, and Hiroyuki Odagiri. 1998. “Appropriation of Returns from Technological Assets and the Values of Patents and R&amp;D in Japanese High-Tech Firms.” <em>Economics of Innovation and New Technology</em> 7 (4): 303–21. <a href="https://doi.org/10.1080/10438599800000038">https://doi.org/10.1080/10438599800000038</a>.</p>
+</div>
+<div id="ref-stargazer">
+<p>Hlavac, Marek. 2018. <em>Stargazer: Well-Formatted Regression and Summary Statistics Tables</em>. Bratislava, Slovakia: Central European Labour Studies Institute (CELSI). <a href="https://CRAN.R-project.org/package=stargazer">https://CRAN.R-project.org/package=stargazer</a>.</p>
+</div>
+<div id="ref-ggcorrplot">
+<p>Kassambara, Alboukadel. 2019. <em>Ggcorrplot: Visualization of a Correlation Matrix Using ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggcorrplot">https://CRAN.R-project.org/package=ggcorrplot</a>.</p>
+</div>
+<div id="ref-Motohashi.2008">
+<p>Motohashi, Kazuyuki. 2008. “Licensing or Not Licensing? An Empirical Analysis of the Strategic Use of Patents by Japanese Firms.” <em>Research Policy</em> 37 (9): 1548–55.</p>
+</div>
+<div id="ref-nadiri1996ei">
+<p>Nadiri, M. Ishaq, and Ingmar R. Prucha. 1996. “Estimation of the Depreciation Rate of Physical and R&amp;d Capital in the U.S. Total Manufacturing Sector.” <em>Economic Inquiry</em> 34 (1): 43–56. <a href="https://doi.org/10.1111/j.1465-7295.1996.tb01363.x">https://doi.org/10.1111/j.1465-7295.1996.tb01363.x</a>.</p>
+</div>
+<div id="ref-nakanishi2008mmpra">
+<p>Nakanishi, Yasuo, and Setsuo Yamada. 2008. “Measuring the Rate of Obsolescence of Patents in Japanese Manufacturing Firms.” <em>MPRA, Munich Personal RePEc Archive</em>, 11.</p>
+</div>
+<div id="ref-pakes1984rpap">
+<p>Pakes, Ariel, and Zvi Griliches. 1984. “Patents and R&amp;D at the Firm Level: A First Look.” In <em>R&amp;D, Patents, and Productivity</em>, 55–72. Chicago: University of Chicago Press, National Bureau of Economic Research.</p>
+</div>
+<div id="ref-pakes1984rpapa">
+<p>Pakes, Ariel, and Mark Schankerman. 1984. “The Rate of Obsolescence of Patents, Research Gestation Lags, and the Private Rate of Return to Research Resources.” In <em>R&amp;D, Patents, and Productivity</em>, 73–88. Chicago: University of Chicago Press, National Bureau of Economic Research.</p>
+</div>
+<div id="ref-pakes1989bpoeam">
+<p>Pakes, Ariel, Margaret Simpson, Kenneth Judd, and Edwin Mansfield. 1989. “Patent Renewal Data.” <em>Brookings Papers on Economic Activity. Microeconomics</em> 1989: 331. <a href="https://doi.org/10.2307/2534724">https://doi.org/10.2307/2534724</a>.</p>
+</div>
+<div id="ref-pedersen2019p">
+<p>Pedersen, Eric J., David L. Miller, Gavin L. Simpson, and Noam Ross. 2019. “Hierarchical Generalized Additive Models in Ecology: An Introduction with Mgcv.” <em>PeerJ</em> 7 (May): e6876. <a href="https://doi.org/10.7717/peerj.6876">https://doi.org/10.7717/peerj.6876</a>.</p>
+</div>
+<div id="ref-piketty2017">
+<p>Piketty, Thomas. 2017. <em>Capital in the Twenty-First Century</em>. Harvard University Press.</p>
+</div>
+<div id="ref-base">
+<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div id="ref-reporttools">
+<p>Rufibach, Kaspar. 2009. “reporttools: R Functions to Generate LaTeX Tables of Descriptive Statistics.” <em>Journal of Statistical Software, Code Snippets</em> 31 (1). <a href="http://www.jstatsoft.org/v31/c01/">http://www.jstatsoft.org/v31/c01/</a>.</p>
+</div>
+<div id="ref-sandner2010">
+<p>Sandner, Philipp. 2010. <em>The Valuation of Intangible Assets: An Exploration of Patent and Trademark Portfolios</em>. Innovation Und Entrepreneurship. Gabler Verlag. <a href="https://doi.org/10.1007/978-3-8349-8393-0">https://doi.org/10.1007/978-3-8349-8393-0</a>.</p>
+</div>
+<div id="ref-schankerman1998rje">
+<p>Schankerman, Mark. 1998. “How Valuable Is Patent Protection? Estimates by Technology Field.” <em>The RAND Journal of Economics</em> 29 (1): 77–107. <a href="https://doi.org/10.2307/2555817">https://doi.org/10.2307/2555817</a>.</p>
+</div>
+<div id="ref-tidyverse">
+<p>Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the tidyverse.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.</p>
+</div>
+<div id="ref-bookdown">
+<p>Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.</p>
+</div>
+<div id="ref-knitr">
+<p>———. 2020. <em>Knitr: A General-Purpose Package for Dynamic Report Generation in R</em>. <a href="https://yihui.org/knitr/">https://yihui.org/knitr/</a>.</p>
+</div>
+<div id="ref-kableExtra">
+<p>Zhu, Hao. 2019. <em>KableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
