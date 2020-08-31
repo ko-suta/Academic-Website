@@ -1,0 +1,21 @@
+---
+title: 'Market & Innovations: Overview'
+author: Kostiantyn Ovsiannikov
+date: '2020-08-31'
+slug: market-innovations-overview
+categories:
+  - Academic
+tags:
+  - Knowledge Assets
+  - Technological Innovations
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-08-31T15:04:30+09:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
