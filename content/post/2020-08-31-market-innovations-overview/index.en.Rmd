@@ -105,10 +105,9 @@ data3 <- data3 %>%
 
 ```{r timing2, echo = FALSE, results='asis'}
 data3 %>%
-  kable(ifelse(knitr::is_latex_output(),"latex","html"), digits = rep(2, 5),
+  kable(digits = rep(2, 5),
         align=rep('c', 5), booktabs = T, linesep = "",
   caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
-  #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
   row_spec(0, bold = T) %>%
   column_spec(1, italic = T)
 ```
@@ -153,10 +152,9 @@ data4 <- data4 %>%
 
 ```{r patrat2, echo = FALSE, results='asis'}
 data4 %>%
-  kable(ifelse(knitr::is_latex_output(),"latex","html"), digits = rep(2, 5),
+  kable(digits = rep(2, 5),
         align=rep('c', 5), booktabs = T, linesep = "",
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
-  #kable_styling(latex_options = c("striped", "HOLD_position"))%>%
   row_spec(0, bold = T) %>%
   column_spec(1, italic = T)
 ```
@@ -168,6 +166,8 @@ data4 %>%
 knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Patrat2.png"))
 ```
 
+
+## Model
 
 Most of the studies on this topic have followed the model developed in the seminal work by @griliches1981el that was further elaborated in @cockburn1988aer. 
 According to them, the market value of the firm, *V*, can be expressed as follows:
@@ -203,3 +203,5 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
   \log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}
   (\#eq:value4)
 \end{equation}
+
+## References
