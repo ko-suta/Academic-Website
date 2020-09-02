@@ -30,6 +30,31 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharin
 
 Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
 
+
+```{r metathis, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_name("github-repo" = "ko-suta/Academic-Website") %>% 
+  meta_social(
+    title = "Academic Presentation",
+    description = paste(
+      "The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies.",
+      "Presented at 2019 SASE Annual Meeting."
+    ),
+    url = "https://kovsiannikov.com/slides/new",
+    image = "https://build-your-own-universe.netlify.app/social-card.png",
+    image_alt = paste(
+      "Title slide of Build your own universe:", 
+      "Scale high-quality research data provisioning with R packages,", 
+      "presented at at 2019 SASE Annual Meeting by Kostiantyn Ovsiannikov"
+    ),
+    og_type = "website",
+    og_author = "Kostiantyn Ovsiannikov",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@ko_suta"
+  )
+```
+
 ---
 class: center, middle
 
