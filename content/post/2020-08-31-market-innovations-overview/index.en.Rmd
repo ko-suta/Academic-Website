@@ -100,8 +100,10 @@ data3 <- data3 %>%
 
 ```{r timing2, echo = FALSE, results='asis'}
 data3 %>%
-  kbl(digits = rep(2, 5), format = "html",
-      caption = "Average Timing (in Years) of Patent Grants per Industry")
+  kbl(digits = rep(2, 5), align=rep('c', 5), escape = F,
+      format = "html", booktabs = T,
+      caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
+  kable_styling(full_width = T)
 ```
 
 Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(tab:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
@@ -144,10 +146,10 @@ data4 <- data4 %>%
 
 ```{r patrat2, echo = FALSE, results='asis'}
 data4 %>%
-  kbl(digits = rep(2, 5),
+  kbl(digits = rep(2, 5), escape = F,
         align=rep('c', 5), booktabs = T, format = "html",
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
-  kable_styling(position = "center")
+  kable_styling(full_width = T)
 ```
 
 
