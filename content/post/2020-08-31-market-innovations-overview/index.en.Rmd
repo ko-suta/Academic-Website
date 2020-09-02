@@ -100,7 +100,7 @@ data3 <- data3 %>%
 ```{r timing2, echo = FALSE, results='asis'}
 data3 %>%
   kbl(digits = rep(2, 5),
-        align=rep('c', 5), booktabs = T, 
+        align=rep('c', 5), booktabs = T, format = "html",
       caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
   kable_material(c("striped", "hover"))
 ```
@@ -146,7 +146,7 @@ data4 <- data4 %>%
 ```{r patrat2, echo = FALSE, results='asis'}
 data4 %>%
   kbl(digits = rep(2, 5),
-        align=rep('c', 5), booktabs = T,
+        align=rep('c', 5), booktabs = T, format = "html",
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
   kable_material(c("striped", "hover"))
 ```
