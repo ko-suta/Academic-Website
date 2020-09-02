@@ -31,6 +31,9 @@ background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharin
 Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
 
 
+---
+class: center, middle
+
 ```{r metathis, echo=FALSE}
 library(metathis)
 meta() %>%
@@ -54,9 +57,6 @@ meta() %>%
     twitter_creator = "@ko_suta"
   )
 ```
-
----
-class: center, middle
 
 # xaringan
 
