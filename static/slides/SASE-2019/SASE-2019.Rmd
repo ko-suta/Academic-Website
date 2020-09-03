@@ -14,6 +14,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       beforeInit: "macros.js"
+    seal: false
 ---
 
 ```{r setup, include=FALSE}
@@ -29,6 +30,36 @@ style = "rmarkdown",          # idem
             dfSummary.varnumbers = FALSE, # This keeps results narrow enough
             dfSummary.valid.col = FALSE)  # idem
 ```
+
+name: title
+class: inverse
+
+<!-- Title Slide -->
+
+
+```{r title-slides, echo=FALSE, message = FALSE, warning = FALSE}
+htmltools::withTags(
+  div(
+    class = "talk-meta",
+    div(
+      class = "talk-title",
+      h1(rmarkdown::metadata$title),
+      p(rmarkdown::metadata$subtitle)
+    ),
+    div(
+      class = "talk-author",
+      paste(rmarkdown::metadata$author, collapse = " <br> "),
+      br(),
+      span(paste(rmarkdown::metadata$institute, collapse = ", "))
+    ),
+    div(
+      class = "talk-date",
+      knitr::knit(text = rmarkdown::metadata$date, quiet = TRUE)
+    )
+  )
+)
+```
+
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 library(xaringanthemer)
@@ -82,6 +113,7 @@ meta() %>%
   )
 ```
 
+---
 
 # Does labor flexibility benefit innovation?
 

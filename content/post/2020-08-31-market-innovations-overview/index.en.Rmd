@@ -110,6 +110,7 @@ data3 %>%
   kable_styling()
 ```
 
+
 Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(tab:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
 Hence, especially for the period analyzed in this article, most challenging conditions for licensing appear to be in Chemical and the related Pharmaceutical industry. 
 This goes hand in hand with the importance of patenting activities for these sectors both in Japan and internationally [@Cohen.2002; @Hall.2005].
