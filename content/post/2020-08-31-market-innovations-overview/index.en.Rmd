@@ -1,7 +1,11 @@
 ---
 title: 'Market & Innovations: Overview'
 author: Kostiantyn Ovsiannikov
-date: '2020-08-31'
+output:
+  blogdown::html_page:
+    toc: true
+    toc_float: true
+date: '`r Sys.Date()`'
 slug: market-innovations-overview
 categories:
 tags:
@@ -54,7 +58,7 @@ lapply(p_needed, require, character.only = TRUE)
 
 
 
-## Data
+# Data
 
 The data-set used here is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) -- captures companies' technological activity registered with the Japan Patent Office (JPO). 
 The latter source was originally compiled by @goto2007rp. 
@@ -160,7 +164,7 @@ knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-o
 ```
 
 
-## Model
+# Model
 
 Most of the studies on this topic have followed the model developed in the seminal work by @griliches1981el that was further elaborated in @cockburn1988aer. 
 According to them, the market value of the firm, *V*, can be expressed as follows:
@@ -197,4 +201,4 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
   (\#eq:value4)
 \end{equation}
 
-## References
+# References
