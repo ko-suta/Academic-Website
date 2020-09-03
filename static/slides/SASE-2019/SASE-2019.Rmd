@@ -42,6 +42,8 @@ xaringanExtra::use_share_again()
 ```{r style-share-again, echo=FALSE}
 library(xaringanExtra)
 xaringanExtra::style_share_again(
+  foreground = "white",
+  background = "black",
   share_buttons = c("twitter", "linkedin", "facebook")
 )
 ```
