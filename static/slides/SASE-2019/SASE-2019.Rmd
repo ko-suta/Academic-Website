@@ -150,49 +150,8 @@ meta() %>%
 * Japan's **dual labor market** 🢂 possibility of transition from non-regular to regular employment is only 1.7 to 10.3 percent. **Gaming industry** as an exception (Casper & Storz, 2016).
 
 ---
-# "Semiconductors" Sub-Industry — Descriptive  
 
-
-```{r tbl10, echo = FALSE}
-tbl10 <- tibble::tribble(
-~`Variable`, ~`N`, ~`Missings (%)`, ~`SD`, ~`SE`, ~`Median`, ~`Trimmed Mean`, ~`Range`, ~`Skewness`,
-"Patents + Citations","1176","14.29","386.49","11.27","58.5","102.86","3927 (0-3927)","4.72",
-"Age","1360","0.87","29.95","0.81","75","76.91","164 (1-165)","-0.14",
-"Regulars","1353","1.38","70619.07","1919.88","18740","28056.7","384322 (264-384586)","2.56",
-"Nonregulars (%)","481","64.94","0.07","0","0.14","0.14","0.49 (0.01-0.49)","1.21",
-"R&D Intensity","1354","1.31","0.05","0","0.04","0.04","0.46 (0-0.46)","3.53",
-"Internationalization","1321","3.72","0.29","0.01","0.55","0.56","3.28 (0.04-3.32)","4.07",
-"Total Assets","1359","0.95","4875077","132242.7","675301","1035005","50297864 (10385-50308249)","5.3",
-"Process Innovation","1258","8.31","13.64","0.38","1.68","1.92","423.6 (0.02-423.62)","24.02",
-"Labor Intensity","851","37.97","0.09","0","0.08","0.09","0.77 (0-0.77)","1.97"
-)
-
-kableExtra::kable_styling(knitr::kable(tbl10), font_size = 18)
-```
-
-
-
----
-# "Games" Sub-Industry — Descriptive  
-
-
-```{r tbl11, echo = FALSE}
-tbl11 <- tibble::tribble(
-~`Variable`, ~`N`, ~`Missings (%)`, ~`SD`, ~`SE`, ~`Median`, ~`Trimmed Mean`, ~`Range`, ~`Skewness`,
-"Patents + Citations","1044","14.29","130.25","4.03","1","6.61","1315 (0-1315)","5.6",
-"Age","1196","1.81","34.67","1","63","60.65","142 (1-143)","0.19",
-"Regulars","1176","3.45","74940.55","2185.31","6670.5","22759.56","384583 (3-384586)","2.47",
-"Nonregulars (%)","511","58.05","0.13","0.01","0.16","0.18","0.58 (0-0.59)","1.27",
-"R&D Intensity","1088","10.67","0.05","0","0.04","0.04","0.39 (0-0.39)","3.07",
-"Internationalization","843","30.79","0.22","0.01","0.48","0.48","0.9 (0-0.9)","-0.05",
-"Total Assets","1178","3.28","5148945","150018.8","296640.5","886483.6","50308212 (37-50308249)","5.08",
-"Process Innovation","1092","10.34","14.71","0.45","1.74","2.09","423.59 (0.03-423.62)","21.98",
-"Labor Intensity","641","47.37","0.16","0.01","0.09","0.1","2.08 (0-2.09)","5.95"
-)
-
-kableExtra::kable_styling(knitr::kable(tbl11), font_size = 18)
-```
-
+![:scale 50%](assets/img/image7.png)
 
 ---
 # "Semiconductors" Sub-Industry — Correlations  
@@ -217,7 +176,6 @@ kableExtra::kable_styling(knitr::kable(tbl12), font_size = 18)
 
 
 ---
-# Patents ⬌ Non-Regular Employment 
 
 ![](assets/img/image5.png)
 
@@ -245,10 +203,9 @@ kableExtra::kable_styling(knitr::kable(tbl14), font_size = 18)
 
 
 ---
-#  Patents ⬌ Non-Regular Employment 
+
 
 ![](assets/img/image6.png)
-
 
 ---
 #  Variables Selection 🢂 Operationalization 
