@@ -4,7 +4,6 @@ author: Kostiantyn Ovsiannikov
 output:
   blogdown::html_page:
     toc: true
-    toc_float: true
 date: '`r Sys.Date()`'
 slug: market-innovations-overview
 categories:
@@ -46,7 +45,8 @@ p_needed <- c("bookdown",
               "mgcViz",
               "ggpubr",
               "utils",
-              "memisc"
+              "memisc",
+              "xaringanExtra"
 )
 packages <- rownames(installed.packages())
 p_to_install <- p_needed[!(p_needed %in% packages)]
@@ -201,6 +201,8 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
   (\#eq:value4)
 \end{equation}
 
+
+# Embedded SASE presentation
 
 ```{r embed-xaringan, echo=FALSE}
 xaringanExtra::embed_xaringan(url = "https://kovsiannikov.com/slides/sase-2019/sase-2019.html", ratio = "4:3")

@@ -1,7 +1,10 @@
 ---
 title: 'Market & Innovations: Overview'
 author: Kostiantyn Ovsiannikov
-date: '2020-08-31'
+output:
+  blogdown::html_page:
+    toc: true
+date: '2020-09-03'
 slug: market-innovations-overview
 categories:
 tags:
@@ -22,10 +25,19 @@ bibliography: [Innovation-Postdoc.bib, pkg-refs.bib]
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/fitvids/fitvids.min.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#data">Data</a></li>
+<li><a href="#model">Model</a></li>
+<li><a href="#embedded-sase-presentation">Embedded SASE presentation</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 
-<div id="data" class="section level2">
-<h2>Data</h2>
+<div id="data" class="section level1">
+<h1>Data</h1>
 <p>The data-set used here is the result of merging two files: one, obtained from the Nikkei NEEDS Financial Quest, includes corporate financial information, another, extracted from the Institute of Intellectual Property Patent Database (IIP-DB) – captures companies’ technological activity registered with the Japan Patent Office (JPO).
 The latter source was originally compiled by <span class="citation">Goto and Motohashi (2007)</span>.
 Following the example of <span class="citation">Hall, Jaffe, and Trajtenberg (2005)</span>, I included the companies from pharmaceutical, chemical, machinery and electrical equipment industries as specified in the NEEDS Database.</p>
@@ -424,8 +436,8 @@ Figure 2: Granting success rate of patents filed with the JPO
 </p>
 </div>
 </div>
-<div id="model" class="section level2">
-<h2>Model</h2>
+<div id="model" class="section level1">
+<h1>Model</h1>
 <p>Most of the studies on this topic have followed the model developed in the seminal work by <span class="citation">Griliches (1981)</span> that was further elaborated in <span class="citation">Cockburn and Griliches (1988)</span>.
 According to them, the market value of the firm, <em>V</em>, can be expressed as follows:</p>
 <p><span class="math display" id="eq:value">\[\begin{equation} 
@@ -451,8 +463,15 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
   \tag{4}
 \end{equation}\]</span></p>
 </div>
-<div id="references" class="section level2 unnumbered">
-<h2>References</h2>
+<div id="embedded-sase-presentation" class="section level1">
+<h1>Embedded SASE presentation</h1>
+<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<iframe src="https://kovsiannikov.com/slides/sase-2019/sase-2019.html" width="400" height="300" style="border:2px solid currentColor;" loading="lazy" allowfullscreen></iframe>
+<script>fitvids('.shareagain', {players: 'iframe'});</script>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 <div id="refs" class="references">
 <div id="ref-cockburn1988aer">
 <p>Cockburn, Iain, and Zvi Griliches. 1988. “Industry Effects and Appropriability Measures in the Stock Market’s Valuation of R&amp;D and Patents.” <em>American Economic Review</em> 78 (2): 419–23.</p>
