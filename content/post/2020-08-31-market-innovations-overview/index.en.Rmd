@@ -201,6 +201,8 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
   (\#eq:value4)
 \end{equation}
 
+` `  
+` `
 
 # Embedded SASE presentation
 
@@ -208,5 +210,7 @@ Incorporating these measurements, we can rewrite the last equation as follows, a
 xaringanExtra::embed_xaringan(url = "https://kovsiannikov.com/slides/sase-2019/sase-2019.html", ratio = "4:3")
 ```
 
+` `  
+` `
 
 # References
