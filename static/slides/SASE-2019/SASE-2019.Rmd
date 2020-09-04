@@ -1,5 +1,5 @@
 ---
-title: "Role of Labor Flexibility in the Pursuit of Innovation Strategies"
+title: "Role of Labor Flexibility in the <br> Pursuit of Innovation Strategies"
 subtitle: "2019 SASE Annual Meeting (New School, N.Y.C.)"
 author: "Kostiantyn Ovsiannikov, Ph.D."
 institute: ".small[.blue-medium[University of Tsukuba]]"
@@ -7,12 +7,13 @@ date: '28 June 2019'
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: xaringan-themer.css
+    css: ["xaringan-themer.css", "my-style.css"]
     nature:
       highlightStyle: solarized-dark
       highlightLines: true
       countIncrementalSlides: false
       beforeInit: "macros.js"
+      ratio: "16:9"
     seal: false
 ---
 
@@ -20,18 +21,21 @@ output:
 library(knitr)
 library(summarytools)
 library(here)
+library(ymlthis)
+library(tidyverse)
 
 options(htmltools.dir.version = FALSE)
-knitr::opts_knit$set(root.dir = "../")
-opts_chunk$set(comment = NA, prompt = FALSE, cache = FALSE, results = 'asis')
-st_options(plain.ascii = FALSE,          # This is a must in Rmd documents
-style = "rmarkdown",          # idem
-            dfSummary.varnumbers = FALSE, # This keeps results narrow enough
-            dfSummary.valid.col = FALSE)  # idem
+knitr::opts_chunk$set(collapse = TRUE,
+                      fig.retina = 3)
+
 ```
 
+
 name: title
-class: left inverse
+class: title-slide middle left inverse
+background-image: url("assets/img/Innovation.jpg")
+background-position: bottom right
+background-size: 400px
 
 <!-- Title Slide -->
 
@@ -99,8 +103,9 @@ meta() %>%
   meta_social(
     title = "The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies.",
     description = paste(
-      "[Non-] Regular employees ⟷ corporate innovation.",
-      "Presented at 2019 SASE Annual Meeting."
+      "[Non-] Regular employment & corporate innovation.",
+      "Presented at 2019 SASE Annual Meeting.",
+      generator = "xaringan and remark.js"
     ),
     url = "https://kovsiannikov.com/slides/sase-2019/sase-2019",
     image = "https://kovsiannikov.com/images/Industries-Distribution.png",
@@ -112,9 +117,15 @@ meta() %>%
   )
 ```
 
+
+???
+
+
+Image credit: [Unsplash](https://unsplash.com/photos/r9mFb7HyddA)
+
 ---
 
-# Does labor flexibility benefit innovation?
+## Does labor flexibility benefit innovation?
 
 --
 
@@ -137,7 +148,8 @@ meta() %>%
 ]
 
 ---
-# Focus & Literature gap 
+
+## Focus & Literature gap 
 
 --
 
@@ -153,23 +165,31 @@ meta() %>%
 
 ---
 
-# Distribution of patent applications across industries 
+## Distribution of patent applications across industries 
 
-![](assets/img/image1.png)
-
-
----
-# "Electricity" subindustries with most patent applications 
-
-![](assets/img/image2.png)
+```{r industries, echo=FALSE, fig.align="center", out.width = "75%"}
+knitr::include_graphics("assets/img/image1.png")
+```
 
 ---
-# "Necessities" subindustries with most patent applications  
 
-![](assets/img/image3.png)
+## "Electricity" subindustries with most patent applications 
+
+```{r electricity, echo=FALSE, fig.align="center", out.width = "75%"}
+knitr::include_graphics("assets/img/image2.png")
+```
 
 ---
-#  Companies with highest numbers of patent applications 
+
+## "Necessities" subindustries with most patent applications  
+
+```{r necessities, echo=FALSE, fig.align="center", out.width = "75%"}
+knitr::include_graphics("assets/img/image3.png")
+```
+
+---
+
+## Companies with highest numbers of patent applications 
 
 --
 
@@ -200,7 +220,8 @@ meta() %>%
 ]
 
 ---
-# Methodology 
+
+## Methodology 
 
 --
 
@@ -222,7 +243,7 @@ meta() %>%
 
 ---
 
-# Possible conceptualization 
+## Possible conceptualization 
 
 --
 
@@ -245,32 +266,48 @@ meta() %>%
 
 ---
 
-.center2[
-![](assets/img/image7.png)
-]
+class: middle center
 
----
-# "Semiconductors" — Correlations  
-
-![](assets/img/image8.png)
+```{r descriptive, echo=FALSE, fig.align="center", out.width = "40%"}
+knitr::include_graphics("assets/img/image7.png")
+```
 
 ---
 
-![](assets/img/image5.png)
+## "Semiconductors" — Correlations  
 
-
----
-# "Games" — Correlations  
-
-![](assets/img/image9.png)
+```{r corsemicon, echo=FALSE, fig.align="center", out.width = "80%"}
+knitr::include_graphics("assets/img/image8.png")
+```
 
 ---
 
+class: middle center
 
-![](assets/img/image6.png)
+```{r semiconpat, echo=FALSE, fig.align="center", out.width = "70%"}
+knitr::include_graphics("assets/img/image5.png")
+```
+
 
 ---
-# Variables 🢂 Operationalization 
+
+## "Games" — Correlations  
+
+```{r corgames, echo=FALSE, fig.align="center", out.width = "80%"}
+knitr::include_graphics("assets/img/image9.png")
+```
+
+---
+
+class: middle center
+
+```{r gamespat, echo=FALSE, fig.align="center", out.width = "70%"}
+knitr::include_graphics("assets/img/image6.png")
+```
+
+---
+
+## Variables 🢂 Operationalization 
 
 --
 
@@ -290,17 +327,24 @@ meta() %>%
 
 
 ---
-# "Semiconductors" regression
 
-![](assets/img/image10.png)
+## "Semiconductors" regression
 
----
-# "Games" regression
-
-![](assets/img/image11.png)
+```{r semiconreg, echo=FALSE, fig.align="center", out.width = "80%"}
+knitr::include_graphics("assets/img/image10.png")
+```
 
 ---
-#  Tentative conclusions 
+
+## "Games" regression
+
+```{r gamesreg, echo=FALSE, fig.align="center", out.width = "80%"}
+knitr::include_graphics("assets/img/image11.png")
+```
+
+---
+
+##  Tentative conclusions 
 
 --
 
@@ -325,7 +369,8 @@ meta() %>%
 ]
 
 ---
-#  Additional findings  
+
+##  Additional findings  
 
 --
 
@@ -340,6 +385,7 @@ meta() %>%
 + **Internationalization** is associated with less innovation for manufacturing companies employing **non-regulars**
 
 ---
+
 class: inverse, center, middle
 
 #  Thank you for your attention!
