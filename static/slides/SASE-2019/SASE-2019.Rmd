@@ -1,8 +1,7 @@
 ---
 title: "Role of Labor Flexibility in the Pursuit of Innovation Strategies"
-subtitle: "2019 SASE Annual Meeting"
-author: 
-  - "Kostiantyn Ovsiannikov, Ph.D."
+subtitle: "2019 SASE Annual Meeting (New School, N.Y.C.)"
+author: "Kostiantyn Ovsiannikov, Ph.D."
 institute: ".small[.blue-medium[University of Tsukuba]]"
 date: '28 June 2019'
 output:
@@ -32,7 +31,7 @@ style = "rmarkdown",          # idem
 ```
 
 name: title
-class: inverse
+class: left inverse
 
 <!-- Title Slide -->
 
@@ -100,7 +99,7 @@ meta() %>%
   meta_social(
     title = "The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies.",
     description = paste(
-      "Seeking the optimal balance between regular and flexible employees that would enhance corporate innovation.",
+      "[Non-] Regular employees ⟷ corporate innovation.",
       "Presented at 2019 SASE Annual Meeting."
     ),
     url = "https://kovsiannikov.com/slides/sase-2019/sase-2019",
