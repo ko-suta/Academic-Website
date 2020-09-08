@@ -257,17 +257,17 @@ plugins_js  = []
 
 
 # Configure matomo
-[params.matomo]
-  url = "https://kovsiannikov.com/"
-  id = 1
+# [params.matomo]
+#  url = "https://kovsiannikov.com/"
+#  id = 1
 
 
 # Configure staticman
-[staticman]
-  endpoint = "https://api.staticman.net/v3/entry/github"
-  username = "ko-suta"
-  repository = "Academic-Website"
-  branch = "master"
+# [staticman]
+#  endpoint = "https://api.staticman.net/v3/entry/github"
+#  username = "ko-suta"
+#  repository = "Academic-Website"
+#  branch = "master"
 
 
 ############################
