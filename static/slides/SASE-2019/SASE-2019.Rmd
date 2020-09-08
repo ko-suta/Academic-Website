@@ -83,19 +83,6 @@ xaringanExtra::style_share_again(
 ```
 
 
-<style>
-
-.center2 {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-</style>
-
 ```{r metathis, echo=FALSE}
 library(metathis)
 meta() %>%
