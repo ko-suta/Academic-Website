@@ -15,7 +15,7 @@ education:
     year: 2011
 email: "k.ovsiannikov@gmail.com"
 interests:
-- Corporate Governenance
+- Corporate Governance
 - Labor Economics
 - Technological Innovation
 organizations:
