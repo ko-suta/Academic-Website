@@ -107,7 +107,8 @@ data3 %>%
   kbl(digits = rep(2, 5), align=rep('c', 5), escape = F,
       format = "html", booktabs = T,
       caption = "Average Timing (in Years) of Patent Grants per Industry") %>%
-  kable_styling()
+  kable_styling() %>%
+  as_image()
 ```
 
 
@@ -154,7 +155,8 @@ data4 %>%
   kbl(digits = rep(2, 5), escape = F,
         align=rep('c', 5), booktabs = T, format = "html",
   caption = "Median Ratio of Grants to Patent Applications per Industry") %>%
-  kable_styling()
+  kable_styling() %>%
+  as_image()
 ```
 
 
