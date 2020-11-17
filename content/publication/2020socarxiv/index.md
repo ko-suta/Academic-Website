@@ -15,7 +15,8 @@ publishDate: "2020-10-07T00:00:00Z"
 publication_types: ["3"]
 
 # Publication name and optional abbreviated publication name.
-publication:  "SocArXiv Papers"
+publication: "*The Japanese Political Economy, 42*(1-4)"
+publication_short: ""
 
 abstract: This paper examines the market perception of corporate innovations in Japan. It follows the research question formulated by Hall et al. (2005): "how does innovative activity translate into market value, and what aspects of the underlying process are captured by the empirical measures available?". The novelty of my study is twofold. First, it embraces the longitudinal innovation- and finance-related corporate records to come up with the largest ever combined data-set for Japan that encompasses 632 companies listed at the Tokyo Stock Exchange over the period of 19 years. Second, in addition to linear regressions, it applies the generalized additive models (GAMs). The latter technique allows for realistically capturing nonlinear patterns present in the data while at the same time retaining predictive features of a model. The main finding of the article is following. Amid the dominant role of research and development (R&D), especially for the Pharmaceutical and Chemical industries, market consistently rewards influential patents in the manufacturing sector.
 
