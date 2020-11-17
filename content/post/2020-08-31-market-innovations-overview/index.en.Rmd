@@ -91,7 +91,7 @@ However, it takes on average several years for an application to be either rejec
 That is why the years 2017 to 2019 so far contain very few information, which will however become more substantial as time passes.
 As a result, 2016 is the last significant year, for which the patent-related data is available.
 The length of the patent-registration process is one of the reasons why the curves on the Figure \@ref(fig:timing) are downward-sloping from the mid-2000s. 
-Application-filing process is especially time-consuming for the Pharmaceutical industry, where the average period for granting a patent is 7.1 years -- well above the cumulative mean of 6.45 years (see also the Table \@ref(fig:timing2)). 
+Application-filing process is especially time-consuming for the Pharmaceutical industry, where the average period for granting a patent is 7.1 years -- well above the cumulative mean of 6.45 years. 
 
 
 ```{r data, echo = FALSE, results='hide', message=FALSE}
@@ -102,14 +102,8 @@ data3 <- data3 %>%
 ```
 
 
-(ref:timing2) Average Timing (in Years) of Patent Grants per Industry 
 
-```{r timing2, fig.cap = "(ref:timing2)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
-knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Timing-table.png"))
-```
-
-
-Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Table \@ref(fig:timing2) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
+Although an average time for receiving a patent within the Chemical industry throughout 1971-2014 was roughly the same as within the Electronics, the Figure \@ref(fig:timing) shows that starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones. 
 Hence, especially for the period analyzed in this article, most challenging conditions for licensing appear to be in Chemical and the related Pharmaceutical industry. 
 This goes hand in hand with the importance of patenting activities for these sectors both in Japan and internationally [@Cohen.2002; @Hall.2005].
 In general, it is certainly too early to provide the full information on the number of granted patents filed during the last decade. However, this problem is mitigated by accounting for patents' *stock* rather than flow.
@@ -136,7 +130,7 @@ At the same time, the comparatively high industrial success rates for Pharmaceut
 It is rather a cause of patents being particularly important for realizing the gains from intangible assets.
 Differently from Electronics, "in the pharmaceutical industry, patents are perceived as a relatively effective tool of appropriating rents from technological innovations as compared to other types of mechanism such as trade secret, increasing complexity of product design and faster market introduction" [@Motohashi.2008, p. 1548].
 This has been a common finding across numerous studies concluding that the knowledge assets have the most pronounced role for the market evaluation of companies within the Pharmaceutical sector [@czarnitzki2006mip, p. 15].
-Finally, if we look at the yearly cohorts displayed in the Table \@ref(fig:patrat2), the figures for Pharmaceuticals and Chemicals within the period of 1991-2000 (part of which is included in this article's econometric analysis) hardly surpass the cumulative median.
+Finally, if we look at the yearly cohorts displayed in the Figure \@ref(fig:patrat), the figures for Pharmaceuticals and Chemicals within the period of 1991-2000 (part of which is included in this article's econometric analysis) hardly surpass the cumulative median.
 
 
 ```{r data2, echo = FALSE, results='hide', message=FALSE}
@@ -144,13 +138,6 @@ data4 <- read_csv(here("content", "post", "2020-08-31-market-innovations-overvie
 
 data4 <- data4 %>% 
   column_to_rownames(., var = "Industry")
-```
-
-
-(ref:patrat2) Median Ratio of Grants to Patent Applications per Industry 
-
-```{r patrat2, fig.cap = "(ref:patrat2)", fig.align="center", echo=FALSE, out.width='\\textwidth'}
-knitr::include_graphics(here("content", "post", "2020-08-31-market-innovations-overview", "Patrat-table.png"))
 ```
 
 
