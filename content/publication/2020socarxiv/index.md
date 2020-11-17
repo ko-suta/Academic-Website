@@ -1,27 +1,27 @@
 ---
-title: "Does Tokyo Stock Exchange Appreciate Corporate Innovations? Role of Patents’ Quality and Research Productivity"
+title: "Impact of shareholder-value pursuit on labor policies at Japanese joint-stock companies: Case of Nikkei Index 400"
 authors:
 - admin
-date: "2020-10-07T00:00:00Z"
-doi: "10.31235/osf.io/k4ys6"
+date: "2018-10-03T00:00:00Z"
+doi: "10.1080/2329194X.2018.1491315"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2020-10-07T00:00:00Z"
+publishDate: "2017-01-01T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ["3"]
+publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
 publication: "*The Japanese Political Economy, 42*(1-4)"
 publication_short: ""
 
-abstract: This paper examines the market perception of corporate innovations in Japan. It follows the research question formulated by Hall et al. (2005): "how does innovative activity translate into market value, and what aspects of the underlying process are captured by the empirical measures available?". The novelty of my study is twofold. First, it embraces the longitudinal innovation- and finance-related corporate records to come up with the largest ever combined data-set for Japan that encompasses 632 companies listed at the Tokyo Stock Exchange over the period of 19 years. Second, in addition to linear regressions, it applies the generalized additive models (GAMs). The latter technique allows for realistically capturing nonlinear patterns present in the data while at the same time retaining predictive features of a model. The main finding of the article is following. Amid the dominant role of research and development (R&D), especially for the Pharmaceutical and Chemical industries, market consistently rewards influential patents in the manufacturing sector.
+abstract: This article aims at finding out how the shareholder-value pursuit has affected labor policies at large Japanese listed enterprises. It concentrates on the issue of labor bifurcation, whereby the proportion of nonregular employees has grown rapidly over the last two decades, currently approaching the numbers of regular employees. The externalities of increased returns to stockholders during the last two decades have been the changes in the related domains of management and labor, which I explain through the application of the political economic theory. This theory underlines the importance of inclusion into a “political bloc” for being eligible for economic benefits. Consequently, I argue that increased returns to politically privileged shareholders have been achieved at the expense of a growing proportion of unprivileged nonregular employees. The research corroborates the positive correlation between the total shareholder return and the proportion of nonregulars. On the other hand, foreign stockholding does not appear to be significantly correlated with the increase in nonregular employment. In turn, the study has found that the proportion of nonregular employees is significantly correlated with domestic ownership that characterizes higher managerial entrenchment.
 
 # Summary. An optional shortened abstract.
-summary: This paper examines the market perception of corporate innovations in Japan. 
+summary: This article aims at finding out how the shareholder-value pursuit has affected labor policies at large Japanese listed enterprises. It concentrates on the issue of labor bifurcation.
 
 
 featured: true
