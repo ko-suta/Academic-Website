@@ -28,7 +28,7 @@ social:
   link: '#contact'
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/ko_suta 
+  link: https://twitter.com/kovsiann
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.com/citations?user=YyvL5x0AAAAJ&hl=en
