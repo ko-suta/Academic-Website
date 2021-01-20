@@ -24,7 +24,7 @@ abstract: This paper examines the market perception of corporate innovations in 
 summary: This paper examines the market perception of corporate innovations in Japan.
 
 
-featured: true
+featured: false
 
 # links:
 # - name: ""
