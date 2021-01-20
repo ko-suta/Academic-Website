@@ -1,5 +1,5 @@
 ---
-title: "Impact of shareholder-value pursuit on labor policies at Japanese joint-stock companies: Case of Nikkei Index 400"
+title: "Impact of Shareholder-Value Pursuit on Labor Policies at Japanese Joint-Stock Companies: Case of Nikkei Index 400"
 authors:
 - admin
 date: "2018-10-03T00:00:00Z"
