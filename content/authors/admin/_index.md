@@ -19,8 +19,8 @@ interests:
 - Labor Economics
 - Technological Innovation
 organizations:
-- name: University of Tsukuba
-  url: "https://www.hass.tsukuba.ac.jp/en"
+- name: Kochi University of Technology
+  url: "https://www.kochi-tech.ac.jp/english/index.html"
 role: Researcher under the JSPS Grant-in-Aid for Young Scientists
 social:
 - icon: envelope
