@@ -48,7 +48,7 @@ user_groups:
 - Visitors
 ---
 
-Kostiantyn Ovsiannikov is a researcher at Kochi University of Technology.
+Kostiantyn Ovsiannikov is a postdoc at Kochi University of Technology.
 His interests include *corporate governance*, *labor economics* and *technological innovation*. 
 In his dissertation, he explored how the pursuit of shareholder-value by management has affected labor policies at large Japanese enterprises.
 
