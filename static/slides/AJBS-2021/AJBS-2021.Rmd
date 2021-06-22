@@ -132,7 +132,6 @@ xaringanExtra::style_share_again(
 ```
 
 ```{r metathis, echo=FALSE}
-metathis::include_meta(
   meta() %>%
   meta_name("github-repo" = "ko-suta/Academic-Website") %>% 
   meta_social(
@@ -149,7 +148,6 @@ metathis::include_meta(
     twitter_card_type = "summary_large_image",
     twitter_creator = "@ko_suta"
   )
-)
 ```
 
 # Background: Japan's intrapreneurial regime
