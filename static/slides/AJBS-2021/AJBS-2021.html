@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Market Valuation of Corporate Technological Assets:   The Case of Japan’s Institutional Adaptability</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kostiantyn Ovsiannikov, Ph.D." />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/rutgers-fonts.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <meta name="github-repo" content="ko-suta/Academic-Website"/>
+    <meta name="twitter:title" content="The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies."/>
+    <meta name="twitter:description" content="[Non-] Regular employment &amp; Corporate innovations. Presented at 2019 SASE Annual Meeting."/>
+    <meta name="twitter:url" content="https://kovsiannikov.com/slides/sase-2019/sase-2019"/>
+    <meta name="twitter:image:src" content="https://kovsiannikov.com/images/share-card.png"/>
+    <meta name="twitter:image:alt" content="2019 SASE Annual Meeting Presentation"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@ko_suta"/>
+    <meta name="twitter:site" content="@ko_suta"/>
+    <meta property="og:title" content="The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies."/>
+    <meta property="og:description" content="[Non-] Regular employment &amp; Corporate innovations. Presented at 2019 SASE Annual Meeting."/>
+    <meta property="og:url" content="https://kovsiannikov.com/slides/sase-2019/sase-2019"/>
+    <meta property="og:image" content="https://kovsiannikov.com/images/share-card.png"/>
+    <meta property="og:image:alt" content="2019 SASE Annual Meeting Presentation"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Kostiantyn Ovsiannikov"/>
+    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding/datatables.js"></script>
+    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link rel="stylesheet" href="rutgers-new.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Market Valuation of Corporate Technological Assets: <br> The Case of Japan’s Institutional Adaptability
+## 2021 AJBS Conference
+### Kostiantyn Ovsiannikov, Ph.D.
+### Kochi University of Technology </br> 2021-06-21
+
+---
+
+
+
+
+&lt;style type="text/css"&gt;
+.regression table {
+  font-size: 12px;     
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.highlight-last-item &gt; ul &gt; li, 
+.highlight-last-item &gt; ol &gt; li {
+  opacity: 0.5;
+}
+.highlight-last-item &gt; ul &gt; li:last-of-type,
+.highlight-last-item &gt; ol &gt; li:last-of-type {
+  opacity: 1;
+}
+&lt;/style&gt;
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 220px;
+height: 256px;
+z-index: 0;
+background-image: url(assets/img/KUT.jpg);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:2em;right:2em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<style>.shareagain-bar {
+--shareagain-foreground: white;
+--shareagain-background: black;
+--shareagain-pinterest: none;
+--shareagain-pocket: none;
+--shareagain-reddit: none;
+}</style>
+
+
+
+
+## Background &amp; problem formulation
+
+--
+
+* **Intrapreneurial** innovation regime in Japan <span>&lt;i class="fas  fa-lightbulb faa-pulse animated faa-slow " style=" color:blue;"&gt;&lt;/i&gt;</span>
+
+
+--
+  + .white.bg-black[industrial coordination] <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M434.7 64h-85.9c-8 0-15.7 3-21.6 8.4l-98.3 90c-.1.1-.2.3-.3.4-16.6 15.6-16.3 40.5-2.1 56 12.7 13.9 39.4 17.6 56.1 2.7.1-.1.3-.1.4-.2l79.9-73.2c6.5-5.9 16.7-5.5 22.6 1 6 6.5 5.5 16.6-1 22.6l-26.1 23.9L504 313.8c2.9 2.4 5.5 5 7.9 7.7V128l-54.6-54.6c-5.9-6-14.1-9.4-22.6-9.4zM544 128.2v223.9c0 17.7 14.3 32 32 32h64V128.2h-96zm48 223.9c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM0 384h64c17.7 0 32-14.3 32-32V128.2H0V384zm48-63.9c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16c0-8.9 7.2-16 16-16zm435.9 18.6L334.6 217.5l-30 27.5c-29.7 27.1-75.2 24.5-101.7-4.4-26.9-29.4-24.8-74.9 4.4-101.7L289.1 64h-83.8c-8.5 0-16.6 3.4-22.6 9.4L128 128v223.9h18.3l90.5 81.9c27.4 22.3 67.7 18.1 90-9.3l.2-.2 17.9 15.5c15.9 13 39.4 10.5 52.3-5.4l31.4-38.6 5.4 4.4c13.7 11.1 33.9 9.1 45-4.7l9.5-11.7c11.2-13.8 9.1-33.9-4.6-45.1z"/></svg> sustained by large companies &amp; financial institutions
+  
+  
+--
+  + .white.bg-black[low employment turnover rates] <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M377.941 169.941V216H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296h243.882v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.568 0-33.941l-86.059-86.059c-15.119-15.12-40.971-4.412-40.971 16.97z"/></svg> employees' loyalty
+  
+  
+--
+  + accumulated .white.bg-black[firm-specific knowledge] <span>&lt;i class="fas  fa-wrench faa-wrench animated faa-slow " style=" color:blue;"&gt;&lt;/i&gt;</span>
+ 
+  
+--
+  + .white.bg-black[routinized innovation model] <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M377.941 169.941V216H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296h243.882v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.568 0-33.941l-86.059-86.059c-15.119-15.12-40.971-4.412-40.971 16.97z"/></svg> well-established R&amp;D departments
+  
+&lt;br&gt;
+  
+--
+&lt;ru-blockquote&gt;Organizations are social communities in which individual and social expertise is transformed into economically useful products and services
+.right[— &lt;cite&gt;Kogut and Zander (1992)&lt;/cite&gt;]&lt;/ru-blockquote&gt;
+
+&lt;br&gt;
+
+--
+* .white.bg-black[However], during the last 30 years, Japan has witnessed **institutional** <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z"/></svg> , as **market influence** has <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg>
+
+---
+class: highlight-last-item
+
+# Why current research matters
+
+- Japan has the .white.bg-black[3rd-largest] market capitalization for listed companies in the <svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm-11.34 240.23c-2.89 4.82-8.1 7.77-13.72 7.77h-.31c-4.24 0-8.31 1.69-11.31 4.69l-5.66 5.66c-3.12 3.12-3.12 8.19 0 11.31l5.66 5.66c3 3 4.69 7.07 4.69 11.31V304c0 8.84-7.16 16-16 16h-6.11c-6.06 0-11.6-3.42-14.31-8.85l-22.62-45.23c-2.44-4.88-8.95-5.94-12.81-2.08l-19.47 19.46c-3 3-7.07 4.69-11.31 4.69H50.81C49.12 277.55 48 266.92 48 256c0-110.28 89.72-200 200-200 21.51 0 42.2 3.51 61.63 9.82l-50.16 38.53c-5.11 3.41-4.63 11.06.86 13.81l10.83 5.41c5.42 2.71 8.84 8.25 8.84 14.31V216c0 4.42-3.58 8-8 8h-3.06c-3.03 0-5.8-1.71-7.15-4.42-1.56-3.12-5.96-3.29-7.76-.3l-17.37 28.95zM408 358.43c0 4.24-1.69 8.31-4.69 11.31l-9.57 9.57c-3 3-7.07 4.69-11.31 4.69h-15.16c-4.24 0-8.31-1.69-11.31-4.69l-13.01-13.01a26.767 26.767 0 0 0-25.42-7.04l-21.27 5.32c-1.27.32-2.57.48-3.88.48h-10.34c-4.24 0-8.31-1.69-11.31-4.69l-11.91-11.91a8.008 8.008 0 0 1-2.34-5.66v-10.2c0-3.27 1.99-6.21 5.03-7.43l39.34-15.74c1.98-.79 3.86-1.82 5.59-3.05l23.71-16.89a7.978 7.978 0 0 1 4.64-1.48h12.09c3.23 0 6.15 1.94 7.39 4.93l5.35 12.85a4 4 0 0 0 3.69 2.46h3.8c1.78 0 3.35-1.18 3.84-2.88l4.2-14.47c.5-1.71 2.06-2.88 3.84-2.88h6.06c2.21 0 4 1.79 4 4v12.93c0 2.12.84 4.16 2.34 5.66l11.91 11.91c3 3 4.69 7.07 4.69 11.31v24.6z"/></svg>
+
+--
+
+- both patenting quality and quantity are among the highest in the world
+
+--
+
+- distinct corporate institutional arrangements (.white.bg-black[relational finance] &amp; .white.bg-black[stakeholder governance]) <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+
+--
+
+- **interest**: markets <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"/></svg> institutions
+
+---
+
+# RQ &amp; Hypotheses
+
+.black.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+How does Tokyo Stock Exchange (TSE) evaluate corporate innovations?]
+
+--
+&gt; **Hypothesis 1**
+&gt;
+TSE positively evaluates companies with higher R&amp;D expenditures.
+This represents the .white.bg-black[institutional] aspect of corporate innovations.
+
+--
+
+&gt; **Hypothesis 2**
+&gt;
+TSE positively evaluates companies whose R&amp;D expenditures yield higher patent stocks.
+This represents the .white.bg-black[quantitative-market] aspect of corporate innovative policies.
+
+--
+
+&gt; **Hypothesis 3**
+&gt;
+TSE positively evaluates influential patents judged by the number of citations accruing to them.
+This represents the .white.bg-black[qualitative-market] aspect of innovative policies.
+
+
+---
+# Timing of patent grants
+
+
+
+
+
+
+
+
+
+
+
+.panelset[
+
+
+
+.panel[.panel-name[Plot]
+
+&lt;img src="AJBS-2021_files/figure-html/grant-timing-plot-1.png" width="864" style="display: block; margin: auto;" /&gt;
+]
+
+.panel[.panel-name[Table]
+
+<div id="htmlwidget-c632849f405aa796de18" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c632849f405aa796de18">{"x":{"filter":"none","fillContainer":false,"data":[["Chemical","Electronics","Machinery","Motor","Pharm","Precision","Cumulative"],[6.8678311138,7.2806806075,6.6383261542,6.5610150211,7.5873633189,7.6175217418,6.9049034312],[8.0895653498,8.6624237936,7.8321703889,8.2852152796,8.3353113833,8.9386238219,8.136566725],[7.6374046653,7.2942644412,6.727487592,7.165346061,8.2424995055,7.9291608331,6.9513845274],[4.80625630921429,4.37581515778571,4.5135435005,4.3744336665,5.041140204,4.65233222035714,4.55041489635714],[6.66444544586364,6.67352501436364,6.2538511445,6.39449624881818,7.09608420302273,7.04512988756818,6.44623534965909]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>1971-1980<\/th>\n      <th>1981-1990<\/th>\n      <th>1991-2000<\/th>\n      <th>2001-2014<\/th>\n      <th>Combined<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":9,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[9,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
+]
+]
+
+---
+
+# Patents-to-applications ratio
+
+
+
+
+
+
+
+
+
+
+
+
+
+.panelset[
+.panel[.panel-name[Plot]
+
+&lt;img src="AJBS-2021_files/figure-html/patrat-plot-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Table]
+
+<div id="htmlwidget-3cd653a10cc67a073760" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3cd653a10cc67a073760">{"x":{"filter":"none","fillContainer":false,"data":[["Chemical","Electronics","Machinery","Motor","Pharm","Precision","Cumulative"],[0.522728819,0.3123068955,0.4514961335,0.435988794,0.581978726,0.350781612,0.383791938],[0.4508416,0.240042963,0.3779378155,0.3795567845,0.5123684495,0.3785006805,0.331692055],[0.3419771845,0.281564448,0.380517602,0.425702542,0.358954486,0.2752460285,0.338913883],[0.549310446,0.456581515,0.515514157,0.501164316,0.503724032,0.4235396695,0.4896631685],[6.66444544586364,6.67352501436364,6.2538511445,6.39449624881818,7.09608420302273,7.04512988756818,6.44623534965909]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>1971-1980<\/th>\n      <th>1981-1990<\/th>\n      <th>1991-2000<\/th>\n      <th>2001-2014<\/th>\n      <th>Combined<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":9,"columnDefs":[{"targets":1,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":2,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 3, 3, \",\", \".\");\n  }"},{"className":"dt-right","targets":[1,2,3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[9,10,25,50,100]}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render"],"jsHooks":[]}</script>
+]
+]
+
+---
+
+#Methodology
+
+--
+
+- Market value of the firm, **V**, can be expressed as follows (Griliches, 1981):
+
+`$$V_{it} = \alpha(A_{it} + \beta K_{it})$$`
+
+
+&gt; where **A** — firm's tangible assets, **K** — knowledge stock, and `\(\alpha\)` — market valuation of the firm’s assets
+
+
+--
+&lt;br&gt;
+
+- **Tobin's q** = .white.bg-black[market value] **V** / .white.bg-black[book value] **A** <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+
+`$$q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr) + \varepsilon_{it}$$`
+
+--
+
+- Knowledge stock **K**: .white.bg-black[R&amp;D / Tangible Assets], .white.bg-black[Patents per Japanese yen spent on R&amp;D], .white.bg-black[Citations per Patent] (Hall, Jaffe, and Trajtenberg, 2005) <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+
+`$$\log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&amp;D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&amp;D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}$$`
+---
+
+# Data
+
+.panelset.sideways[
+.panel[.panel-name[Size]
+
+- 684 companies <svg aria-hidden="true" role="img" viewBox="0 0 352 512" style="height:1em;width:0.69em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg> 19 years (1998 — 2016) <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+
+
+- 12,996 observations <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg> outliers <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:blue;overflow:visible;position:relative;"><path d="M416 304H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32zm0-192H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg> 8,038 observations. 
+]
+
+
+.panel[.panel-name[Sources]
+
+- Nikkei NEEDS Financial Quest 
+
+
+- Institute of Intellectual Property Patent Database (IIP-DB) (Goto and Motohashi, 2007)
+
+]
+
+.panel[.panel-name[Industries]
+
+- Pharmaceutical 
+
+
+- Chemical 
+
+
+- Machinery
+
+
+- Electrical Equipment
+
+]
+
+]
+
+---
+class: regression
+
+# OLS regression
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;table style="text-align:center"&gt;&lt;tr&gt;&lt;td colspan="3" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="text-align:left"&gt;&lt;/td&gt;&lt;td colspan="2"&gt;&lt;em&gt;Dependent variable:&lt;/em&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td colspan="2" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;&lt;/td&gt;&lt;td colspan="2"&gt;Tobin's q&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="3" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="text-align:left"&gt;Intercept&lt;/td&gt;&lt;td&gt;-0.316&lt;sup&gt;***&lt;/sup&gt; (0.055)&lt;/td&gt;&lt;td&gt;-0.407&lt;sup&gt;***&lt;/sup&gt; (0.068)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;D (Electric)&lt;/td&gt;&lt;td&gt;0.069&lt;sup&gt;***&lt;/sup&gt; (0.015)&lt;/td&gt;&lt;td&gt;0.068 (0.076)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;D (Machinery)&lt;/td&gt;&lt;td&gt;0.012 (0.029)&lt;/td&gt;&lt;td&gt;0.255&lt;sup&gt;***&lt;/sup&gt; (0.069)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;D (Pharm)&lt;/td&gt;&lt;td&gt;0.356&lt;sup&gt;***&lt;/sup&gt; (0.025)&lt;/td&gt;&lt;td&gt;0.268&lt;sup&gt;**&lt;/sup&gt; (0.132)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;R&amp;D/Assets&lt;/td&gt;&lt;td&gt;0.019 (0.066)&lt;/td&gt;&lt;td&gt;0.608&lt;sup&gt;***&lt;/sup&gt; (0.096)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Electric&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;-0.288&lt;sup&gt;***&lt;/sup&gt; (0.093)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Machinery&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0.611&lt;sup&gt;***&lt;/sup&gt; (0.178)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Pharm&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0.537&lt;sup&gt;***&lt;/sup&gt; (0.204)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Patents/R&amp;D&lt;/td&gt;&lt;td&gt;0.024 (0.081)&lt;/td&gt;&lt;td&gt;1.018&lt;sup&gt;***&lt;/sup&gt; (0.156)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Electric&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;-0.916&lt;sup&gt;***&lt;/sup&gt; (0.207)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Machinery&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;-2.640&lt;sup&gt;***&lt;/sup&gt; (0.251)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Pharm&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;-0.729 (0.520)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Citations/Patents&lt;/td&gt;&lt;td&gt;0.058&lt;sup&gt;***&lt;/sup&gt; (0.013)&lt;/td&gt;&lt;td&gt;-0.014 (0.018)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Electric&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0.187&lt;sup&gt;***&lt;/sup&gt; (0.026)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Machinery&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;0.103&lt;sup&gt;***&lt;/sup&gt; (0.026)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;| Pharm&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;-0.033 (0.037)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;R&amp;D Intensity&lt;/td&gt;&lt;td&gt;0.738&lt;sup&gt;***&lt;/sup&gt; (0.118)&lt;/td&gt;&lt;td&gt;0.044 (0.130)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Process Innovation&lt;/td&gt;&lt;td&gt;0.033&lt;sup&gt;***&lt;/sup&gt; (0.011)&lt;/td&gt;&lt;td&gt;0.032&lt;sup&gt;***&lt;/sup&gt; (0.011)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Leverage&lt;/td&gt;&lt;td&gt;1.287&lt;sup&gt;***&lt;/sup&gt; (0.038)&lt;/td&gt;&lt;td&gt;1.086&lt;sup&gt;***&lt;/sup&gt; (0.042)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;ROA&lt;/td&gt;&lt;td&gt;2.716&lt;sup&gt;***&lt;/sup&gt; (0.106)&lt;/td&gt;&lt;td&gt;2.656&lt;sup&gt;***&lt;/sup&gt; (0.106)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Capital Intensity&lt;/td&gt;&lt;td&gt;0.038&lt;sup&gt;***&lt;/sup&gt; (0.005)&lt;/td&gt;&lt;td&gt;0.045&lt;sup&gt;***&lt;/sup&gt; (0.005)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Age&lt;/td&gt;&lt;td&gt;-0.001&lt;sup&gt;***&lt;/sup&gt; (0.0003)&lt;/td&gt;&lt;td&gt;-0.001&lt;sup&gt;***&lt;/sup&gt; (0.0003)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="3" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="text-align:left"&gt;Yearly dummies&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;td&gt;Yes&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="3" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="text-align:left"&gt;Observations&lt;/td&gt;&lt;td&gt;6,903&lt;/td&gt;&lt;td&gt;6,903&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;&lt;td&gt;0.292&lt;/td&gt;&lt;td&gt;0.310&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;Adjusted R&lt;sup&gt;2&lt;/sup&gt;&lt;/td&gt;&lt;td&gt;0.289&lt;/td&gt;&lt;td&gt;0.306&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="text-align:left"&gt;F Statistic&lt;/td&gt;&lt;td&gt;94.537&lt;sup&gt;***&lt;/sup&gt; (df = 30; 6872)&lt;/td&gt;&lt;td&gt;79.129&lt;sup&gt;***&lt;/sup&gt; (df = 39; 6863)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td colspan="3" style="border-bottom: 1px solid black"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style="text-align:left"&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/td&gt;&lt;td colspan="2" style="text-align:right"&gt;&lt;sup&gt;*&lt;/sup&gt;p&lt;0.1; &lt;sup&gt;**&lt;/sup&gt;p&lt;0.05; &lt;sup&gt;***&lt;/sup&gt;p&lt;0.01&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+---
+# Generalized Additive Models (GAMs)
+
+
+
+
+
+
+.panelset[
+.panel[.panel-name[R&amp;D]
+
+&lt;img src="AJBS-2021_files/figure-html/gamrd-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Patent per R&amp;D yen]
+
+&lt;img src="AJBS-2021_files/figure-html/gampatrd-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Citations per Patent]
+
+&lt;img src="AJBS-2021_files/figure-html/gamcitpat-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[R&amp;D Intensity]
+
+&lt;img src="AJBS-2021_files/figure-html/gamrdint-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+.panel[.panel-name[Process Innovation]
+
+&lt;img src="AJBS-2021_files/figure-html/gamproc-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+
+
+
+
+
+
+
+.panel[.panel-name[Age]
+
+&lt;img src="AJBS-2021_files/figure-html/gamage-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+]
+
+]
+
+---
+
+
+# References
+
+Goto, A. and K. Motohashi (2007). "Construction of a Japanese Patent
+Database and a First Look at Japanese Patenting Activities". En. In:
+_Research Policy_ 36.9, pp. 1431-1442. ISSN: 00487333. DOI:
+[10.1016/j.respol.2007.06.005](https://doi.org/10.1016%2Fj.respol.2007.06.005).
+
+Griliches, Z. (1981). "Market Value, R&amp;D, and Patents". En. In:
+_Economics Letters_ 7.2, pp. 183-187. ISSN: 0165-1765. DOI:
+[10.1016/0165-1765(87)90114-5](https://doi.org/10.1016%2F0165-1765%2887%2990114-5).
+
+Hall, B. H., A. Jaffe, and M. Trajtenberg (2005). "Market Value and
+Patent Citations". In: _RAND Journal of economics_, pp. 16-38. ISSN:
+0741-6261.
+
+Kogut, B. and U. Zander (1992). "Knowledge of the Firm, Combinative
+Capabilities, and the Replication of Technology". In: _Organization
+Science_ 3.3, pp. 383-397. ISSN: 1047-7039. DOI:
+[10.1287/orsc.3.3.383](https://doi.org/10.1287%2Forsc.3.3.383).
+
+---
+
+class: title-slide-final, middle
+background-image: url(assets/img/AJBS.png)
+background-size: 200px
+background-position: 5% 5%
+
+# Thank You for Your attention!
+
+## Questions / Suggestions?
+
+### You can access the presentation &amp; contact me <svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#cc0033;overflow:visible;position:relative;"><path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM212 140v116h-70.9c-10.7 0-16.1 13-8.5 20.5l114.9 114.3c4.7 4.7 12.2 4.7 16.9 0l114.9-114.3c7.6-7.6 2.2-20.5-8.5-20.5H300V140c0-6.6-5.4-12-12-12h-64c-6.6 0-12 5.4-12 12z"/></svg>
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| &lt;a href="mailto:ovsiannikov@kochi-tech.ac.jp"&gt;<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#cc0033;overflow:visible;position:relative;"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/></svg>              | ovsiannikov@kochi-tech.ac.jp       |
+| &lt;a href="http://www.jvcasillas.com/ru_xaringan/slides/index.html"&gt;<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#cc0033;overflow:visible;position:relative;"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg> | jvcasillas.com/ru_xaringan/slides |
+| &lt;a href="http://twitter.com/kovsiann"&gt;<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#cc0033;overflow:visible;position:relative;"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>                          | @kovsiann                        |
+| &lt;a href="http://github.com/ko-suta"&gt;<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#cc0033;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>                         | @ko-suta                       |
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="http://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "191:100"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

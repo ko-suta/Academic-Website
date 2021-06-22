@@ -1,0 +1,848 @@
+---
+title: "Market Valuation of Corporate Technological Assets: <br> The Case of Japan's Institutional Adaptability"
+subtitle: "2021 AJBS Conference"
+author: "Kostiantyn Ovsiannikov, Ph.D."
+date: "Kochi University of Technology </br> `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["rutgers-new.css", "rutgers-fonts"]
+    nature:
+      beforeInit: "http://www.jvcasillas.com/ru_xaringan/js/ru_xaringan.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "191:100"
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(summarytools)
+library(here)
+library(ymlthis)
+library(tidyverse)
+library(fontawesome)
+library(readr)
+library(ggthemes)
+library(ggpubr)
+library(RColorBrewer)
+library(kableExtra)
+library(data.table)
+library(xaringanthemer)
+library(xaringanExtra)
+library(data.table)
+library(RefManageR)
+library(metathis)
+library(plm)
+library(mgcv)
+library(mgcViz)
+library(stargazer)
+library(plotly)
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(collapse = TRUE,
+                      fig.retina = 3)
+
+```
+
+```{css, echo = F}
+.regression table {
+  font-size: 12px;     
+}
+```
+
+```{css echo=FALSE}
+.highlight-last-item > ul > li, 
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
+}
+```
+
+```{r, load_refs, include=FALSE, cache=FALSE}
+
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = "alphabetic",
+           style = "markdown",
+           hyperlink = FALSE,
+           dashed = FALSE)
+myBib <- ReadBib("Innovation.bib", check = FALSE)
+```
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo(
+  width = "220px",
+  height = "256px",
+  position = xaringanExtra::css_position(top = "2em", right = "2em"),
+  image_url = "assets/img/KUT.jpg" # KUT logo in this and all subsequent slides
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+style_duo(primary_color = "#ffffff", secondary_color = "#515151")
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r share-again, echo=FALSE}
+xaringanExtra::use_share_again()
+```
+
+```{r style-share-again, echo=FALSE}
+xaringanExtra::style_share_again(
+  foreground = "white",
+  background = "black",
+  share_buttons = c("twitter", "linkedin", "facebook")
+)
+```
+
+```{r metathis, echo=FALSE}
+
+meta() %>%
+  meta_name("github-repo" = "ko-suta/Academic-Website") %>% 
+  meta_social(
+    title = "The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies.",
+    description = paste(
+      "[Non-] Regular employment & Corporate innovations.",
+      "Presented at 2019 SASE Annual Meeting."
+    ),
+    url = "https://kovsiannikov.com/slides/sase-2019/sase-2019",
+    image = "https://kovsiannikov.com/images/share-card.png",
+    image_alt = "2019 SASE Annual Meeting Presentation",
+    og_type = "website",
+    og_author = "Kostiantyn Ovsiannikov",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@ko_suta"
+  )
+```
+
+
+## Background & problem formulation
+
+--
+
+* **Intrapreneurial** innovation regime in Japan `r anicon::faa("lightbulb", animate="pulse", colour = "blue", speed = "slow")`
+
+
+--
+  + .white.bg-black[industrial coordination] `r fa("handshake", fill = "blue")` sustained by large companies & financial institutions
+  
+  
+--
+  + .white.bg-black[low employment turnover rates] `r fa("arrows-alt-h", fill = "blue")` employees' loyalty
+  
+  
+--
+  + accumulated .white.bg-black[firm-specific knowledge] `r anicon::faa("wrench", animate="wrench", colour = "blue", speed = "slow")`
+ 
+  
+--
+  + .white.bg-black[routinized innovation model] `r fa("arrows-alt-h", fill = "blue")` well-established R&D departments
+  
+<br>
+  
+--
+<ru-blockquote>Organizations are social communities in which individual and social expertise is transformed into economically useful products and services
+.right[— <cite>`r TextCite(myBib, "kogut1992os", .opts = list(cite.style = "authoryear", style = "html"))`</cite>]</ru-blockquote>
+
+<br>
+
+--
+* .white.bg-black[However], during the last 30 years, Japan has witnessed **institutional** `r fa("random", fill = "blue")` , as **market influence** has `r fa("arrow-up", fill = "blue")`
+
+---
+class: highlight-last-item
+
+# Why current research matters
+
+- Japan has the .white.bg-black[3rd-largest] market capitalization for listed companies in the `r fa("globe-asia", fill = "blue")`
+
+--
+
+- both patenting quality and quantity are among the highest in the world
+
+--
+
+- distinct corporate institutional arrangements (.white.bg-black[relational finance] & .white.bg-black[stakeholder governance]) `r fa("arrow-right", fill = "blue")`
+
+--
+
+- **interest**: markets `r fa("exchange-alt", fill = "blue")` institutions
+
+---
+
+# RQ & Hypotheses
+
+.black.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+How does Tokyo Stock Exchange (TSE) evaluate corporate innovations?]
+
+--
+> **Hypothesis 1**
+>
+TSE positively evaluates companies with higher R&D expenditures.
+This represents the .white.bg-black[institutional] aspect of corporate innovations.
+
+--
+
+> **Hypothesis 2**
+>
+TSE positively evaluates companies whose R&D expenditures yield higher patent stocks.
+This represents the .white.bg-black[quantitative-market] aspect of corporate innovative policies.
+
+--
+
+> **Hypothesis 3**
+>
+TSE positively evaluates influential patents judged by the number of citations accruing to them.
+This represents the .white.bg-black[qualitative-market] aspect of innovative policies.
+
+
+---
+# Timing of patent grants
+
+```{r, read-data, include=FALSE}
+data <- read_csv(here("Data", "Timing.csv"), col_names = TRUE)
+```
+
+```{r, time-frames, include=FALSE}
+# Order industries
+data$Industry <- factor(data$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+
+# Filter Years
+data2 <- data %>%
+  filter(Year >= 1971 & Year <= 2014)
+
+data3 <-  data2 %>%
+  mutate(Period = cut(Year, 4, breaks = c(1971, 1980, 1990, 2000, 2014), 
+                     labels = c("1971-1980", "1981-1990", "1991-2000", "2001-2014")))
+
+```
+
+
+```{r, ind.samples, include=FALSE}
+Gen <- data2 %>%
+  group_by(Industry) %>%
+  dplyr::summarize(Value = mean(Mean))
+```
+
+
+```{r, timing-sum, include=FALSE}
+data4 <- as.data.frame(with(data3, tapply(Mean, list(Industry, Period), mean)))
+data4 <- cbind(data4, Gen[,2])
+data4 <- setDT(data4, keep.rownames = TRUE)[]
+colnames(data4)[1] <- "Industry"
+colnames(data4)[6] <- "Combined"
+data4$Industry <- factor(data4$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+
+data4 <- data4 %>% 
+  arrange(Industry) %>%
+  column_to_rownames(., var = "Industry")
+
+#write.csv(data4, file = "Timing-Period.csv")
+```
+
+.panelset[
+
+```{r, ind-coding, include=FALSE}
+data$Industry <- factor(data$Industry, c("Cumulative", "Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision"))
+cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
+```
+
+.panel[.panel-name[Plot]
+
+```{r, grant-timing-plot, echo=FALSE, fig.showtext=TRUE, fig.align="center", fig.width=12, fig.height=6}
+(timing <- data %>%
+  filter(Year >= 1971 & Year <= 2014) %>%
+  ggplot(aes(x = Year, y = Mean, group = Industry, 
+             color = Industry, shape = Industry, linetype = Industry)) + 
+  geom_line(size = 2) +
+  labs(y="Average Number of Years Required",
+       x="Application Year") +
+  scale_colour_manual(values = cols) +
+  scale_shape_manual(values=1:nlevels(data$Industry)) +
+  scale_x_continuous(breaks=seq(1970,2015,5)) +
+  scale_y_continuous(breaks=seq(0, 10, 1)) +
+  geom_hline(yintercept = 6.58, col = "black", size = 1, linetype = "twodash") +
+  theme_hc() +
+  theme(axis.text=element_text(size=22),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = c(0.15, 0.25),
+        legend.justification = c("left"),
+        legend.direction="vertical",
+        legend.box.just = c("left"),
+        legend.margin = margin(6, 6, 6, 6),
+        legend.text=element_text(size=15),
+        legend.box.background = element_rect(color="black", size=2),
+        legend.title=element_text(size=18, face="bold")) +
+  theme_xaringan())
+```
+]
+
+.panel[.panel-name[Table]
+
+```{r, grant-timing-table, echo = FALSE, results = 'asis'}
+data4 %>%
+  DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
+  DT::formatRound(columns=c(1:5), digits=3)
+```
+]
+]
+
+---
+
+# Patents-to-applications ratio
+
+
+```{r include=FALSE}
+data <- read_csv(here("Data", "Patratio-long2.csv"), col_names = TRUE)
+```
+
+```{r, echo = FALSE, include=FALSE}
+# Order industries
+data$Industry <- factor(data$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+
+# Filter Years
+data2 <- data %>%
+  filter(Year >= 1971 & Year <= 2014)
+```
+
+```{r, echo = FALSE, include=FALSE}
+data3 <-  data2 %>%
+  mutate(Period = cut(Year, 4, breaks = c(1971, 1980, 1990, 2000, 2014), 
+                     labels = c("1971-1980", "1981-1990", "1991-2000", "2001-2014")))
+
+```
+
+```{r, include=FALSE}
+data4 <- as.data.frame(with(data3, tapply(Ratio, list(Industry, Period), median)))
+data4 <- cbind(data4, Gen[,2])
+data4 <- setDT(data4, keep.rownames = TRUE)[]
+colnames(data4)[1] <- "Industry"
+colnames(data4)[6] <- "Combined"
+data4$Industry <- factor(data4$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+
+data4 <- data4 %>% 
+  arrange(Industry) %>%
+  column_to_rownames(., var = "Industry")
+
+# write.csv(data4, file = "Patrat-Period.csv")
+```
+
+```{r, include=FALSE}
+data$Industry <- factor(data$Industry, c("Cumulative", "Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision"))
+
+cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
+```
+
+
+.panelset[
+.panel[.panel-name[Plot]
+
+```{r, patrat-plot, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+(patrat <- data %>%
+  filter(Year >= 1971 & Year <= 2014) %>%
+  ggplot(aes(x = Year, y = Ratio, group = Industry, 
+             color = Industry, shape = Industry, linetype = Industry)) + 
+  geom_line(size = 2) +
+  labs(y="Ratio", 
+       x="Application Year") +
+  scale_colour_manual(values = cols) +
+  scale_shape_manual(values=1:nlevels(data$Industry)) +
+  scale_x_continuous(breaks=seq(1970,2015,5)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 5L), 
+                     breaks = seq(0, 2, by = 0.1)) +
+  geom_hline(yintercept = 0.36, col = "black", size = 1, linetype = "twodash") +
+  theme_hc() +
+  theme(axis.text=element_text(size=22),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = c(0.928, 0.52),
+        legend.justification = c("top"),
+        legend.direction="vertical",
+        legend.box.just = "top",
+        legend.margin = margin(6, 6, 6, 6),
+        legend.text=element_text(size=15),
+        legend.box.background = element_rect(color="black", size=2),
+        legend.title=element_text(size=18, face="bold")) +
+  theme_xaringan())
+```
+
+]
+
+.panel[.panel-name[Table]
+
+```{r, echo = FALSE, results = 'asis'}
+data4 %>%
+  DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
+  DT::formatRound(columns=c(1:5), digits=3)
+```
+]
+]
+
+---
+
+#Methodology
+
+--
+
+- Market value of the firm, **V**, can be expressed as follows `r Citep(myBib, "griliches1981el", .opts = list(cite.style = "authoryear", style = "html"))`:
+
+$$V_{it} = \alpha(A_{it} + \beta K_{it})$$
+
+
+> where **A** — firm's tangible assets, **K** — knowledge stock, and $\alpha$ — market valuation of the firm’s assets
+
+
+--
+<br>
+
+- **Tobin's q** = .white.bg-black[market value] **V** / .white.bg-black[book value] **A** `r fa("arrow-right", fill = "blue")`
+
+$$q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}}\biggr) + \varepsilon_{it}$$
+
+--
+
+- Knowledge stock **K**: .white.bg-black[R&D / Tangible Assets], .white.bg-black[Patents per Japanese yen spent on R&D], .white.bg-black[Citations per Patent] `r Citep(myBib, "Hall.2005", .opts = list(cite.style = "authoryear", style = "html"))` `r fa("arrow-right", fill = "blue")`
+
+$$\log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}$$
+---
+
+# Data
+
+.panelset.sideways[
+.panel[.panel-name[Size]
+
+- 684 companies `r fa("times", fill = "blue")` 19 years (1998 — 2016) `r fa("arrow-right", fill = "blue")`
+
+
+- 12,996 observations `r fa("minus", fill = "blue")` outliers `r fa("equals", fill = "blue")` 8,038 observations. 
+]
+
+
+.panel[.panel-name[Sources]
+
+- Nikkei NEEDS Financial Quest 
+
+
+- Institute of Intellectual Property Patent Database (IIP-DB) `r Citep(myBib, "goto2007rp", .opts = list(cite.style = "authoryear", style = "html"))`
+
+]
+
+.panel[.panel-name[Industries]
+
+- Pharmaceutical 
+
+
+- Chemical 
+
+
+- Machinery
+
+
+- Electrical Equipment
+
+]
+
+]
+
+---
+class: regression
+
+# OLS regression
+
+```{r echo = FALSE}
+General <- read.csv(here("Data", "General3.csv"), sep=",", header=TRUE, encoding="UTF-8")
+
+colnames(General)[1] <- "Name"
+General$Industry <- as.factor(General$Industry)
+General$Year <- as.character(General$Year)
+General$Year <- as.factor(General$Year)
+General$PSA <- as.numeric(General$PSA)
+General$CSA <- as.numeric(General$CSA)
+General$RDA <- as.numeric(General$RDA)
+```
+
+
+
+```{r echo = FALSE}
+General$RDA[General$RDA < 0] <- NA
+General$RDA[General$RDA > 1.25] <- NA
+
+General$PSA[General$PSA < 0] <- NA
+General$PSA[General$PSA > .02] <- NA
+
+General$CSA[General$CSA < 0] <- NA
+General$CSA[General$CSA > .7] <- NA
+
+General$Q[General$Q < 0] <- NA
+General$Q[General$Q > 8] <- NA
+
+General$PatRD[General$PatRD > .15] <- NA
+
+General$RDInt[General$RDInt > .25] <- NA
+
+General$ROA[General$ROA < - .25] <- NA
+General$ROA[General$ROA > .25] <- NA
+
+General$Process[General$Process > 8] <- NA
+
+General$Capint[General$Capint > 100] <- NA
+
+General$CitPat[General$CitPat > 13] <- NA
+
+General$Leverage[General$Leverage > 1] <- NA
+
+General$Age[General$Age < 1] <- NA
+
+
+General$InvCSA <- (General$CSA)^.25
+General$InvPSA <- sqrt(General$PSA)
+General$InvQ <- sqrt(General$Q)
+General$InvRDA <- (General$RDA)^.25
+General$InvPatRD <- sqrt(General$PatRD)
+General$InvCitPat <- sqrt(General$CitPat)
+General$InvRDInt <- sqrt(General$RDInt)
+General$InvProcess <- sqrt(General$Process)
+General$InvCapint <- sqrt(General$Capint)
+General$InvInter <- sqrt(General$Inter)
+```
+
+
+```{r echo = FALSE}
+fix.new.1.sqrt <- plm(InvQ ~ Year + Industry + InvRDA +
+                   InvPatRD + InvCitPat + InvRDInt + InvProcess + 
+                   Leverage + ROA + InvCapint + Age, 
+            data = General, index = c("Name", "Year"), model="pooling")
+
+fix.new.2.sqrt <- plm(InvQ ~ Year + Industry*InvRDA +
+                   InvPatRD*Industry + InvCitPat*Industry +
+                   InvRDInt + InvProcess + Leverage + ROA + InvCapint + Age, 
+            data = General, index = c("Name", "Year"), model="pooling")
+```
+
+
+
+
+```{r reg1, echo=FALSE, results = "asis"}
+stargazer(fix.new.1.sqrt, fix.new.2.sqrt, header=FALSE, type='html',
+          omit = "Year",
+          omit.labels = "Yearly dummies",
+          order=c(1,20:23,32:34, 24, 35:37, 25, 38:40, 26:31),
+          dep.var.labels = c("Tobin's q"),
+          covariate.labels = c("Intercept", "D (Electric)",
+                               "D (Machinery)", "D (Pharm)",
+                               "R&D/Assets", "|  Electric", "|  Machinery", "|  Pharm", 
+                               "Patents/R&D", "|  Electric", "|  Machinery", "|  Pharm" ,
+                               "Citations/Patents", "|  Electric", "|  Machinery", "|  Pharm", 
+                               "R&D Intensity", 
+                               "Process Innovation", 
+                               "Leverage", "ROA",
+                               "Capital Intensity",
+                               "Age"),
+          model.numbers = FALSE,
+          intercept.top = TRUE,
+          intercept.bottom = FALSE,
+          single.row = TRUE)
+```
+
+---
+# Generalized Additive Models (GAMs)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+General2 <- General[,-c(3,4,15)]
+General2 <- General2[complete.cases(General2), ]
+General2$Q <- as.numeric(General2$Q)
+General2$ROA <- as.numeric(General2$ROA)
+
+gam.new <- mgcv::gam(InvQ ~ Year + Industry + s(InvRDA, by = Industry) +
+                       s(InvPatRD, by = Industry) + 
+                       s(InvCitPat, by = Industry) + 
+                       s(InvRDInt) + s(sqrt(InvProcess)) + s(Leverage) +
+                       s(ROA) + s(InvCapint) + s(Age),
+                       data=General, select = TRUE)
+
+
+gam.new.1 <- mgcv::gam(InvQ ~ Year + Industry + s(InvRDA) +
+                   s(InvPatRD) + s(InvCitPat) + s(InvRDInt) + s(InvProcess) + 
+                   s(Leverage) + s(ROA) + s(InvCapint) + s(Age), 
+                   data = General, select = TRUE)
+```
+
+
+```{r echo=FALSE, results='hide'}
+type <- "deviance"  ## "pearson" & "response" are other valid choices
+resid <- residuals(gam.new, type = type)
+linpred <- napredict(gam.new$na.action, gam.new$linear.predictors)
+observed.y <- napredict(gam.new$na.action, gam.new$y)
+
+gam.captions <- c('', '', '', '')
+
+b <- getViz(gam.new.1)
+b2 <- getViz(gam.new)
+
+diagnostic <- cbind.data.frame(resid, linpred, fitted(gam.new), observed.y)
+colnames(diagnostic)[3] <- "fitted"
+```
+
+.panelset[
+.panel[.panel-name[R&D]
+
+```{r gamrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(1)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "R&D Stock", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+.panel[.panel-name[Patent per R&D yen]
+
+```{r gampatrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(2)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Patent per R&D yen", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+.panel[.panel-name[Citations per Patent]
+
+```{r gamcitpat, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(3)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Citations per Patent", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+.panel[.panel-name[R&D Intensity]
+
+```{r gamrdint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(4)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "R&D Intensity", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+.panel[.panel-name[Process Innovation]
+
+```{r gamproc, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(5)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Process Innovation", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+
+```{r gamlever, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+
+plot(b, select = c(6)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Leverage", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+
+```{r gamroa, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+
+plot(b, select = c(7)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "ROA", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+
+```{r gamcapint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+
+plot(b, select = c(8)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Capital Intensity", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+.panel[.panel-name[Age]
+
+```{r gamage, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+
+plot(b, select = c(9)) + 
+  l_rug(alpha = 0.2) +
+  l_fitLine(linetype = 3, size = 2) + 
+  l_fitContour() +
+  l_ciLine(colour = "red", size = 2) +
+  labs(x = "Age", y = "Tobin's q") +
+  theme_hc() +
+  theme(axis.text=element_text(size=18),
+        axis.text.x = element_text(vjust = 0.5, color = 'black'),
+        axis.text.y = element_text(color = 'black'),
+        axis.title.y = element_text(margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.title=element_text(size=24,face="bold"),
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size=25,face="bold"),
+        legend.position = "none")
+```
+
+]
+
+]
+
+---
+
+
+# References
+
+```{r refs, echo=FALSE, results="asis"}
+PrintBibliography(myBib)
+```
+
+---
+
+class: title-slide-final, middle
+background-image: url(assets/img/AJBS.png)
+background-size: 200px
+background-position: 5% 5%
+
+# Thank You for Your attention!
+
+## Questions / Suggestions?
+
+### You can access the presentation & contact me `r fa("arrow-alt-circle-down", fill = "#cc0033")`
+
+|                                                                                                            |                                   |
+| :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
+| <a href="mailto:ovsiannikov@kochi-tech.ac.jp">`r fa("paper-plane", fill = "#cc0033")`              | ovsiannikov@kochi-tech.ac.jp       |
+| <a href="http://www.jvcasillas.com/ru_xaringan/slides/index.html">`r fa("link", fill = "#cc0033")` | jvcasillas.com/ru_xaringan/slides |
+| <a href="http://twitter.com/kovsiann">`r fa("twitter", fill = "#cc0033")`                          | @kovsiann                        |
+| <a href="http://github.com/ko-suta">`r fa("github", fill = "#cc0033")`                         | @ko-suta                       |
+
