@@ -24,7 +24,7 @@ publishDate: "2021-06-22T00:00:00Z"
 slides: []
 summary: Presentation made at the 2021 AJBS Conference.
 tags: []
-title: Market Valuation of Corporate Technological Assets: <br> The Case of Japan's Institutional Adaptability
+title: Market Valuation of Corporate Technological Assets: The Case of Japan's Institutional Adaptability
 url_code: ""
 url_pdf: ""
 url_slides: "slides/AJBS-2021/AJBS-2021.html"
