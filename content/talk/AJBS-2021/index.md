@@ -1,19 +1,19 @@
 ---
-abstract: This presentation concentrates the role of labor flexibility in the pursuit of innovation strategies. The resource-based view (RBV) of the firm has both recognized the importance of flexible employment and of the internally-trained labor with regular contracts. While the former cohort is more likely to be downsized during economic crises, the latter contributes to firm’s long-term competitive advantage via the acquisition of nontransferable skills. This research aims to answer the question about the role of HR practices in corporate innovation.  Specifically, the issue in focus is numerical labor flexibility that “reflects the ability of firms to use the external labor market to replace regular employees and/or to use temporary employees” (Kato & Zhou, 2018).
+abstract: This presentation examines the market valuation of corporate technological assets in Japan. It contributes to the debate about the perceived legacy of institutions as profit-related pressures accumulate. Having analyzed the panel data-set consisting of 684 companies, each spanning over 19 years (from 1998 till 2016), this paper has found out that Japan's "routinized" model is compatible with the marketability of its corporate innovations. Against the dominant role of research and development (R&D), especially for the drugs and chemicals, Tokyo Stock Exchange consistently rewards highly-cited patents filed by machinery and electric equipment companies. At the same time, with the exception of chemicals, higher R&D productivity measured as "patents per one yen spent on R&D" is not appreciated by investors. This suggests that higher patenting propensity alone is not a credible enough signal of corporate innovativeness. Another noteworthy finding is the U-shape relationship existing between firm's age and Tobin's q. This and other significant nonlinear patterns existing between explanatory and response variables are identified via the application of the Generalized Additive Models (GAMs) that helped to fine-tune the initial linear predictions.
 
 address:
-  city: New York City
-  country: United States
+  city: virtual
+  country: 33rd Annual Conference
 
 all_day: true
 authors: []
-date: "2019-06-27T13:00:00Z"
-date_end: "2019-06-29T15:00:00Z"
+date: "2021-06-24T13:00:00Z"
+date_end: "2021-06-25T15:00:00Z"
 event: 2021 AJBS Conference
 event_url: https://ajbs.org/conference/2021-virtual-conference-program/
 featured: false
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption:
   focal_point: Right
 
 location: online
