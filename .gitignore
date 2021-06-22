@@ -5,6 +5,7 @@
 Thumbs.db
 /node_modules
 /public
+/resources
 /.yarn
 .yarnrc.yml
 yarn.lock
