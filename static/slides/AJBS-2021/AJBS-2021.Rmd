@@ -71,7 +71,7 @@ BibOptions(check.entries = FALSE,
            style = "markdown",
            hyperlink = FALSE,
            dashed = FALSE)
-myBib <- ReadBib("Innovation.bib", check = FALSE)
+myBib <- ReadBib(here("static", "slides", "AJBS-2021", "Innovation.bib"), check = FALSE)
 ```
 
 ```{r xaringan-logo, echo=FALSE}
@@ -138,7 +138,8 @@ metathis::include_meta(
 ```
 
 
-## Background & problem formulation
+
+# Background & problem formulation
 
 --
 
@@ -171,6 +172,16 @@ metathis::include_meta(
 --
 * .white.bg-black[However], during the last 30 years, Japan has witnessed **institutional** `r fa("random", fill = "blue")` , as **market influence** has `r fa("arrow-up", fill = "blue")`
 
+???
+
+* legislation promoting market competition has been toughened -- 2005 amendment of Japan's Anti-Monopoly Act
+
+* entry barriers lowered for pharmaceuticals during the late-1990s, which paved a path to a more intensive industrial competition
+
+* similar processes have been observed in Japan's electric sector since mid-1990s, leading to a higher R&D efficiency as well as more intensive patenting
+
+* these developments invited further attention to changing market perceptions of corporate innovations amid the ongoing balance shift from the institutional towards a more market-based industrial model
+
 ---
 class: highlight-last-item
 
@@ -180,7 +191,7 @@ class: highlight-last-item
 
 --
 
-- both patenting quality and quantity are among the highest in the world
+- both patenting quality and quantity are among the highest in the `r fa("globe-asia", fill = "blue")`
 
 --
 
@@ -189,6 +200,10 @@ class: highlight-last-item
 --
 
 - **interest**: markets `r fa("exchange-alt", fill = "blue")` institutions
+
+???
+
+* presents a rich material for scholars focusing on interaction between markets and institutions
 
 ---
 
@@ -217,8 +232,48 @@ This represents the .white.bg-black[quantitative-market] aspect of corporate inn
 TSE positively evaluates influential patents judged by the number of citations accruing to them.
 This represents the .white.bg-black[qualitative-market] aspect of innovative policies.
 
+---
+
+# Data
+
+.panelset.sideways[
+.panel[.panel-name[Size]
+
+- 684 companies `r fa("times", fill = "blue")` 19 years (1998 — 2016) `r fa("arrow-right", fill = "blue")`
+
+
+- 12,996 observations `r fa("minus", fill = "blue")` outliers `r fa("equals", fill = "blue")` 8,038 observations. 
+]
+
+
+.panel[.panel-name[Sources]
+
+- Nikkei NEEDS Financial Quest 
+
+
+- Institute of Intellectual Property Patent Database (IIP-DB) `r Citep(myBib, "goto2007rp", .opts = list(cite.style = "authoryear", style = "html"))`
+
+]
+
+.panel[.panel-name[Industries]
+
+- Pharmaceutical 
+
+
+- Chemical 
+
+
+- Machinery
+
+
+- Electrical Equipment
+
+]
+
+]
 
 ---
+
 # Timing of patent grants
 
 ```{r, read-data, include=FALSE}
@@ -302,6 +357,7 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
         legend.title=element_text(size=18, face="bold")) +
   theme_xaringan())
 ```
+
 ]
 
 .panel[.panel-name[Table]
@@ -309,10 +365,35 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 ```{r, grant-timing-table, echo = FALSE, results = 'asis'}
 data4 %>%
   DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
-  DT::formatRound(columns=c(1:5), digits=3)
+  DT::formatRound(columns=c(1:5), digits=2)
 ```
+
 ]
 ]
+
+
+???
+
+# Plot
+
+1. In 1994, the pre-grant opposition system was replaced for the post-grant one, thereby eliminating potential procedural delays.
+
+2. In 1998, the punishments for the copy-rights infringements were severed.
+Due to this, patentees had more solid reasons to seek for the legal protection of their inventions.
+
+3. In 1999, the period for the compulsory request for patent examination was decreased from 7 to 3 years from the date of application.
+Thereby, many applicants were prompted to speed up the registration of their inventions.
+
+
+# Table
+
+* Application-filing process is especially time-consuming for the **Pharmaceutical** industry, where the average period for granting a patent is 7.1 years -- well above the cumulative mean of 6.45 years.
+
+* Although an average time for receiving a patent within the **Chemical** industry throughout 1971-2014 was roughly the same as within the Electronics, starting from 1990s Chemical-related applications have required more approval time than the Electric-related ones.
+
+* Hence, especially for the period analyzed in this article, most challenging conditions for licensing appear to be in the **Chemical** and the related **Pharmaceutical** industries. 
+This goes hand in hand with the importance of patenting activities for these sectors both in Japan and internationally.
+
 
 ---
 
@@ -320,34 +401,41 @@ data4 %>%
 
 
 ```{r include=FALSE}
-data <- read_csv(here("static", "slides", "AJBS-2021", "Data", "Patratio-long2.csv"), col_names = TRUE)
+datapar <- read_csv(here("static", "slides", "AJBS-2021", "Data", "Patratio-long2.csv"), col_names = TRUE)
 ```
 
 ```{r, echo = FALSE, include=FALSE}
 # Order industries
-data$Industry <- factor(data$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+datapar$Industry <- factor(datapar$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
 
 # Filter Years
-data2 <- data %>%
+datapar2 <- datapar %>%
   filter(Year >= 1971 & Year <= 2014)
 ```
 
 ```{r, echo = FALSE, include=FALSE}
-data3 <-  data2 %>%
+datapar3 <-  datapar2 %>%
   mutate(Period = cut(Year, 4, breaks = c(1971, 1980, 1990, 2000, 2014), 
                      labels = c("1971-1980", "1981-1990", "1991-2000", "2001-2014")))
 
 ```
 
-```{r, include=FALSE}
-data4 <- as.data.frame(with(data3, tapply(Ratio, list(Industry, Period), median)))
-data4 <- cbind(data4, Gen[,2])
-data4 <- setDT(data4, keep.rownames = TRUE)[]
-colnames(data4)[1] <- "Industry"
-colnames(data4)[6] <- "Combined"
-data4$Industry <- factor(data4$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
 
-data4 <- data4 %>% 
+```{r, ind.samples2, include=FALSE}
+Genpar <- datapar2 %>%
+  group_by(Industry) %>%
+  dplyr::summarize(Value = median(Ratio))
+```
+
+```{r, include=FALSE}
+datapar4 <- as.data.frame(with(datapar3, tapply(Ratio, list(Industry, Period), median)))
+datapar4 <- cbind(datapar4, Genpar[,2])
+datapar4 <- setDT(datapar4, keep.rownames = TRUE)[]
+colnames(datapar4)[1] <- "Industry"
+colnames(datapar4)[6] <- "Combined"
+datapar4$Industry <- factor(datapar4$Industry, c("Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision", "Cumulative"))
+
+datapar4 <- datapar4 %>% 
   arrange(Industry) %>%
   column_to_rownames(., var = "Industry")
 
@@ -355,7 +443,7 @@ data4 <- data4 %>%
 ```
 
 ```{r, include=FALSE}
-data$Industry <- factor(data$Industry, c("Cumulative", "Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision"))
+datapar$Industry <- factor(datapar$Industry, c("Cumulative", "Chemical", "Electronics", "Machinery", "Motor", "Pharm", "Precision"))
 
 cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 ```
@@ -365,7 +453,7 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 .panel[.panel-name[Plot]
 
 ```{r, patrat-plot, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
-(patrat <- data %>%
+(patrat <- datapar %>%
   filter(Year >= 1971 & Year <= 2014) %>%
   ggplot(aes(x = Year, y = Ratio, group = Industry, 
              color = Industry, shape = Industry, linetype = Industry)) + 
@@ -402,12 +490,30 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 .panel[.panel-name[Table]
 
 ```{r, echo = FALSE, results = 'asis'}
-data4 %>%
+datapar4 %>%
   DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
-  DT::formatRound(columns=c(1:5), digits=3)
+  DT::formatRound(columns=c(1:5), digits=2)
 ```
 ]
 ]
+
+
+???
+
+# Plot
+
+* Median granting success rate of patents filed with the Japan Patent Office (JPO) from 1971 to 2014 was 37 percent. 
+Very similar to the 35 percent in Germany and is considerably lower compared to countries such as France (90 percent) and the U.K. (80 percent) [griliches1998, p. 289]. 
+
+* Although the granting rate has been on a sharp rise in Japan since early 2000s, it is still indicative of a stringent control mechanism that the local application process entails.
+
+
+# Table
+
+* comparatively high industrial success rates for **Pharmaceuticals** (50 percent) and **Chemicals** (48 percent) are a cause of patents being particularly important for realizing the gains from intangible assets.
+
+* "In the **pharmaceutical** industry, patents are perceived as a relatively effective tool of appropriating rents from technological innovations as compared to other types of mechanism such as trade secret, increasing complexity of product design and faster market introduction" [Motohashi.2008, p. 1548].
+
 
 ---
 
@@ -435,45 +541,6 @@ $$q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}
 - Knowledge stock **K**: .white.bg-black[R&D / Tangible Assets], .white.bg-black[Patents per Japanese yen spent on R&D], .white.bg-black[Citations per Patent] `r Citep(myBib, "Hall.2005", .opts = list(cite.style = "authoryear", style = "html"))` `r fa("arrow-right", fill = "blue")`
 
 $$\log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}$$
----
-
-# Data
-
-.panelset.sideways[
-.panel[.panel-name[Size]
-
-- 684 companies `r fa("times", fill = "blue")` 19 years (1998 — 2016) `r fa("arrow-right", fill = "blue")`
-
-
-- 12,996 observations `r fa("minus", fill = "blue")` outliers `r fa("equals", fill = "blue")` 8,038 observations. 
-]
-
-
-.panel[.panel-name[Sources]
-
-- Nikkei NEEDS Financial Quest 
-
-
-- Institute of Intellectual Property Patent Database (IIP-DB) `r Citep(myBib, "goto2007rp", .opts = list(cite.style = "authoryear", style = "html"))`
-
-]
-
-.panel[.panel-name[Industries]
-
-- Pharmaceutical 
-
-
-- Chemical 
-
-
-- Machinery
-
-
-- Electrical Equipment
-
-]
-
-]
 
 ---
 class: regression
