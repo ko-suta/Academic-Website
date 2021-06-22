@@ -10,7 +10,7 @@ authors: []
 date: "2019-06-27T13:00:00Z"
 date_end: "2019-06-29T15:00:00Z"
 event: 2019 SASE Annual Meeting
-event_url: https://ajbs.org/conference/2021-virtual-conference-program/ 
+event_url: https://sase.org/event/2019-new-york-city/
 featured: false
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
@@ -22,12 +22,12 @@ projects:
 - market-innovation
 publishDate: "2020-01-01T00:00:00Z"
 slides: []
-summary: Presentation made at the 2021 AJBS Conference.
+summary: Presentation made at the SASE Annual Meeting "Fathomless Futures. Algorithmic and Imagined".
 tags: []
-title: Market Valuation of Corporate Technological Assets: The Case of Japan's Institutional Adaptability
+title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
 url_code: ""
 url_pdf: ""
-url_slides: "slides/AJBS-2021/AJBS-2021.html"
+url_slides: "slides/SASE-2019/SASE-2019.html"
 url_video: ""
 ---
 
