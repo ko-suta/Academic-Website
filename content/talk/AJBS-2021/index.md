@@ -22,12 +22,12 @@ projects:
 - market-innovation
 publishDate: "2020-01-01T00:00:00Z"
 slides: []
-summary: Presentation made at the SASE Annual Meeting "Fathomless Futures. Algorithmic and Imagined".
+summary: Presentation made at the 2021 AJBS Conference.
 tags: []
-title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
+title: Market Valuation of Corporate Technological Assets: The Case of Japan's Institutional Adaptability
 url_code: ""
 url_pdf: ""
-url_slides: "slides/SASE-2019/SASE-2019.html"
+url_slides: "slides/AJBS-2021/AJBS-2021.html"
 url_video: ""
 ---
 
