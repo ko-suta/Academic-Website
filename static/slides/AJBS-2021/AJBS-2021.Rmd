@@ -842,7 +842,7 @@ background-position: 5% 5%
 |                                                                                                            |                                   |
 | :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
 | <a href="mailto:ovsiannikov@kochi-tech.ac.jp">`r fa("paper-plane", fill = "#cc0033")`              | ovsiannikov@kochi-tech.ac.jp       |
-| <a href="http://www.jvcasillas.com/ru_xaringan/slides/index.html">`r fa("link", fill = "#cc0033")` | jvcasillas.com/ru_xaringan/slides |
+| <a href="https://kovsiannikov.com/slides/ajbs-2021/ajbs-2021">`r fa("link", fill = "#cc0033")` | kovsiannikov.com/slides/ajbs-2021/ajbs-2021 |
 | <a href="http://twitter.com/kovsiann">`r fa("twitter", fill = "#cc0033")`                          | @kovsiann                        |
 | <a href="http://github.com/ko-suta">`r fa("github", fill = "#cc0033")`                         | @ko-suta                       |
 

@@ -16,13 +16,13 @@ image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
   focal_point: Right
 
-location: The New School
+location: online
 math: true
 projects:
 - market-innovation
-publishDate: "2020-01-01T00:00:00Z"
+publishDate: "2021-06-22T00:00:00Z"
 slides: []
-summary: Presentation made at the SASE Annual Meeting "Fathomless Futures. Algorithmic and Imagined".
+summary: Presentation made at 2021 AJBS Conference.
 tags: []
 title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
 url_code: ""
