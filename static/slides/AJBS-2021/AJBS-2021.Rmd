@@ -84,6 +84,10 @@ xaringanExtra::use_logo(
 )
 ```
 
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 style_duo(primary_color = "#ffffff", secondary_color = "#515151")
 ```
