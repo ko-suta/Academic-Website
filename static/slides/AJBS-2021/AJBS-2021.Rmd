@@ -957,15 +957,25 @@ plot(b, select = c(9)) +
 
 --
 
-* institutional features associated with .white.bg-black[R&D spending] provide valuable signals for investors across multiple industries 
+> 
+**1.** Institutional features associated with .white.bg-black[R&D spending] provide valuable signals for investors across multiple industries.
+>
+
+<br>
 
 --
 
-* quality of a patented output .white.bg-black[(Citations per Patent)] mostly matters for the manufacturing sector
+> 
+**2.** Quality of a patented output .white.bg-black[(Citations per Patent)] mostly matters for the manufacturing sector.
+>
+
+<br>
 
 --
 
-* pronounced nonlinear trend in the market perception of .white.bg-black[corporate age]: only the more experienced companies receive market premium as they get older
+> 
+**3.** Pronounced nonlinear trend in the market perception of .white.bg-black[corporate age]: only the more experienced companies receive market premium as they get older
+>
 
 
 ---
