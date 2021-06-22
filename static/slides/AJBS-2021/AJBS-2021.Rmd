@@ -158,7 +158,7 @@ metathis::include_meta(
 
 .pull-left-narrow[
 .center[## `r fa("people-carry", fill = "green")`]]
-.pull-right-wide[## .white.bg-black[industrial coordination] `r fa("handshake", fill = "blue")` large companies & financial institutions]
+.pull-right-wide[## large companies `r fa("handshake", fill = "blue")` financial institutions]
 
 --
 
