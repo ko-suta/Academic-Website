@@ -9,8 +9,8 @@ all_day: true
 authors: []
 date: "2019-06-27T13:00:00Z"
 date_end: "2019-06-29T15:00:00Z"
-event: 2019 SASE Annual Meeting
-event_url: https://sase.org/event/2019-new-york-city/
+event: 2021 AJBS Conference
+event_url: https://ajbs.org/conference/2021-virtual-conference-program/
 featured: false
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
@@ -24,7 +24,7 @@ publishDate: "2021-06-22T00:00:00Z"
 slides: []
 summary: Presentation made at 2021 AJBS Conference.
 tags: []
-title: The Role of Labor Flexibility in the Pursuit of Innovation Strategies by Established Japanese Companies
+title: Market Valuation of Corporate Technological Assets. The Case of Japan's Institutional Adaptability
 url_code: ""
 url_pdf: ""
 url_slides: "slides/AJBS-2021/AJBS-2021.html"
