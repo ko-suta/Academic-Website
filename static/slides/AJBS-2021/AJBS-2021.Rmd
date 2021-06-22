@@ -13,7 +13,8 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-      ratio: "191:100"
+      ratio: 16:9
+      #ratio: "191:100"
 ---
 
 ```{r setup, include=FALSE}
@@ -39,6 +40,7 @@ library(mgcv)
 library(mgcViz)
 library(stargazer)
 library(plotly)
+library(htmlwidgets)
 
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(collapse = TRUE,
@@ -51,6 +53,19 @@ knitr::opts_chunk$set(collapse = TRUE,
   font-size: 12px;     
 }
 ```
+
+```{css, echo = F}
+.pull-left-narrow {
+  float: left;
+  width: 20%;
+}
+
+.pull-right-wide {
+  float: right;
+  width: 75%;
+}
+```
+
 
 ```{css echo=FALSE}
 .highlight-last-item > ul > li, 
@@ -127,7 +142,7 @@ metathis::include_meta(
       "Presented at 2021 AJBS Conference."
     ),
     url = "https://kovsiannikov.com/slides/ajbs-2021/ajbs-2021",
-    image = "https://kovsiannikov.com/images/Techo-screen.png",
+    image = "https://kovsiannikov.com/images/Techno-screen.png",
     image_alt = "2021 AJBS Conference Presentation",
     og_type = "website",
     og_author = "Kostiantyn Ovsiannikov",
@@ -137,50 +152,31 @@ metathis::include_meta(
 )
 ```
 
-
-
-# Background & problem formulation
+# Background: Japan's intrapreneurial regime
 
 --
 
-* **Intrapreneurial** innovation regime in Japan `r anicon::faa("lightbulb", animate="pulse", colour = "blue", speed = "slow")`
-
-
---
-  + .white.bg-black[industrial coordination] `r fa("handshake", fill = "blue")` sustained by large companies & financial institutions
-  
-  
---
-  + .white.bg-black[low employment turnover rates] `r fa("arrows-alt-h", fill = "blue")` employees' loyalty
-  
-  
---
-  + accumulated .white.bg-black[firm-specific knowledge] `r anicon::faa("wrench", animate="wrench", colour = "blue", speed = "slow")`
- 
-  
---
-  + .white.bg-black[routinized innovation model] `r fa("arrows-alt-h", fill = "blue")` well-established R&D departments
-  
-<br>
-  
---
-<ru-blockquote>Organizations are social communities in which individual and social expertise is transformed into economically useful products and services
-.right[— <cite>`r TextCite(myBib, "kogut1992os", .opts = list(cite.style = "authoryear", style = "html"))`</cite>]</ru-blockquote>
-
-<br>
+.pull-left-narrow[
+.center[## `r fa("people-carry", fill = "green")`]]
+.pull-right-wide[## .white.bg-black[industrial coordination] `r fa("handshake", fill = "blue")` large companies & financial institutions]
 
 --
-* .white.bg-black[However], during the last 30 years, Japan has witnessed **institutional** `r fa("random", fill = "blue")` , as **market influence** has `r fa("arrow-up", fill = "blue")`
 
-???
+.pull-left-narrow[
+.center[## `r fa("parachute-box", fill = "green")`]]
+.pull-right-wide[## .white.bg-black[low employment turnover rates] `r fa("arrows-alt-h", fill = "blue")` employees' loyalty]
 
-* legislation promoting market competition has been toughened -- 2005 amendment of Japan's Anti-Monopoly Act
+--
 
-* entry barriers lowered for pharmaceuticals during the late-1990s, which paved a path to a more intensive industrial competition
+.pull-left-narrow[
+.center[## `r fa("user-ninja", fill = "green")`]]
+.pull-right-wide[## accumulated .white.bg-black[firm-specific knowledge] `r anicon::faa("wrench", animate="wrench", colour = "blue", speed = "slow")`]
 
-* similar processes have been observed in Japan's electric sector since mid-1990s, leading to a higher R&D efficiency as well as more intensive patenting
+--
 
-* these developments invited further attention to changing market perceptions of corporate innovations amid the ongoing balance shift from the institutional towards a more market-based industrial model
+.pull-left-narrow[
+.center[## `r fa("user-astronaut", fill = "green")`]]
+.pull-right-wide[## `r anicon::faa("lightbulb", animate="pulse", colour = "blue", speed = "slow")` .white.bg-black[routinized innovation model] `r fa("arrows-alt-h", fill = "blue")` well-established R&D departments]
 
 ---
 class: highlight-last-item
@@ -199,11 +195,24 @@ class: highlight-last-item
 
 --
 
-- **interest**: markets `r fa("exchange-alt", fill = "blue")` institutions
+- .white.bg-black[However], during the last 30 years, Japan has witnessed **institutional** `r fa("random", fill = "blue")` , as **market influence** has `r fa("arrow-up", fill = "blue")`
+
+--
+
+<br>
+
+<ru-blockquote>Organizations are social communities in which individual and social expertise is transformed into economically useful products and services
+.right[— <cite>`r TextCite(myBib, "kogut1992os", .opts = list(cite.style = "authoryear", style = "html"))`</cite>]</ru-blockquote>
 
 ???
 
-* presents a rich material for scholars focusing on interaction between markets and institutions
+* legislation promoting market competition has been toughened -- 2005 amendment of Japan's Anti-Monopoly Act
+
+* entry barriers lowered for pharmaceuticals during the late-1990s, which paved a path to a more intensive industrial competition
+
+* similar processes have been observed in Japan's electric sector since mid-1990s, leading to a higher R&D efficiency as well as more intensive patenting
+
+* these developments invited further attention to changing market perceptions of corporate innovations amid the ongoing balance shift from the institutional towards a more market-based industrial model
 
 ---
 
@@ -248,25 +257,26 @@ This represents the .white.bg-black[qualitative-market] aspect of innovative pol
 
 .panel[.panel-name[Sources]
 
-- Nikkei NEEDS Financial Quest 
+- .white.bg-black[Nikkei NEEDS Financial Quest] 
 
 
-- Institute of Intellectual Property Patent Database (IIP-DB) `r Citep(myBib, "goto2007rp", .opts = list(cite.style = "authoryear", style = "html"))`
+- .white.bg-black[Institute of Intellectual Property Patent Database] (IIP-DB) `r Citep(myBib, "goto2007rp", .opts = list(cite.style = "authoryear", style = "html"))`
 
 ]
 
 .panel[.panel-name[Industries]
 
-- Pharmaceutical 
+
+## `r fa("capsules", fill = "green")` &nbsp;&nbsp;&nbsp; Pharmaceutical
 
 
-- Chemical 
+## `r fa("bong", fill = "green")` &nbsp;&nbsp;&nbsp;&nbsp; Chemical
 
 
-- Machinery
+## `r fa("fighter-jet", fill = "green")` &nbsp;&nbsp; Machinery
 
 
-- Electrical Equipment
+## `r fa("charging-station", fill = "green")` &nbsp;&nbsp;&nbsp; Electrical Equipment
 
 ]
 
@@ -366,7 +376,12 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 
 ```{r, grant-timing-table, echo = FALSE, results = 'asis'}
 data4 %>%
-  DT::datatable(fillContainer = FALSE, width = '80%', options = list(pageLength = 9)) %>%
+  DT::datatable(fillContainer = FALSE, width = '80%', 
+                options = list(pageLength = 9,
+                               initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}"))) %>%
   DT::formatRound(columns=c(1:5), digits=2)
 ```
 </div>
@@ -495,7 +510,12 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 
 ```{r, echo = FALSE, results = 'asis'}
 datapar4 %>%
-  DT::datatable(fillContainer = FALSE, width = '80%', options = list(pageLength = 9)) %>%
+  DT::datatable(fillContainer = FALSE, width = '80%', 
+                options = list(pageLength = 9,
+                               initComplete = JS(
+    "function(settings, json) {",
+    "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+    "}"))) %>%
   DT::formatRound(columns=c(1:5), digits=2)
 ```
 </div>
@@ -546,6 +566,10 @@ $$q_t = \frac {V_{it}} {A_{it}} = \alpha \biggl(1 + \beta \frac {K_{it}} {A_{it}
 - Knowledge stock **K**: .white.bg-black[R&D / Tangible Assets], .white.bg-black[Patents per Japanese yen spent on R&D], .white.bg-black[Citations per Patent] `r Citep(myBib, "Hall.2005", .opts = list(cite.style = "authoryear", style = "html"))` `r fa("arrow-right", fill = "blue")`
 
 $$\log q_{it} = \log \alpha_t + \log \biggl(1 + \beta_1 \frac {R\&D_{it}} {A_{it}} + \beta_2 \frac {Pat_{it}} {R\&D_{it}} + \beta_3 \frac {Cites_{it}} {Pat_{it}}\biggr) + \varepsilon_{it}$$
+???
+
+To sum up, **Tobins's Q** can be expressed as the sum of knowledge stocks weighted by tangible assets.
+
 
 ---
 class: regression
@@ -647,6 +671,27 @@ stargazer(fix.new.1.sqrt, fix.new.2.sqrt, header=FALSE, type='html',
           single.row = TRUE)
 ```
 
+
+???
+
+# R&D stock
+
+* Belonging to **Pharmaceuticals** per se implies a premium in terms of market valuation of corporate knowledge assets. 
+
+* **Drugs** are notable for the marketability of their R&D expenditures (R&D stock weighted by Assets).
+
+* The same holds true about the positive assessment of R&D stocks for **Chemicals** and **Machinery**.
+
+# Patents per Japanese Yes spent on R&D
+
+* Only **Chemicals** stand out for its R&D spending that translates into more inventions valued by market. 
+
+
+# Citations per Patent
+
+* **Electrical Equipment** and **Machinery**: peculiar for receiving market premium for more influential patents.
+
+
 ---
 # Generalized Additive Models (GAMs)
 
@@ -689,7 +734,7 @@ colnames(diagnostic)[3] <- "fitted"
 .panelset[
 .panel[.panel-name[R&D]
 
-```{r gamrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gamrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(1)) + 
   l_rug(alpha = 0.2) +
@@ -713,7 +758,7 @@ plot(b, select = c(1)) +
 
 .panel[.panel-name[Patent per R&D yen]
 
-```{r gampatrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gampatrd, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(2)) + 
   l_rug(alpha = 0.2) +
@@ -737,7 +782,7 @@ plot(b, select = c(2)) +
 
 .panel[.panel-name[Citations per Patent]
 
-```{r gamcitpat, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gamcitpat, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(3)) + 
   l_rug(alpha = 0.2) +
@@ -761,7 +806,7 @@ plot(b, select = c(3)) +
 
 .panel[.panel-name[R&D Intensity]
 
-```{r gamrdint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gamrdint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(4)) + 
   l_rug(alpha = 0.2) +
@@ -785,7 +830,7 @@ plot(b, select = c(4)) +
 
 .panel[.panel-name[Process Innovation]
 
-```{r gamproc, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gamproc, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(5)) + 
   l_rug(alpha = 0.2) +
@@ -808,7 +853,7 @@ plot(b, select = c(5)) +
 ]
 
 
-```{r gamlever, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+```{r gamlever, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6, include=FALSE}
 
 plot(b, select = c(6)) + 
   l_rug(alpha = 0.2) +
@@ -829,7 +874,7 @@ plot(b, select = c(6)) +
 ```
 
 
-```{r gamroa, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+```{r gamroa, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6, include=FALSE}
 
 plot(b, select = c(7)) + 
   l_rug(alpha = 0.2) +
@@ -850,7 +895,7 @@ plot(b, select = c(7)) +
 ```
 
 
-```{r gamcapint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6, include=FALSE}
+```{r gamcapint, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6, include=FALSE}
 
 plot(b, select = c(8)) + 
   l_rug(alpha = 0.2) +
@@ -872,7 +917,7 @@ plot(b, select = c(8)) +
 
 .panel[.panel-name[Age]
 
-```{r gamage, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=12, fig.height=6}
+```{r gamage, fig.showtext=TRUE, echo=FALSE, fig.align="center", fig.width=9, fig.height=6}
 
 plot(b, select = c(9)) + 
   l_rug(alpha = 0.2) +
@@ -896,8 +941,34 @@ plot(b, select = c(9)) +
 
 ]
 
+
+???
+
+* With the medium age of the companies analyzed being 59 years, it can be concluded from the Figure that TSE expects companies with the age below this median value to be *less* innovative as they get older.
+
+* The opposite also holds true: firms that passed the median-age threshold are seen to be more likely to generate knowledge as their age increases.
+
+* In other words, new market entrants as well as the undoubtedly experienced players tend to be more attractive to investors.
+
+
 ---
 
+# Conclusions
+
+--
+
+* institutional features associated with .white.bg-black[R&D spending] provide valuable signals for investors across multiple industries 
+
+--
+
+* quality of a patented output .white.bg-black[(Citations per Patent)] mostly matters for the manufacturing sector
+
+--
+
+* pronounced nonlinear trend in the market perception of .white.bg-black[corporate age]: only the more experienced companies receive market premium as they get older
+
+
+---
 
 # References
 
@@ -920,8 +991,9 @@ background-position: 5% 5%
 
 |                                                                                                            |                                   |
 | :--------------------------------------------------------------------------------------------------------- | :-------------------------------- |
-| <a href="mailto:ovsiannikov@kochi-tech.ac.jp">`r fa("paper-plane", fill = "#cc0033")`              | ovsiannikov@kochi-tech.ac.jp       |
-| <a href="https://kovsiannikov.com/slides/ajbs-2021/ajbs-2021">`r fa("link", fill = "#cc0033")` | kovsiannikov.com/slides/ajbs-2021/ajbs-2021 |
-| <a href="http://twitter.com/kovsiann">`r fa("twitter", fill = "#cc0033")`                          | @kovsiann                        |
-| <a href="http://github.com/ko-suta">`r fa("github", fill = "#cc0033")`                         | @ko-suta                       |
+| <a href="mailto:ovsiannikov@kochi-tech.ac.jp">`r fa("paper-plane", fill = "#cc0033")`          | ovsiannikov@kochi-tech.ac.jp |
+|                                                                                                |                              |
+| <a href="https://kovsiannikov.com/slides/ajbs-2021/ajbs-2021">`r fa("link", fill = "#cc0033")` | kovsiannikov.com             |
+<!-- | <a href="http://twitter.com/kovsiann">`r fa("twitter", fill = "#cc0033")`                      | @kovsiann                    | -->
+<!-- | <a href="http://github.com/ko-suta">`r fa("github", fill = "#cc0033")`                         | @ko-suta                     | -->
 
