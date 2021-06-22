@@ -362,12 +362,14 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 
 .panel[.panel-name[Table]
 
+<div align="center">
+
 ```{r, grant-timing-table, echo = FALSE, results = 'asis'}
 data4 %>%
-  DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
+  DT::datatable(fillContainer = FALSE, width = '80%', options = list(pageLength = 9)) %>%
   DT::formatRound(columns=c(1:5), digits=2)
 ```
-
+</div>
 ]
 ]
 
@@ -489,11 +491,14 @@ cols <- c('#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#e78ac3','#a65628')
 
 .panel[.panel-name[Table]
 
+<div align="center">
+
 ```{r, echo = FALSE, results = 'asis'}
 datapar4 %>%
-  DT::datatable(fillContainer = FALSE, options = list(pageLength = 9)) %>%
+  DT::datatable(fillContainer = FALSE, width = '80%', options = list(pageLength = 9)) %>%
   DT::formatRound(columns=c(1:5), digits=2)
 ```
+</div>
 ]
 ]
 
