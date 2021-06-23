@@ -41,6 +41,7 @@ library(mgcViz)
 library(stargazer)
 library(plotly)
 library(htmlwidgets)
+library(modelsummary)
 
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(collapse = TRUE,
@@ -528,7 +529,6 @@ To sum up, **Tobins's Q** can be expressed as the sum of knowledge stocks weight
 
 
 ---
-class: regression
 
 # OLS regression
 
@@ -600,48 +600,145 @@ fix.new.2.sqrt <- plm(InvQ ~ Year + Industry*InvRDA +
                    InvPatRD*Industry + InvCitPat*Industry +
                    InvRDInt + InvProcess + Leverage + ROA + InvCapint + Age, 
             data = General, index = c("Name", "Year"), model="pooling")
+
+models <- list()
+models[['OLS']] <- fix.new.1.sqrt
+models[['OLS (Industrial)']] <- fix.new.2.sqrt
+```
+
+
+```{r echo=FALSE}
+cm <- c("(Intercept)" = "Constant", 
+  "IndustryElectric" = "D (Electric)",
+  "IndustryMachinery" = "D (Machinery)", 
+  "IndustryPharm" = "D (Pharm)",
+  "InvRDA" = "R&D/Assets (x Chemical)", "IndustryElectric:InvRDA" = "R&D/Assets x Electric", 
+  "IndustryMachinery:InvRDA" = "R&D/Assets x Machinery", 
+  "IndustryPharm:InvRDA" = "R&D/Assets x Pharm", 
+  "InvPatRD" = "Patents/R&D (x Chemical)", "IndustryElectric:InvPatRD" = "Patents/R&D x Electric", 
+  "IndustryMachinery:InvPatRD" = "Patents/R&D x Machinery", 
+  "IndustryPharm:InvPatRD" = "Patents/R&D x Pharm",
+  "InvCitPat" = "Citations/Patents (x Chemical)", "IndustryElectric:InvCitPat" = "Citations/Patents x Electric", 
+  "IndustryMachinery:InvCitPat" = "Citations/Patents x Machinery", 
+  "IndustryPharm:InvCitPat" = "Citations/Patents x Pharm",
+  "InvRDInt" = "R&D Intensity",
+  "InvProcess" = "Process Innovation",
+  "Leverage" = "Leverage", 
+  "ROA" = "ROA",
+  "InvCapint" = "Capital Intensity",
+  "Age" = "Age")
 ```
 
 
 
-
-```{r reg1, echo=FALSE, results = "asis"}
-stargazer(fix.new.1.sqrt, fix.new.2.sqrt, header=FALSE, type='html',
-          omit = "Year",
-          omit.labels = "Yearly dummies",
-          order=c(1,20:23,32:34, 24, 35:37, 25, 38:40, 26:31),
-          dep.var.labels = c("Tobin's q"),
-          covariate.labels = c("Intercept", "D (Electric)",
-                               "D (Machinery)", "D (Pharm)",
-                               "R&D/Assets", "|  Electric", "|  Machinery", "|  Pharm", 
-                               "Patents/R&D", "|  Electric", "|  Machinery", "|  Pharm" ,
-                               "Citations/Patents", "|  Electric", "|  Machinery", "|  Pharm", 
-                               "R&D Intensity", 
-                               "Process Innovation", 
-                               "Leverage", "ROA",
-                               "Capital Intensity",
-                               "Age"),
-          model.numbers = FALSE,
-          intercept.top = TRUE,
-          intercept.bottom = FALSE,
-          single.row = TRUE)
+```{r echo=FALSE, warning=FALSE}
+tab1 <- modelsummary(models, output = 'kableExtra', estimate = "{estimate} ({std.error}){stars}",
+         coef_map = cm, stars = TRUE, gof_omit = 'IC|Log|Adj',
+         statistic = NULL)
 ```
 
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+tab1 %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 15) %>%
+  add_indent(c(6:8, 10:12, 14:16), level_of_indent = 3) %>%
+  row_spec(0, color = "white", background = "black") %>%
+  row_spec(c(5, 9, 13), background = 'grey', color = "white") %>%
+  row_spec(c(23, 24), background = 'blue', color = "white") %>%
+  column_spec(1, bold = T)
+```
+
+---
+
+# OLS regression
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+tab1 %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 15) %>%
+  add_indent(c(6:8, 10:12, 14:16), level_of_indent = 3) %>%
+  row_spec(0, color = "white", background = "black") %>%
+  row_spec(c(5, 9, 13), background = 'grey', color = "white") %>%
+  row_spec(c(23, 24), background = 'blue', color = "white") %>%
+  column_spec(1, bold = T) %>%
+  row_spec(c(4), background = 'green')
+```
+
+???
+
+# Industrial premium
+
+* Belonging to **Pharmaceuticals** per se implies a premium in terms of market valuation of corporate knowledge assets. 
+
+
+---
+
+# OLS regression
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+tab1 %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 15) %>%
+  add_indent(c(6:8, 10:12, 14:16), level_of_indent = 3) %>%
+  row_spec(0, color = "white", background = "black") %>%
+  row_spec(c(5, 9, 13), background = 'grey', color = "white") %>%
+  row_spec(c(23, 24), background = 'blue', color = "white") %>%
+  column_spec(1, bold = T) %>%
+  row_spec(c(5, 7, 8), background = 'green')
+```
 
 ???
 
 # R&D stock
 
-* Belonging to **Pharmaceuticals** per se implies a premium in terms of market valuation of corporate knowledge assets. 
-
 * **Drugs** are notable for the marketability of their R&D expenditures (R&D stock weighted by Assets).
 
 * The same holds true about the positive assessment of R&D stocks for **Chemicals** and **Machinery**.
 
+
+---
+
+# OLS regression
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+tab1 %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 15) %>%
+  add_indent(c(6:8, 10:12, 14:16), level_of_indent = 3) %>%
+  row_spec(0, color = "white", background = "black") %>%
+  row_spec(c(5, 9, 13), background = 'grey', color = "white") %>%
+  row_spec(c(23, 24), background = 'blue', color = "white") %>%
+  column_spec(1, bold = T) %>%
+  row_spec(c(9), background = 'green')
+```
+
+
+???
+
 # Patents per Japanese Yes spent on R&D
 
-* Only **Chemicals** stand out for its R&D spending that translates into more inventions valued by market. 
+* Only **Chemicals** stand out for their R&D spending that translates into more inventions valued by market. 
 
+
+---
+
+# OLS regression
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+tab1 %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 15) %>%
+  add_indent(c(6:8, 10:12, 14:16), level_of_indent = 3) %>%
+  row_spec(0, color = "white", background = "black") %>%
+  row_spec(c(5, 9, 13), background = 'grey', color = "white") %>%
+  row_spec(c(23, 24), background = 'blue', color = "white") %>%
+  column_spec(1, bold = T) %>%
+  row_spec(c(14, 15), background = 'green')
+```
+
+
+???
 
 # Citations per Patent
 
