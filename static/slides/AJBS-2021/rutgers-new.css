@@ -281,3 +281,29 @@ ru-blockquote {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+
+/* additional custom templates added by me */
+
+.regression table {
+  font-size: 12px;     
+}
+
+.pull-left-narrow {
+  float: left;
+  width: 20%;
+}
+
+.pull-right-wide {
+  float: right;
+  width: 75%;
+}
+
+.highlight-last-item > ul > li, 
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
+}

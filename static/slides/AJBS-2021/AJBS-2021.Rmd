@@ -48,35 +48,6 @@ knitr::opts_chunk$set(collapse = TRUE,
 
 ```
 
-```{css, echo = F}
-.regression table {
-  font-size: 12px;     
-}
-```
-
-```{css, echo = F}
-.pull-left-narrow {
-  float: left;
-  width: 20%;
-}
-
-.pull-right-wide {
-  float: right;
-  width: 75%;
-}
-```
-
-
-```{css echo=FALSE}
-.highlight-last-item > ul > li, 
-.highlight-last-item > ol > li {
-  opacity: 0.5;
-}
-.highlight-last-item > ul > li:last-of-type,
-.highlight-last-item > ol > li:last-of-type {
-  opacity: 1;
-}
-```
 
 ```{r, load_refs, include=FALSE, cache=FALSE}
 
@@ -89,7 +60,21 @@ BibOptions(check.entries = FALSE,
 myBib <- ReadBib(here("static", "slides", "AJBS-2021", "Innovation.bib"), check = FALSE)
 ```
 
-```{r xaringan-logo, echo=FALSE}
+
+```{r xaringan-extra, echo=FALSE}
+
+xaringanExtra::use_scribble()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_tachyons()
+xaringanExtra::use_panelset()
+xaringanExtra::use_share_again()
+
+xaringanExtra::style_share_again(
+  foreground = "white",
+  background = "black",
+  share_buttons = c("twitter", "linkedin", "facebook")
+)
+
 xaringanExtra::use_logo(
   width = "220px",
   height = "256px",
@@ -99,37 +84,10 @@ xaringanExtra::use_logo(
 )
 ```
 
-```{r xaringan-scribble, echo=FALSE}
-xaringanExtra::use_scribble()
-```
-
 ```{r xaringan-themer, include=FALSE, warning=FALSE}
 style_duo(primary_color = "#ffffff", secondary_color = "#515151")
 ```
 
-```{r xaringan-tile-view, echo=FALSE}
-xaringanExtra::use_tile_view()
-```
-
-```{r xaringan-tachyons, echo=FALSE}
-xaringanExtra::use_tachyons()
-```
-
-```{r xaringan-panelset, echo=FALSE}
-xaringanExtra::use_panelset()
-```
-
-```{r share-again, echo=FALSE}
-xaringanExtra::use_share_again()
-```
-
-```{r style-share-again, echo=FALSE}
-xaringanExtra::style_share_again(
-  foreground = "white",
-  background = "black",
-  share_buttons = c("twitter", "linkedin", "facebook")
-)
-```
 
 ```{r metathis, echo=FALSE}
   meta() %>%
