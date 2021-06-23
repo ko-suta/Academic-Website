@@ -69,6 +69,7 @@ xaringanExtra::use_tile_view()
 xaringanExtra::use_tachyons()
 xaringanExtra::use_panelset()
 xaringanExtra::use_share_again()
+xaringanExtra::use_broadcast()
 
 xaringanExtra::style_share_again(
   foreground = "white",
