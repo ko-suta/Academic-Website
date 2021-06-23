@@ -155,26 +155,26 @@ xaringanExtra::style_share_again(
 --
 
 .pull-left-narrow[
-.center[## `r fa("people-carry", fill = "green")`]]
-.pull-right-wide[## large companies `r fa("handshake", fill = "blue")` financial institutions]
+.center[### `r fa("people-carry", fill = "green")`]]
+.pull-right-wide[### large companies `r fa("handshake", fill = "blue")` financial institutions]
 
 --
 
 .pull-left-narrow[
-.center[## `r fa("parachute-box", fill = "green")`]]
-.pull-right-wide[## .white.bg-black[low employment turnover rates] `r fa("arrows-alt-h", fill = "blue")` employees' loyalty]
+.center[### `r fa("parachute-box", fill = "green")`]]
+.pull-right-wide[### .white.bg-black[low employment turnover rates] `r fa("arrows-alt-h", fill = "blue")` employees' loyalty]
 
 --
 
 .pull-left-narrow[
-.center[## `r fa("user-ninja", fill = "green")`]]
-.pull-right-wide[## accumulated .white.bg-black[firm-specific knowledge] `r anicon::faa("wrench", animate="wrench", colour = "blue", speed = "slow")`]
+.center[### `r fa("user-ninja", fill = "green")`]]
+.pull-right-wide[### accumulated .white.bg-black[firm-specific knowledge] `r anicon::faa("wrench", animate="wrench", colour = "blue", speed = "slow")`]
 
 --
 
 .pull-left-narrow[
-.center[## `r fa("user-astronaut", fill = "green")`]]
-.pull-right-wide[## `r anicon::faa("lightbulb", animate="pulse", colour = "blue", speed = "slow")` .white.bg-black[routinized innovation model] `r fa("arrows-alt-h", fill = "blue")` well-established R&D departments]
+.center[### `r fa("user-astronaut", fill = "green")`]]
+.pull-right-wide[### `r anicon::faa("lightbulb", animate="pulse", colour = "blue", speed = "slow")` .white.bg-black[routinized innovation model] `r fa("arrows-alt-h", fill = "blue")` well-established R&D departments]
 
 ---
 class: highlight-last-item
@@ -972,7 +972,7 @@ plot(b, select = c(9)) +
 --
 
 > 
-**3.** Pronounced nonlinear trend in the market perception of .white.bg-black[corporate age]: only the more experienced companies receive market premium as they get older
+**3.** Pronounced nonlinear trend in the market perception of .white.bg-black[corporate age]: only the more experienced companies receive market premium as they get older.
 >
 
 
