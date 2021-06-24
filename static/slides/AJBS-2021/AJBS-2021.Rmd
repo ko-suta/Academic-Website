@@ -70,7 +70,6 @@ xaringanExtra::use_tachyons()
 xaringanExtra::use_panelset()
 xaringanExtra::use_share_again()
 xaringanExtra::use_broadcast()
-xaringanExtra::use_progress_bar(color = "#0051BA", location = "top")
 
 xaringanExtra::style_share_again(
   foreground = "white",
@@ -96,6 +95,9 @@ xaringanExtra::use_extra_styles(
 style_duo(primary_color = "#ffffff", secondary_color = "#515151")
 ```
 
+```{r xaringanExtra, echo = FALSE}
+xaringanExtra::use_progress_bar(color = "#0051BA", location = "top", height = "10px")
+```
 
 ```{r metathis, echo=FALSE}
   meta() %>%
