@@ -70,6 +70,7 @@ xaringanExtra::use_tachyons()
 xaringanExtra::use_panelset()
 xaringanExtra::use_share_again()
 xaringanExtra::use_broadcast()
+xaringanExtra::use_search(show_icon = TRUE)
 
 xaringanExtra::style_share_again(
   foreground = "white",
