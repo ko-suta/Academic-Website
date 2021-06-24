@@ -17,7 +17,7 @@
 
 [[main]]
   name = "Publications"
-  url = "publication"
+  url = "/publication"
   weight = 30
 
 
@@ -35,11 +35,11 @@
 
 [[main]]
   name = "Blog"
-  url = "post"
+  url = "/post"
   weight = 60
 
 
 [[main]]
     name = "CV"
-    url = "files/cv.pdf"
+    url = "/files/cv.pdf"
     weight = 70
