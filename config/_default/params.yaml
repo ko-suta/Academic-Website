@@ -244,34 +244,18 @@ projects:
 ## Comments
 ############################
 comments:
-  # Comment provider:
-  #   0: Disabled
-  #   1: Disqus (https://disqus.com)
-  #   2: Commento (https://commento.io)
-  #   3: Utterances (https://utteranc.es/)
-  engine: 0
+  provider: 'utterances'
   commentable:
     post: true
     book: true
     project: false
     publication: true
     event: false
-    slides: false
-
-  # Configuration of Disqus.
-  disqus:
-    shortname: ""  # Paste the shortname from your Disqus dashboard.
-    show_count: true  # Show comment count in page header? (true/false)
-
-  # Configuration of Commento.
-  commento:
-    # If self-hosting Commento, enter its URL here (e.g. "https://commento.?.com"), otherwise leave empty.
-    url: ""
-  # utterances:
-  #   repo: 'ko-suta/Academic-Website'
-  #   issue_term: 'title'
-  #   label: 'web page comment'
-  #   theme: 'github-light'
+  utterances:
+    repo: 'ko-suta/Academic-Website'
+    issue_term: 'title'
+    label: 'comments'
+    theme: 'github-light'
 
 ############################
 ## Search
@@ -290,20 +274,6 @@ search:
   #   api_key = ""
   #   index_name = ""
   #   show_logo = false
-
-
-# Configure matomo
-# [params.matomo]
-#  url = "https://kovsiannikov.com/"
-#  id = 1
-
-
-# Configure staticman
-# [staticman]
-#  endpoint = "https://api.staticman.net/v3/entry/github"
-#  username = "ko-suta"
-#  repository = "Academic-Website"
-#  branch = "master"
 
 
 ############################
