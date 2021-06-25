@@ -240,18 +240,19 @@ projects:
 ## Comments
 ############################
 comments:
-  provider: 'utterances'
+#  provider: 'utterances'
+  # Comment provider:
+  #   0: Disabled
+  #   1: Disqus (https://disqus.com)
+  #   2: Commento (https://commento.io)
+  #   3: Utterances(https://utteranc.es/)
+  engine: 3
   commentable:
     post: true
     book: false
     project: false
     publication: true
     event: false
-  # Comment provider:
-  #   0: Disabled
-  #   1: Disqus (https://disqus.com)
-  #   2: Commento (https://commento.io)
-  # engine: 1
 
   # Configuration of Disqus.
   disqus:
@@ -262,11 +263,11 @@ comments:
   commento:
     # If self-hosting Commento, enter its URL here (e.g. "https://commento.?.com"), otherwise leave empty.
     url: ""
-  utterances:
-    repo: 'ko-suta/Academic-Website'
-    issue_term: 'title'
-    label: 'web page comment'
-    theme: 'github-light'
+  # utterances:
+  #   repo: 'ko-suta/Academic-Website'
+  #   issue_term: 'title'
+  #   label: 'web page comment'
+  #   theme: 'github-light'
 
 ############################
 ## Search
