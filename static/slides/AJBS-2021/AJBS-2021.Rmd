@@ -114,7 +114,7 @@ style_duo(primary_color = "#ffffff", secondary_color = "#515151")
       "Presented at 2021 AJBS Conference."
     ),
     url = "https://kovsiannikov.com/slides/ajbs-2021/ajbs-2021",
-    image = "https://kovsiannikov.com/images/Techno-screen.png",
+    image = "https://kovsiannikov.com/img/Techno-screen.png",
     image_alt = "2021 AJBS Conference Presentation",
     og_type = "website",
     og_author = "Kostiantyn Ovsiannikov",
