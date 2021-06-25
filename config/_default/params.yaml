@@ -240,7 +240,6 @@ projects:
 ## Comments
 ############################
 comments:
-#  provider: 'utterances'
   # Comment provider:
   #   0: Disabled
   #   1: Disqus (https://disqus.com)
@@ -249,15 +248,15 @@ comments:
   engine: 3
   commentable:
     post: true
-    book: false
-    project: false
+    book: true
+    project: true
     publication: true
-    event: false
+    event: true
 
   # Configuration of Disqus.
-  disqus:
-    shortname: "kosuta"  # Paste the shortname from your Disqus dashboard.
-    show_count: true  # Show comment count in page header? (true/false)
+  # disqus:
+  #   shortname: "kosuta"  # Paste the shortname from your Disqus dashboard.
+  #   show_count: true  # Show comment count in page header? (true/false)
 
   # Configuration of Commento.
   commento:
