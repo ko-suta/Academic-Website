@@ -244,7 +244,6 @@ comments:
   #   0: Disabled
   #   1: Disqus (https://disqus.com)
   #   2: Commento (https://commento.io)
-  #   3: Utterances(https://utteranc.es/)
   engine: 0
   commentable:
     post: true
