@@ -9,6 +9,6 @@ options(
   blogdown.yaml.empty = TRUE,
   blogdown.new_bundle = TRUE,
   blogdown.title_case = TRUE,
-  blogdown.hugo.version = "0.81.0"
+  blogdown.hugo.version = "0.84.0"
 )
 # Sys.setenv(RETICULATE_PYTHON = "C:/Users/Kostya/AppData/Local/Programs/Python/Python38")
