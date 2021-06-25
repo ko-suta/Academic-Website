@@ -125,7 +125,7 @@ email: ""
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links:
-  - icon: envelopt
+  - icon: envelope
     icon_pack: fab
     name: Email me
     link: 'mailto:k.ovsiannikov@gmail.com'
