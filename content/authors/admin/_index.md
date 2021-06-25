@@ -48,9 +48,9 @@ user_groups:
 - Visitors
 ---
 
-Kostiantyn Ovsiannikov is a postdoc at Kochi University of Technology.
-His interests include *corporate governance*, *labor economics* and *technological innovation*. 
-In his dissertation, he explored how the pursuit of shareholder-value by management has affected labor policies at large Japanese enterprises.
+I am a postdoc at Kochi University of Technology.
+My interests include *corporate governance*, *labor economics* and *technological innovation*. 
+In my dissertation, I explored how the pursuit of the shareholder-value ideology by management has affected labor policies at large Japanese enterprises.
 
-His current research project focuses on the market perception of corporate innovations in Japan.
+My current research project focuses on the market perception of corporate innovations in Japan.
 It is funded by the JSPS Grant-in-Aid for Young Scientists.
