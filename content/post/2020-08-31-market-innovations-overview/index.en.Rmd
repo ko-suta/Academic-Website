@@ -4,6 +4,8 @@ author: Kostiantyn Ovsiannikov
 output:
   blogdown::html_page:
     toc: true
+    includes:
+    after_body: html/utterances.html
 date: '`r Sys.Date()`'
 slug: market-innovations-overview
 categories:
