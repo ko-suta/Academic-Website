@@ -125,10 +125,10 @@ email: ""
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links:
-    icon: "envelope" 
-      icon_pack: "fab" 
-      name: "Email me" 
-      link: "mailto:k.ovsiannikov@gmail.com"
+  - icon: envelopt
+    icon_pack: fab
+    name: Email me
+    link: 'mailto:k.ovsiannikov@gmail.com'
 
 #  {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/Twitter"},
 #  {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:echo123?call"},
