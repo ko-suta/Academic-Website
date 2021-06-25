@@ -245,18 +245,19 @@ comments:
   #   1: Disqus (https://disqus.com)
   #   2: Commento (https://commento.io)
   #   3: Utterances(https://utteranc.es/)
-  engine: 3
+  engine: 0
   commentable:
     post: true
     book: true
     project: true
     publication: true
     event: true
+    slides: false
 
   # Configuration of Disqus.
-  # disqus:
-  #   shortname: "kosuta"  # Paste the shortname from your Disqus dashboard.
-  #   show_count: true  # Show comment count in page header? (true/false)
+  disqus:
+    shortname: ""  # Paste the shortname from your Disqus dashboard.
+    show_count: true  # Show comment count in page header? (true/false)
 
   # Configuration of Commento.
   commento:
